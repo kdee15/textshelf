@@ -1,0 +1,44 @@
+// CORE LAYER [RESPONSIVE] ##############################################
+
+	// A. RESPONSIVE CONTAINERS +++++++++++++++++++++++++++++++++++++++
+	
+		.container {
+			width: 100%;
+		}
+		
+		@include media-query(mobile){ 
+		
+			.container {
+			}
+		
+		 }
+		 
+		 @include media-query(tablet){ 
+		 
+		 	.container {
+		 	}	
+		 
+		  }
+		 
+		 
+		@include media-query(desk){ 
+		
+			.container {
+				width: 940px;
+				margin: 0 auto;
+			}
+		
+		 }
+		 
+		@include media-query(desk-wide){ 
+		
+			.container {
+				width: 1200px;
+				margin: 0 auto;
+			}
+		
+		 }	
+	// A. END +++++++++++++++++++++++++++++++++++++++
+
+
+// END OF FILE ##############################################

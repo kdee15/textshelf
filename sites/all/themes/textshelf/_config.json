@@ -1,0 +1,43 @@
+{
+
+    "name": "YOUR_SITE_NAME",
+    "version": "2.0.0",
+    "description": "",
+    "siteSource": "",
+    "assets" : {
+        "live": "http://",
+        "staging": "http://",
+        "dev": "http://",
+        "repository": "http://",
+        "endpoint" : "http://",
+        "documentation": "http://"
+    },
+    "core" : {
+        "components" : [
+            "html5shiv/dist/html5shiv.min.js",
+            "modernizr/modernizr.js",
+            "jquery/dist/jquery.min.js",
+            "angular/angular.js",
+            "angular/angular.min.js.map",
+            "angular-animate/angular-animate.js",
+            "angular-animate/angular-animate.min.js.map",
+            "angular-ui-router/release/angular-ui-router.js",
+            "mobile-detect/mobile-detect.min.js"
+        ],
+        "konstructBase" : [
+            "konstruct.foundation/",
+            "konstruct.bricks/",
+            "konstruct.cement/"
+        ],
+        "konstructVendor" : [
+            "normalize.css/normalize.css"
+        ],
+        "konstructConfig" : [
+            "konstruct.config/"
+        ],
+        "konstructSite" : [
+            "konstruct.site/"
+        ]
+    }
+
+}

@@ -1,0 +1,55 @@
+// KONSTRUCT GENERATOR ##############################################
+
+// 	This file is the end-point generator for the Konstruct Framework. If set up properly, it should generate to 
+//	css/Stylesheet.css in your project root. 
+
+//  You can quickly enable / disable files you don't need by commenting them out. 
+//	If you are very sure you won't need them in future, simply delete the line. 
+
+// 000000000000000000000000000000000000000000000000000000000000000000
+
+	// A. CONFIGURATION ++++++++++++++++++++++++++++++++++++++++++++++
+	
+	//	Configuration is done in the "config" folder, where you should see the files mentioned below. 
+	//	Simply edit and save the files as you need them.
+	
+		// A.1 Fonts Config
+		@import	"config/fonts";
+		
+		// A.2 Brand Config
+		@import	"config/brand";
+		
+		// A.3 Global Config  
+		@import	"config/global";
+		
+	// B. MIXINS ++++++++++++++++++++++++++++++++++++++++++++++
+		
+		// B.1 Konstruct
+		@import	"konstruct/mixins/mixins";
+		
+
+	// C. IMPORTANT COMPONENTS ++++++++++++++++++++++++++++++++++++++++++++++
+	
+		// C.1. Normalize.css
+		@import	"konstruct/vendor/normalize";
+
+	// D. CORE ++++++++++++++++++++++++++++++++++++++++++++++
+	
+		// D.1 Scaffolding
+		@import "konstruct/core/core";   
+	
+	// E. BRICKS ++++++++++++++++++++++++++++++++++++++++++++++
+	
+		// COMING SOON
+
+	// F. SITE ++++++++++++++++++++++++++++++++++++++++++++++
+		
+		@import "site/site";
+		
+	// G. FONTS ++++++++++++++++++++++++++++++++++++++++++++++
+	
+	//	@import "dev/dev"; // A couple of helper classes for debug stuff. Pretty much useless right now.
+	
+// 000000000000000000000000000000000000000000000000000000000000000000
+	
+// End of File - Thanks for using Konstruct! Please help make it better!

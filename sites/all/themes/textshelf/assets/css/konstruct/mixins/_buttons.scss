@@ -1,0 +1,22 @@
+// MIXINS LAYER [BUTTONS] ##############################################
+	
+	// A. BUTTON BUILD ++++++++++++++++++++++++++++++
+		.button {
+			
+		}
+	// A. END ++++++++++++++++++++++++++++++
+	
+	// B. FLAT BUTTONS ++++++++++++++++++++++++++++++
+		@mixin button-flat($color, $second-color){
+			border: solid 4px $color;
+			color: $color;
+			padding: $baseline / 3;
+			
+			&:hover {
+				background: $color;
+				color: $second-color;
+			}
+		}
+	// B. END ++++++++++++++++++++++++++++++
+	
+// END OF FILE ##############################################

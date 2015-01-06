@@ -1,0 +1,62 @@
+// CONFIGURATION LAYER [FONTS & STACKS] ##############################################
+
+
+	// A. FONTS ++++++++++++++++++++++++++++++++++++++++++++++++
+		
+		@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
+		
+	// B. FONT STACKS ++++++++++++++++++++++++++++++++++++++++++++++++
+
+		// B.1 Arial Font Stack
+		$helvetica: 	"Helvetica Neue", Helvetica, Arial, sans-serif;
+		
+		// B.5 Monospace Font Stack
+		$monospace: 	"Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+		
+		// B.6 Arial Font Stack
+		$arial:			Arial, Helvetica, sans-serif;
+		
+		// B.7 Source Sans Font Stack
+		$roboto:	'Roboto', sans-serif;
+
+        // B.8 Font Weights
+
+        $light:         300;
+        $regular:       400; 
+                
+
+
+		@mixin font($weight){
+		
+			font-family: $roboto;
+			font-weight: $weight;
+	
+		};
+		
+		
+		// ADD YOUR OWN FONT STACKS HERE
+
+
+		// B.8 Source Sans Font Stack
+
+		
+		
+	// C. FONT SETUP ++++++++++++++++++++++++++++++++++++++++++++++++
+
+		$base-font:			$roboto; 	// Change your default font type.
+		$base-size: 		14px; 		// Choose your base font size. I like 16px and Relative Readability.
+		$baseline: 			24px; 		// Choose your Line Height.
+		
+	// D. FONT SIZING ++++++++++++++++++++++++++++++++++++++++++++++++
+	
+		$v-large:			4.6em; 		// 55pt
+		$xxx-large:			2.5em; 		// 32px
+		$xx-large:			2.2em; 		// 32px
+		$x-large:			1.8em; 		// 32px
+		$large:				1.5em; 		// 24px
+		$medium:			1.25em; 	// 18px
+		$normal:			1em; 		// 16px
+		$small:				0.75em; 	// 12px
+		$x-small:			0.625em; 	// 10px
+
+// END OF FILE  ##############################################

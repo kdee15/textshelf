@@ -1,0 +1,30 @@
+// BRICKS LAYER [MESSAGES] ##############################################
+	
+	// B. QUICK USE COMPONENT ++++++++++++++++++++++++++++++++++++++++++++++++
+	.message {
+	
+	    display: block;
+	    
+    	padding: $baseline / 2;
+    	margin-bottom: $baseline;
+    	
+    	h4, p {
+    	    margin: 0;
+    	}
+	    
+	    // B.1. Information Message Variant
+	    &.info {
+	    
+	        background: lighten( $blue, 40% );
+	        
+	        h4, p {
+	            color: darken($blue, 10%);
+	        }
+	    
+	    }
+	    // B.1. End
+	
+	}
+	// B. END ++++++++++++++++++++++++++++++++++++++++++++++++
+	
+// END OF FILE ##############################################

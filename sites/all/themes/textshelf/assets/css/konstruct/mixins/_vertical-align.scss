@@ -1,0 +1,19 @@
+// MIXINS LAYER [VERTICAL ALIGN] ##############################################
+	
+	// A. VERTICAL ALIGN ++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	    // WHAT IT DOES: This will vertically align an object inside of a container.
+	
+		// USAGE: Add "@include vertical-align(absolute);" into the desired class. You can choose your position element.
+	
+		@mixin vertical-align($position){
+		
+			position: $position;
+			top: 50%;
+			transform: translateY(-50%);
+		    
+		}
+	
+	// A. END ++++++++++++++++++++++++++++++++++++++++++++++++
+	
+// END OF FILE ##############################################

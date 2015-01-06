@@ -1,0 +1,346 @@
+// 1. OBJECT [ 1.3. MIXIS ] ###########################################################################################
+
+// A. ASPECT RATIO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin aspect-ratio ($width, $aspect){
+
+    position: relative; 
+    width: $width;
+
+    &:before {
+
+    content: ""; 
+    display: block; 
+    padding-top: $aspect; 
+
+    }
+}
+	
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. POSITION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B.1. POSITION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin position ($position){
+			
+    position: $position;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+// B.1. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B.2. ABSOLUTE EQUAL SIDES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin absolute ($padding) {
+    
+    position: absolute;
+    top: $padding;
+    right: $padding;
+    bottom: $padding;
+    left: $padding;
+    
+}
+
+// B.2. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. CW OVERLAY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin cw-overlay($zoomIndex) {
+
+    &:after {
+
+        content: ""; 
+        background: url('../images/svg/overlay.svg');
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 2px 2px;
+        z-index: $zoomIndex;
+
+    }
+}
+	
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. SECTION OVERLAY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin section-hover($hover-color, $speed) {
+
+    overflow: hidden;
+    position: relative;
+    
+    .container {
+        
+        position: relative;
+        z-index: 2;
+        
+        h3 {
+            
+            transition: 0.3s;   
+            
+        }
+    }
+    
+    &:before {
+        content: "";
+        transform: translateY(-100%);
+        background: $hover-color;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        transition: transform 0.3s;
+
+    }
+
+    &:hover:before {
+            transform: translateY(0%); 
+            transition: transform $speed;
+			transition-delay: 0.2s;
+
+    }
+    
+    &:hover {
+        
+        h3,h4,p,a,span {
+            
+            color:$white !important;   
+            transition: 0.3s;
+        }
+    }
+}
+	
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. BUTTON HOVER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@mixin button-hover($hover-color, $speed) {
+
+    overflow: hidden;
+    position: relative;
+    
+    &:before {
+        content: "";
+        transform: translateY(-100%);
+        background: $hover-color;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: transform 0.3s;
+
+    }
+
+    &:hover:before {
+            transform: translateY(0%); 
+            transition: transform $speed;
+			transition-delay: 0.2s;
+
+    }
+}
+	
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// F. SECTION HOVER +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @mixin overlay ($position, $background, $opacity) {
+                
+        overflow: hidden;
+        position: relative;
+
+        &:hover .overlay {
+                transform: translateY($position); 
+                transition: transform 0.3s; 
+                transition-delay: 0.2s;
+
+        }
+
+        .overlay {
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba($background, $opacity);
+            transform: translateY(-100%);
+            transition: transform 0.3s;
+            
+        }
+    }
+
+    // F.1. OVERLAY TEXT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    @mixin overlay-top ($position) {
+        
+        position: absolute;
+        left: $baseline;
+        right: $baseline;
+        top: $position;
+           
+    }
+
+    @mixin overlay-bottom ($position) {
+        
+        position: absolute;
+        left: $baseline;
+        right: $baseline;
+        bottom: $position;
+           
+    }
+
+    // F.1. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// F. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// G. ZOOM ANIMATION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @keyframes cwZoom {
+
+        0% {background-size: 150% auto;}
+
+        100% {background-size: 100% auto;}
+
+    }
+
+    @mixin cw-zoom()  {
+
+        animation: cwZoom 90s;
+
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-position: center center;
+
+    }
+	
+// G. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// H. ZOOM EFFECT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @mixin cw-breath()  {
+
+        animation: cwZoom 90s;
+        background-position: center center;
+
+    }
+	
+// H. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// H. BUTTON HOVER ZOOM EFFECT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @mixin cw-image-zoom()  {
+
+        a {
+
+            figure {
+
+                img {
+
+                    ransition-delay: 0.2s;
+                    transition: 0.3s;
+
+                }
+            }
+        }
+
+        &:hover a figure img {
+
+            transform: scale(1.05);
+            transition-delay: 0.2s;
+            transition: 0.3s;	
+
+        }
+    }
+
+	
+// H. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// I. GRID BACKGROUND IMAGE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @mixin background-image () {
+        
+        .figure-background {
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
+            
+            img {
+                
+                width: 100%;   
+                
+            }
+        }
+        
+        .text {
+            
+            position: absolute;
+            top: $baseline;
+            left: $baseline;
+            bottom: $baseline;
+            right: $baseline; 
+            z-index: 1;
+            
+        }
+    }
+
+// I. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// J. GRID BACKGROUND SLIDER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @mixin background-slider ($color, $speed) {
+        
+        &:before {
+
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: $color;
+            z-index: -1;
+            transform: translateY(0%);
+            transition: transform $speed;
+            
+        }
+    }
+
+    @mixin background-slide-down ($speed) {
+        
+        &:before {
+        
+            transform: translateY(-100%); 
+            transition: transform $speed;
+            transition-delay: 0.2s;
+
+        }
+    }
+
+// J. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. BUTTON HOVER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################
