@@ -27,8 +27,7 @@
                 <?php endif; ?>
                 <?php print render($title_suffix); ?>
                 
-                <section class="section-region page-search">
-                    <p>search BOOOOOM</p>
+                <section class="section-search">
                     <?php print render($page['search']); ?>
                 </section>
                 

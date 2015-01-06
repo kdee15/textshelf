@@ -4,69 +4,41 @@
 
 #masthead {
     
-    @include clearfix();
-    
-    // THE FUCKING LOGO
-    .figure-cwLogo {
-
-        width: 100px;
-        height: 100px;
-
-        img {
-
-            width: 100px;
-            height: 100px;
-
+    .grid {
+        
+        .text-logo {
+            
+            @extend .grid__item;
+            @extend .one-quarter;
+            @extend .mobile--four-fifths;
+            padding-left: 0!important;
+            
         }
         
-        float: left;
-        
-    }
-    
-    // MOBILE BUTTONS
-    
-    .mobile-socialMedia {
-        display: none;
-
-        @extend .list;
-        @extend .horizontal;
-        
-        a {
-           
-            height: 35px;
-            width: 35px;
-            fill: $cw-lightgrey;
-            border: solid 1px $cw-lightgrey;
+        .nav {
             
-
-            &:hover {
-
-                fill: $cw-pink;
-                border: solid 1px $cw-pink;
-
-            }
-
-       }
-
-    }
-    
-    .mobile-home {
-    
-        display: none;
-    
-    }
-    
-    .burger-menu {
-    
-        width: 35px;
-        height: 35px;
-        margin-left: 5px;
-        margin-right: 5px;
+            @extend .grid__item;
+            @extend .three-quarters;
+            @extend .mobile--one-fifth;
+            padding-left: 0!important;
         
-        display: none;
-
+        }
     }
     
+    .mobi-reveal {
+        
+        position: absolute;
+        top: $baseline/2;
+        right: $baseline/2;
+        
+        .svg-burger {
+            
+            width: 50px;
+            height: 50px;
+            fill: $yellow;
+            
+        }
+    }
 }
 
 
@@ -77,130 +49,20 @@
 @include media-query(mobile) {
 
     #masthead {
-        
-        // THE FUCKING LOGO
-        .figure-cwLogo {
 
-            width: 50px;
-            height: 50px;
+        .mobi-reveal {
 
-            img {
-
-                width: 50px;
-                height: 50px;
-
-            }
-
-            float: left;
+            display: block;
 
         }
         
-        // MAIN NAVIGATION STUFF
-     
-        .nav {
-        
+        .nav-main {
+            
             display: none;
+            @include position(fixed);
+            background: $red;
+            z-index: 200;
             
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            z-index: 9000;
-            
-            background: $cw-pink;
-            
-            text-align: center;
-            
-            .main-nav {
-            
-                margin: 0;
-                padding: 0;
-                
-                .menu-item-462 {
-                    
-                    padding: $baseline 0;
-                    
-                    a {
-                    
-                        border: none;
-                        
-                    }
-                    
-                }
-                
-                a {
-                
-                    color: $white;
-                    @include font(300);
-                    text-transform: uppercase;
-                    display: block;
-                    border-bottom: solid 1px $white;
-                    padding: $baseline/2;
-                    font-size: $medium;
-                
-                }
-            
-            
-            }
-            
-            .links-socialMedia {
-                
-                margin: $baseline 0 0 0;
-                padding: 0;
-                
-                li {
-                
-                    display: inline-block;
-                
-                }
-                
-                a {
-                    display: block;
-                    width: 40px;
-                    height: 40px;
-                    border: solid 1px $white;
-                
-                }
-                
-            }
-            
-            .contact-numbers {
-            
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                
-                color: $white;
-                
-                @include font(300);
-            
-            }
-            
-            
-        
-        }
-        
-        // MOBILE NAVIGATION
-        
-        .mobile-socialMedia {
-            display: block;
-            float: right;
-            margin-top: 7px;
-
-        }
-
-        .mobile-home {
-
-            display: block;
-
-        }
-
-        .burger-menu {
-
-            display: block;
-            float: right;
-            margin-top: 7px;
         }
     }
     
@@ -213,130 +75,11 @@
 @include media-query(tablet) {
 
     #masthead {
-        
-        // THE FUCKING LOGO
-        .figure-cwLogo {
 
-            width: 100px;
-            height: 100px;
-            
-            margin-bottom: $baseline/2;
-
-            img {
-
-                width: 100px;
-                height: 100px;
-
-            }
-
-            float: left;
-
-        }
-        
-        // MAIN NAVIGATION STUFF
-     
-        .nav {
-        
-            display: none;
-            
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            z-index: 9000;
-            
-            background: $cw-pink;
-            
-            text-align: center;
-            
-            .main-nav {
-            
-                margin: 0;
-                padding: 0;
-                
-                .menu-item-462 {
-                    
-                    padding: $baseline 0;
-                    
-                    a {
-                    
-                        border: none;
-                        
-                    }
-                    
-                }
-                
-                a {
-                
-                    color: $white;
-                    @include font(300);
-                    text-transform: uppercase;
-                    display: block;
-                    border-bottom: solid 1px $white;
-                    padding: $baseline/2;
-                    font-size: $medium;
-                
-                }
-            
-            
-            }
-            
-            .links-socialMedia {
-                
-                margin: $baseline 0 0 0;
-                padding: 0;
-                
-                li {
-                
-                    display: inline-block;
-                
-                }
-                
-                a {
-                    display: block;
-                    width: 40px;
-                    height: 40px;
-                    border: solid 1px $white;
-                
-                }
-                
-            }
-            
-            .contact-numbers {
-            
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                
-                color: $white;
-                
-                @include font(300);
-            
-            }
-        
-        }
-        
-        // MOBILE NAVIGATION
-        
-        .mobile-socialMedia {
-            display: block;
-            float: right;
-            margin-top: 28px;
-
-        }
-
-        .mobile-home {
+        .mobi-reveal {
 
             display: block;
 
-        }
-
-        .burger-menu {
-
-            display: block;
-            float: right;
-            margin-top: 28px;
         }
     }
 
@@ -354,137 +97,12 @@
 @include media-query(desk) {
 
     #masthead {
-        
-        .figure-cwLogo {
 
-            width: 100px;
-            height: 100px;
-            
-            margin-bottom: $baseline/2;
+        .mobi-reveal {
 
-            img {
-
-                width: 100px;
-                height: 100px;
-
-            }
-
-            float: none;
+            display: none;
 
         }
-        
-        .container {
-            position: relative;
-        }
-     
-        // THE MAIN FUCKING NAVIGATION
-        .nav {
-            
-            display: block;
-            
-            text-align: left;
-            
-            @include vertical-align(absolute);
-            right: 0;
-            vertical-align: middle;
-            
-            ul {
-                
-                display: inline-block;
-                vertical-align: middle;
-            
-                li {
-                
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            
-            }
-            
-            .main-nav {
-            
-                margin: 0!important;
-                padding: 0;
-                
-                a {
-                    display: inline-block;
-                    @include font(300);
-                    color: $cw-brownDark;
-                    font-size: $normal;
-                    text-transform: uppercase;
-                    
-                    border-bottom: solid 2px $white;
-                    
-                    &:hover {
-                    
-                        border-bottom: solid 2px $cw-pink;
-                        
-                    }
-                }
-                
-                .current-menu-item {
-                
-                    a {
-                    
-                       border-bottom: solid 2px $cw-pink; 
-                    
-                    }
-                
-                }
-                
-                .mobile-home {
-                
-                    display: none;
-                
-                }
-            
-            
-            }
-            
-            .links-socialMedia {
-                
-                margin: 0!important;
-                
-                li {
-                
-                }
-                
-                a {
-                    display: block;
-                    width: 35px;
-                    height: 35px;
-                    border: solid 1px $cw-brown;
-                    
-                    &:hover {
-                        
-                        border-color: $cw-pink;
-                    
-                    }
-                
-                }
-                
-            }
-            
-            .contact-numbers {
-                
-                margin: 0!important;
-                
-                @include font(400);
-                
-                li {
-                    display: block;
-                    font-size: $small;
-                    span {
-                        color: $cw-pink;
-                    }
-                }
-            
-            }
-            
-            
-        
-        }
-        
     }
 
 }

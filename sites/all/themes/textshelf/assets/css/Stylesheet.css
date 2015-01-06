@@ -461,7 +461,7 @@ table {
  * 4. Full-width unless told to behave otherwise.
  * 5. Required to combine fluid widths and fixed gutters.
  */
-.grid__item, .grid .square, .grid .inner-square, .grid .square-large, .grid .square-medium, .grid .square-small, .grid .rectangle, .grid .rectangle-large, .grid .page-square, .grid .page-rectangle {
+.grid__item, .grid .square, .grid .inner-square, .grid .square-large, .grid .square-medium, .grid .square-small, .grid .rectangle, .grid .rectangle-large, .grid .page-square, .grid .page-rectangle, #masthead .grid .text-logo, #masthead .grid .nav {
   display: inline-block;
   /* [1] */
   padding-left: 20px;
@@ -487,7 +487,7 @@ table {
   direction: rtl;
   text-align: left;
 }
-.grid--rev > .grid__item, .grid .grid--rev > .square, .grid .grid--rev > .inner-square, .grid .grid--rev > .square-large, .grid .grid--rev > .square-medium, .grid .grid--rev > .square-small, .grid .grid--rev > .rectangle, .grid .grid--rev > .rectangle-large, .grid .grid--rev > .page-square, .grid .grid--rev > .page-rectangle {
+.grid--rev > .grid__item, .grid .grid--rev > .square, .grid .grid--rev > .inner-square, .grid .grid--rev > .square-large, .grid .grid--rev > .square-medium, .grid .grid--rev > .square-small, .grid .grid--rev > .rectangle, .grid .grid--rev > .rectangle-large, .grid .grid--rev > .page-square, .grid .grid--rev > .page-rectangle, #masthead .grid .grid--rev > .text-logo, #masthead .grid .grid--rev > .nav {
   direction: ltr;
   text-align: left;
 }
@@ -499,7 +499,7 @@ table {
 .grid--full {
   margin-left: 0;
 }
-.grid--full > .grid__item, .grid .grid--full > .square, .grid .grid--full > .inner-square, .grid .grid--full > .square-large, .grid .grid--full > .square-medium, .grid .grid--full > .square-small, .grid .grid--full > .rectangle, .grid .grid--full > .rectangle-large, .grid .grid--full > .page-square, .grid .grid--full > .page-rectangle {
+.grid--full > .grid__item, .grid .grid--full > .square, .grid .grid--full > .inner-square, .grid .grid--full > .square-large, .grid .grid--full > .square-medium, .grid .grid--full > .square-small, .grid .grid--full > .rectangle, .grid .grid--full > .rectangle-large, .grid .grid--full > .page-square, .grid .grid--full > .page-rectangle, #masthead .grid .grid--full > .text-logo, #masthead .grid .grid--full > .nav {
   padding-left: 0;
 }
 
@@ -509,7 +509,7 @@ table {
 .grid--right {
   text-align: right;
 }
-.grid--right > .grid__item, .grid .grid--right > .square, .grid .grid--right > .inner-square, .grid .grid--right > .square-large, .grid .grid--right > .square-medium, .grid .grid--right > .square-small, .grid .grid--right > .rectangle, .grid .grid--right > .rectangle-large, .grid .grid--right > .page-square, .grid .grid--right > .page-rectangle {
+.grid--right > .grid__item, .grid .grid--right > .square, .grid .grid--right > .inner-square, .grid .grid--right > .square-large, .grid .grid--right > .square-medium, .grid .grid--right > .square-small, .grid .grid--right > .rectangle, .grid .grid--right > .rectangle-large, .grid .grid--right > .page-square, .grid .grid--right > .page-rectangle, #masthead .grid .grid--right > .text-logo, #masthead .grid .grid--right > .nav {
   text-align: left;
 }
 
@@ -520,7 +520,7 @@ table {
 .grid--center {
   text-align: center;
 }
-.grid--center > .grid__item, .grid .grid--center > .square, .grid .grid--center > .inner-square, .grid .grid--center > .square-large, .grid .grid--center > .square-medium, .grid .grid--center > .square-small, .grid .grid--center > .rectangle, .grid .grid--center > .rectangle-large, .grid .grid--center > .page-square, .grid .grid--center > .page-rectangle {
+.grid--center > .grid__item, .grid .grid--center > .square, .grid .grid--center > .inner-square, .grid .grid--center > .square-large, .grid .grid--center > .square-medium, .grid .grid--center > .square-small, .grid .grid--center > .rectangle, .grid .grid--center > .rectangle-large, .grid .grid--center > .page-square, .grid .grid--center > .page-rectangle, #masthead .grid .grid--center > .text-logo, #masthead .grid .grid--center > .nav {
   text-align: left;
 }
 
@@ -528,11 +528,11 @@ table {
  * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
  * `.grid`.
  */
-.grid--middle > .grid__item, .grid .grid--middle > .square, .grid .grid--middle > .inner-square, .grid .grid--middle > .square-large, .grid .grid--middle > .square-medium, .grid .grid--middle > .square-small, .grid .grid--middle > .rectangle, .grid .grid--middle > .rectangle-large, .grid .grid--middle > .page-square, .grid .grid--middle > .page-rectangle {
+.grid--middle > .grid__item, .grid .grid--middle > .square, .grid .grid--middle > .inner-square, .grid .grid--middle > .square-large, .grid .grid--middle > .square-medium, .grid .grid--middle > .square-small, .grid .grid--middle > .rectangle, .grid .grid--middle > .rectangle-large, .grid .grid--middle > .page-square, .grid .grid--middle > .page-rectangle, #masthead .grid .grid--middle > .text-logo, #masthead .grid .grid--middle > .nav {
   vertical-align: middle;
 }
 
-.grid--bottom > .grid__item, .grid .grid--bottom > .square, .grid .grid--bottom > .inner-square, .grid .grid--bottom > .square-large, .grid .grid--bottom > .square-medium, .grid .grid--bottom > .square-small, .grid .grid--bottom > .rectangle, .grid .grid--bottom > .rectangle-large, .grid .grid--bottom > .page-square, .grid .grid--bottom > .page-rectangle {
+.grid--bottom > .grid__item, .grid .grid--bottom > .square, .grid .grid--bottom > .inner-square, .grid .grid--bottom > .square-large, .grid .grid--bottom > .square-medium, .grid .grid--bottom > .square-small, .grid .grid--bottom > .rectangle, .grid .grid--bottom > .rectangle-large, .grid .grid--bottom > .page-square, .grid .grid--bottom > .page-rectangle, #masthead .grid .grid--bottom > .text-logo, #masthead .grid .grid--bottom > .nav {
   vertical-align: bottom;
 }
 
@@ -542,7 +542,7 @@ table {
 .grid--narrow {
   margin-left: -10px;
 }
-.grid--narrow > .grid__item, .grid .grid--narrow > .square, .grid .grid--narrow > .inner-square, .grid .grid--narrow > .square-large, .grid .grid--narrow > .square-medium, .grid .grid--narrow > .square-small, .grid .grid--narrow > .rectangle, .grid .grid--narrow > .rectangle-large, .grid .grid--narrow > .page-square, .grid .grid--narrow > .page-rectangle {
+.grid--narrow > .grid__item, .grid .grid--narrow > .square, .grid .grid--narrow > .inner-square, .grid .grid--narrow > .square-large, .grid .grid--narrow > .square-medium, .grid .grid--narrow > .square-small, .grid .grid--narrow > .rectangle, .grid .grid--narrow > .rectangle-large, .grid .grid--narrow > .page-square, .grid .grid--narrow > .page-rectangle, #masthead .grid .grid--narrow > .text-logo, #masthead .grid .grid--narrow > .nav {
   padding-left: 10px;
 }
 
@@ -552,7 +552,7 @@ table {
 .grid--wide {
   margin-left: -40px;
 }
-.grid--wide > .grid__item, .grid .grid--wide > .square, .grid .grid--wide > .inner-square, .grid .grid--wide > .square-large, .grid .grid--wide > .square-medium, .grid .grid--wide > .square-small, .grid .grid--wide > .rectangle, .grid .grid--wide > .rectangle-large, .grid .grid--wide > .page-square, .grid .grid--wide > .page-rectangle {
+.grid--wide > .grid__item, .grid .grid--wide > .square, .grid .grid--wide > .inner-square, .grid .grid--wide > .square-large, .grid .grid--wide > .square-medium, .grid .grid--wide > .square-small, .grid .grid--wide > .rectangle, .grid .grid--wide > .rectangle-large, .grid .grid--wide > .page-square, .grid .grid--wide > .page-rectangle, #masthead .grid .grid--wide > .text-logo, #masthead .grid .grid--wide > .nav {
   padding-left: 40px;
 }
 
@@ -593,11 +593,11 @@ table {
 /**
  * Quarters
  */
-.one-quarter, .two-eighths, .three-twelfths {
+.one-quarter, .two-eighths, .three-twelfths, #masthead .grid .text-logo {
   width: 25%;
 }
 
-.three-quarters, .six-eighths, .nine-twelfths {
+.three-quarters, .six-eighths, .nine-twelfths, #masthead .grid .nav {
   width: 75%;
 }
 
@@ -731,7 +731,7 @@ table {
   /**
    * Fifths
    */
-  .mobile--one-fifth, .mobile--two-tenths {
+  .mobile--one-fifth, .mobile--two-tenths, #masthead .grid .nav {
     width: 20%;
   }
 
@@ -743,7 +743,7 @@ table {
     width: 60%;
   }
 
-  .mobile--four-fifths, .mobile--eight-tenths {
+  .mobile--four-fifths, .mobile--eight-tenths, #masthead .grid .text-logo {
     width: 80%;
   }
 
@@ -1437,45 +1437,45 @@ form.inline label {
   }
 }
 .list, .radio ul,
-.checkbox ul, #masthead .mobile-socialMedia {
+.checkbox ul {
   margin: 0;
   padding: 0;
 }
 .list li, .radio ul li,
-.checkbox ul li, #masthead .mobile-socialMedia li {
+.checkbox ul li {
   margin: 0;
   list-style: none;
 }
 .list li a, .radio ul li a,
-.checkbox ul li a, #masthead .mobile-socialMedia li a {
+.checkbox ul li a {
   padding: 0 5px;
 }
 .list.horizontal li, .radio ul.horizontal li,
-.checkbox ul.horizontal li, #masthead .mobile-socialMedia li {
+.checkbox ul.horizontal li {
   display: inline;
 }
 .list.horizontal li a, .radio ul.horizontal li a,
-.checkbox ul.horizontal li a, #masthead .mobile-socialMedia li a {
+.checkbox ul.horizontal li a {
   display: inline-block;
 }
 .list.vertical li, .radio ul.vertical li,
-.checkbox ul.vertical li, #masthead .vertical.mobile-socialMedia li {
+.checkbox ul.vertical li {
   display: block;
 }
 .list.vertical li a, .radio ul.vertical li a,
-.checkbox ul.vertical li a, #masthead .vertical.mobile-socialMedia li a {
+.checkbox ul.vertical li a {
   display: block;
 }
 .list.left, .radio ul.left,
-.checkbox ul.left, #masthead .left.mobile-socialMedia {
+.checkbox ul.left {
   text-align: left;
 }
 .list.center, .radio ul.center,
-.checkbox ul.center, #masthead .center.mobile-socialMedia {
+.checkbox ul.center {
   text-align: center;
 }
 .list.right, .radio ul.right,
-.checkbox ul.right, #masthead .right.mobile-socialMedia {
+.checkbox ul.right {
   text-align: right;
 }
 
@@ -1630,12 +1630,17 @@ a:hover {
     margin-right: 8px !important;
   }
 }
-.section {
-  border-bottom: 1px solid #eee;
+.section-search {
+  background: #555;
+  padding: 48px;
 }
-
-.section-content {
-  margin-top: 48px;
+.section-search label {
+  display: none;
+}
+.section-search .form-text {
+  padding: 36px;
+  font-size: 1.5em;
+  color: #999;
 }
 
 .grid {
@@ -1837,277 +1842,47 @@ input:after {
     height: 150px !important;
   }
 }
-#masthead:before, #masthead:after {
-  content: "";
-  display: table;
+#masthead .grid .text-logo {
+  padding-left: 0 !important;
 }
-#masthead:after {
-  clear: both;
+#masthead .grid .nav {
+  padding-left: 0 !important;
 }
-#masthead .figure-cwLogo {
-  width: 100px;
-  height: 100px;
-  float: left;
+#masthead .mobi-reveal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
-#masthead .figure-cwLogo img {
-  width: 100px;
-  height: 100px;
-}
-#masthead .mobile-socialMedia {
-  display: none;
-}
-#masthead .mobile-socialMedia a {
-  height: 35px;
-  width: 35px;
-  fill: #F4EDE7;
-  border: solid 1px #F4EDE7;
-}
-#masthead .mobile-socialMedia a:hover {
-  fill: #EE2375;
-  border: solid 1px #EE2375;
-}
-#masthead .mobile-home {
-  display: none;
-}
-#masthead .burger-menu {
-  width: 35px;
-  height: 35px;
-  margin-left: 5px;
-  margin-right: 5px;
-  display: none;
+#masthead .mobi-reveal .svg-burger {
+  width: 50px;
+  height: 50px;
+  fill: #ffc40d;
 }
 
 @media only screen and (max-width: 480px) {
-  #masthead .figure-cwLogo {
-    width: 50px;
-    height: 50px;
-    float: left;
+  #masthead .mobi-reveal {
+    display: block;
   }
-  #masthead .figure-cwLogo img {
-    width: 50px;
-    height: 50px;
-  }
-  #masthead .nav {
+  #masthead .nav-main {
     display: none;
     position: fixed;
+    content: "";
     top: 0;
-    left: 0;
-    bottom: 0;
     right: 0;
-    z-index: 9000;
-    background: #EE2375;
-    text-align: center;
-  }
-  #masthead .nav .main-nav {
-    margin: 0;
-    padding: 0;
-  }
-  #masthead .nav .main-nav .menu-item-462 {
-    padding: 24px 0;
-  }
-  #masthead .nav .main-nav .menu-item-462 a {
-    border: none;
-  }
-  #masthead .nav .main-nav a {
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-    display: block;
-    border-bottom: solid 1px #fff;
-    padding: 12px;
-    font-size: 1.25em;
-  }
-  #masthead .nav .links-socialMedia {
-    margin: 24px 0 0 0;
-    padding: 0;
-  }
-  #masthead .nav .links-socialMedia li {
-    display: inline-block;
-  }
-  #masthead .nav .links-socialMedia a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border: solid 1px #fff;
-  }
-  #masthead .nav .contact-numbers {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-  }
-  #masthead .mobile-socialMedia {
-    display: block;
-    float: right;
-    margin-top: 7px;
-  }
-  #masthead .mobile-home {
-    display: block;
-  }
-  #masthead .burger-menu {
-    display: block;
-    float: right;
-    margin-top: 7px;
+    bottom: 0;
+    left: 0;
+    background: #9d261d;
+    z-index: 200;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  #masthead .figure-cwLogo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 12px;
-    float: left;
-  }
-  #masthead .figure-cwLogo img {
-    width: 100px;
-    height: 100px;
-  }
-  #masthead .nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 9000;
-    background: #EE2375;
-    text-align: center;
-  }
-  #masthead .nav .main-nav {
-    margin: 0;
-    padding: 0;
-  }
-  #masthead .nav .main-nav .menu-item-462 {
-    padding: 24px 0;
-  }
-  #masthead .nav .main-nav .menu-item-462 a {
-    border: none;
-  }
-  #masthead .nav .main-nav a {
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
+  #masthead .mobi-reveal {
     display: block;
-    border-bottom: solid 1px #fff;
-    padding: 12px;
-    font-size: 1.25em;
-  }
-  #masthead .nav .links-socialMedia {
-    margin: 24px 0 0 0;
-    padding: 0;
-  }
-  #masthead .nav .links-socialMedia li {
-    display: inline-block;
-  }
-  #masthead .nav .links-socialMedia a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border: solid 1px #fff;
-  }
-  #masthead .nav .contact-numbers {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-  }
-  #masthead .mobile-socialMedia {
-    display: block;
-    float: right;
-    margin-top: 28px;
-  }
-  #masthead .mobile-home {
-    display: block;
-  }
-  #masthead .burger-menu {
-    display: block;
-    float: right;
-    margin-top: 28px;
   }
 }
 @media only screen and (min-width: 1024px) {
-  #masthead .figure-cwLogo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 12px;
-    float: none;
-  }
-  #masthead .figure-cwLogo img {
-    width: 100px;
-    height: 100px;
-  }
-  #masthead .container {
-    position: relative;
-  }
-  #masthead .nav {
-    display: block;
-    text-align: left;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    right: 0;
-    vertical-align: middle;
-  }
-  #masthead .nav ul {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  #masthead .nav ul li {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  #masthead .nav .main-nav {
-    margin: 0 !important;
-    padding: 0;
-  }
-  #masthead .nav .main-nav a {
-    display: inline-block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: #66615D;
-    font-size: 1em;
-    text-transform: uppercase;
-    border-bottom: solid 2px #fff;
-  }
-  #masthead .nav .main-nav a:hover {
-    border-bottom: solid 2px #EE2375;
-  }
-  #masthead .nav .main-nav .current-menu-item a {
-    border-bottom: solid 2px #EE2375;
-  }
-  #masthead .nav .main-nav .mobile-home {
+  #masthead .mobi-reveal {
     display: none;
-  }
-  #masthead .nav .links-socialMedia {
-    margin: 0 !important;
-  }
-  #masthead .nav .links-socialMedia a {
-    display: block;
-    width: 35px;
-    height: 35px;
-    border: solid 1px #BBB2A6;
-  }
-  #masthead .nav .links-socialMedia a:hover {
-    border-color: #EE2375;
-  }
-  #masthead .nav .contact-numbers {
-    margin: 0 !important;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-  }
-  #masthead .nav .contact-numbers li {
-    display: block;
-    font-size: 0.75em;
-  }
-  #masthead .nav .contact-numbers li span {
-    color: #EE2375;
   }
 }
 .sidebar {
