@@ -28,7 +28,8 @@
                 <?php print render($title_suffix); ?>
                 
                 <section class="section-region page-search">
-                    <p>search</p><?php print render($page['page_search']); ?>
+                    <p>search BOOOOOM</p>
+                    <?php print render($page['search']); ?>
                 </section>
                 
                 <?php print render($page['help']); ?>
