@@ -1,55 +1,58 @@
-// KONSTRUCT GENERATOR ##############################################
+// KONSTRUCT.GLUE [STYLESHEET] ####################################################################################
 
-// 	This file is the end-point generator for the Konstruct Framework. If set up properly, it should generate to 
-//	css/Stylesheet.css in your project root. 
+// =====================  INDEX  =====================
+// ==
+// == A. CLIENT-SIDE CONFIGURATION
+// ==
+// == B. KONSTRUCT
+// ==== B.1. VENDORS
+// ==== B.2. CONFIG
+// ==== B.3. MIXINS
+// ==== B.4. OBJECTS
+// ==
+// == B. SITE
+// ==
+// =====================  INDEX  ===================== 
 
-//  You can quickly enable / disable files you don't need by commenting them out. 
-//	If you are very sure you won't need them in future, simply delete the line. 
 
-// 000000000000000000000000000000000000000000000000000000000000000000
+// A. CLIENT-SIDE CONFIGURATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	// A. CONFIGURATION ++++++++++++++++++++++++++++++++++++++++++++++
-	
-	//	Configuration is done in the "config" folder, where you should see the files mentioned below. 
-	//	Simply edit and save the files as you need them.
-	
-		// A.1 Fonts Config
-		@import	"config/fonts";
-		
-		// A.2 Brand Config
-		@import	"config/brand";
-		
-		// A.3 Global Config  
-		@import	"config/global";
-		
-	// B. MIXINS ++++++++++++++++++++++++++++++++++++++++++++++
-		
-		// B.1 Konstruct
-		@import	"konstruct/mixins/mixins";
-		
+@import "config";  
 
-	// C. IMPORTANT COMPONENTS ++++++++++++++++++++++++++++++++++++++++++++++
-	
-		// C.1. Normalize.css
-		@import	"konstruct/vendor/normalize";
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	// D. CORE ++++++++++++++++++++++++++++++++++++++++++++++
-	
-		// D.1 Scaffolding
-		@import "konstruct/core/core";   
-	
-	// E. BRICKS ++++++++++++++++++++++++++++++++++++++++++++++
-	
-		// COMING SOON
+// B. CONFIGURATION +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	// F. SITE ++++++++++++++++++++++++++++++++++++++++++++++
-		
-		@import "site/site";
-		
-	// G. FONTS ++++++++++++++++++++++++++++++++++++++++++++++
+// B.1. 3RD PARTY COMPONENTS --------------------------------------------------------------------------------------
+
+@import	"konstruct/vendor/normalize.css"; 
+
+// B.1. END -------------------------------------------------------------------------------------------------------
+
+// B.2. KONSTRUCT CONFIGURATION -----------------------------------------------------------------------------------
+
+@import "konstruct/config/config";  
+
+// B.2. END -------------------------------------------------------------------------------------------------------
+
+// B.3. KONSTRUCT MIXINS ------------------------------------------------------------------------------------------
+
+@import	"konstruct/mixins/mixins";
+
+// B.3. END -------------------------------------------------------------------------------------------------------
+
+// B.4. KONSTRUCT OBJECTS -----------------------------------------------------------------------------------------
+
+@import "konstruct/objects/objects";
+
+// B.4. END -------------------------------------------------------------------------------------------------------
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. SITE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@import "site/site";
 	
-	//	@import "dev/dev"; // A couple of helper classes for debug stuff. Pretty much useless right now.
-	
-// 000000000000000000000000000000000000000000000000000000000000000000
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 // End of File - Thanks for using Konstruct! Please help make it better!
