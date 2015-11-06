@@ -12,7 +12,6 @@
 	</div>
 	
 	<div class="comment-form">
-	sdgfsdgdg
 		<?php if ($content['comment_form']): ?>
 		  <?php print render($content['comment_form']); ?>
 		<?php endif; ?>

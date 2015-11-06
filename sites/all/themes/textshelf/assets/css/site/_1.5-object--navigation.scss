@@ -2,6 +2,25 @@
 
 // A. BRAND COLORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+.nav {
+    
+    .nav-main {
+        
+        @include vertical-align(absolute);
+        width: 100%;
+        
+        margin: 0;
+        padding: 0;
+        
+        li {
+            
+            list-style-type: none;
+            display: inline-block;
+            
+        }
+    }
+}
+
 #menu-item-455 {
     
     position: relative;

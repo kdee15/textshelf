@@ -1,10 +1,10 @@
 {
-  "name": "konstruct.boilerplate",
-  "version": "0.4.0",
+  "name": "boilerplate.jekyll",
+  "version": "1.0.0",
   "authors": [
     "Adrian Kirsten"
   ],
-  "description": "Konstruct Boilerplate is the perfect starting point for your next Konstruct project.",
+  "description": "This is a boilerplate for Jekyll with Konstruct pre-wired.",
   "main": "index.html",
   "keywords": [
     "Html",
@@ -24,7 +24,7 @@
     "html5shiv": "~3.7.2",
     "jquery": "~2.1.1",
     "modernizr": "~2.8.3",
-    "normalize.css": "~3.0.1",
+    "normalize.css": "*",
     "konstruct.config": "*",
     "konstruct.foundation": "*",
     "konstruct.cement": "*",
@@ -33,9 +33,15 @@
     "konstruct.glue": "*"
   },
   "devDependencies": {
-    "angular": "~1.3.0",
-    "angular-ui-router": "~0.2.11",
-    "angular-animate": "~1.3.0",
-    "mobile-detect": "~0.4.2"
+    "angular": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "angulartics": "~0.18.0",
+    "angular-touch": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "konstruct.angular": "~1.0.0",
+    "velocity": "~1.2.2",
+    "angular-velocity": "~0.3.2",
+    "angular-swipe": "~0.0.9",
+    "waypoints": "~3.1.1"
   }
 }

@@ -56,7 +56,7 @@ function classified_admin_settings($form, &$form_state) {
     '#size' => 5,
     '#maxlength' => 5,
     '#default_value' => _classified_get('max-length'),
-    '#description' => t('The maximum number of characters in your Classified Ad.'),
+    '#description' => t('The maximum number of characters in your Classified Ad. Set to 0 to disable the max length check.'),
   );
 
   $instances = field_info_instances('node', 'classified');
@@ -83,7 +83,7 @@ function classified_admin_settings($form, &$form_state) {
 
   $form['ads-wrapper']['classified-edit-modr8'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Modr8 edits - Modr8 is not yet ported to Drupal 7!'),
+    '#title' => t('Modr8 edits - Modr8 7.x-1.x integration exists but is not tested!'),
     '#description' => t('If modr8 is available, editing a node sends it back to moderation for non-privileged users'),
     '#default_value' => _classified_get('edit-modr8'),
   );
@@ -123,7 +123,7 @@ function classified_admin_settings($form, &$form_state) {
   foreach ($categories as $term) {
     $form['lifetimes-wrapper']['classified-lifetime-' . $term->tid] = array(
       '#type' => 'textfield',
-      '#title' => theme('indentation', array('size' => $term->depth)) . $term->name,
+      '#title' => theme('indentation', array('size' => $term->depth)) . check_plain($term->name),
       '#default_value' => isset($lifetimes[$term->tid]) ? $lifetimes[$term->tid] : NULL,
       '#size' => 3,
       '#maxlength' => 3,

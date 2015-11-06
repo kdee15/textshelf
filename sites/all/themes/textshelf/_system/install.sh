@@ -41,7 +41,7 @@ then
     echo ""
     echo "--------------------------------------------------------------------"
     echo ""
-    gulp prepare-js
+    gulp concat-js
     
     echo ""
     echo " == THANKS FOR INSTALLING KONSTRUCT! =="

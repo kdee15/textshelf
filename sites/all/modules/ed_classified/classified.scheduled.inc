@@ -234,6 +234,9 @@ function _classified_scheduled_build_notify($kind, $time = NULL) {
  */
 function _classified_scheduled_build_purge($time = NULL) {
   $grace = _classified_get('grace');
+  if ($grace == -1) {
+    return array();
+  }
   $limit = _classified_get_time($time) - $grace * 24 * 60 * 60;
 
   $q = db_select('node', 'n')->comment(__FUNCTION__);

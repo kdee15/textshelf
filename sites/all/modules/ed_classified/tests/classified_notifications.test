@@ -9,6 +9,9 @@ class ClassifiedNotificationsTest extends ClassifiedAbstractTest {
 
   public $queue = NULL;
 
+  /**
+   * {@inheritdoc}
+   */
   public static function getInfo() {
     return array(
         'name' => t('Notifications'),
@@ -29,7 +32,7 @@ class ClassifiedNotificationsTest extends ClassifiedAbstractTest {
   }
 
   /**
-   * @see DrupalWebTestCase::setUp()
+   * {@inheritdoc}
    */
   public function setUp() {
     $this->group = __FUNCTION__;
@@ -165,7 +168,7 @@ class ClassifiedNotificationsTest extends ClassifiedAbstractTest {
 
     foreach (_classified_get_notify_kinds() as $kind) {
       // This must not cause notices, as it does in 6.x-3.x-rc2.
-      classified_notifications_mail($kind, &$message, $params);
+      classified_notifications_mail($kind, $message, $params);
     }
   }
 }

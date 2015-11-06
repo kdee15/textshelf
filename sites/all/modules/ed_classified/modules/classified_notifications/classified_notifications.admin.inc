@@ -38,7 +38,7 @@ function classified_notifications_admin_settings($form, &$form_state) {
     'pre-purge' => t('Pre-purge'),
     'purge' => t('Purge'),
   );
-  $weight = -count($sections);
+  $weight = - count($sections);
 
   foreach ($sections as $name => $title) {
     $wrapper = $name . '-wrapper';

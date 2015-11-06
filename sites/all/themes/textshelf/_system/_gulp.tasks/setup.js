@@ -1,13 +1,17 @@
 // REGISTER COMPONENTS ================================================================================================
 
-var config = require('../../_config.json'),
+var config = require('../_config.json'),
     gulp = require('gulp'),
     runSequence = require('run-sequence'),
     rename = require('gulp-rename'),
     gutil = require('gulp-util'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat')
-    ;
+    concat = require('gulp-concat');
+
+// END ================================================================================================================
+
+// GULP TASKS [VARIABLES] ==============================================================================================
+
+var PATH = "../" + config.root;
 
 // END ================================================================================================================
 
@@ -17,180 +21,152 @@ var config = require('../../_config.json'),
 
 gulp.task('install-css', function() {
 
-    // A.1. INSTALL VENDOR LIBRARIES -------------------------------------
+    // A.1. INSTALL VENDOR LIBRARIES ----------------------------------------------------------------------------------
 
-    for( vendor in config.core.konstructVendor) {
-    gulp.src(['_bower.cache/' + config.core.konstructVendor[vendor] ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/css/konstruct/vendor').on('error', gutil.log));
-
-    }
-
-    // A.1. END -------------------------------------
-
-    // A.2. INSTALL KONSTRUCT CORE -------------------------------------
-
-    for( base in config.core.konstructBase) {
-    gulp.src(['_bower.cache/' + config.core.konstructBase[base] + '/*/*' ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/css/konstruct').on('error', gutil.log));
+    for( vendor in config.assets.css.vendors) {
+        
+        gulp.src(['_bower.cache/' + config.assets.css.vendors[vendor] ])
+        .pipe(gulp.dest(PATH + '/assets/css/konstruct/vendor').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Installing ' + config.assets.css.vendors[vendor]));
 
     }
 
-    // A.2. END -------------------------------------
+    // A.1. END -------------------------------------------------------------------------------------------------------
 
-    // A.3. INSTALL KONSTRUCT CONFIGURATION -------------------------------------
+    // A.2. INSTALL KONSTRUCT CORE ------------------------------------------------------------------------------------
 
-    for( configurer in config.core.konstructConfig) {
-    gulp.src(['_bower.cache/' + config.core.konstructConfig[configurer] + '/*/*' ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/css').on('error', gutil.log));
-
-    }
-
-    // A.3. END -------------------------------------
-
-    // A.4. INSTALL KONSTRUCT SITE -------------------------------------
-
-    for( site in config.core.konstructSite) {
-    gulp.src(['_bower.cache/' + config.core.konstructSite[site] + '/*/**/*' ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/css/').on('error', gutil.log));
+    for( konstruct in config.assets.css.konstruct) {
+        
+        gulp.src(['_bower.cache/' + config.assets.css.konstruct[konstruct] + '/*/*' ])
+        .pipe(gulp.dest(PATH + '/assets/css/konstruct').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Installing ' + config.assets.css.konstruct[konstruct]));
 
     }
 
-    // A.4. END -------------------------------------
+    // A.2. END -------------------------------------------------------------------------------------------------------
 
-    // A.5. INSTALL KONSTRUCT GLUE -------------------------------------
+    // A.4. INSTALL KONSTRUCT SITE ------------------------------------------------------------------------------------
 
-    gulp.src(['_bower.cache/konstruct.glue/stylesheet.scss' ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/css/').on('error', gutil.log));
+    for( site in config.assets.css.site) {
+        
+        gulp.src(['_bower.cache/' + config.assets.css.site[site] + '/*/**/*' ])
+        .pipe(gulp.dest(PATH + '/assets/css/').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Installing site files.'));
 
-    // A.5. END -------------------------------------
+    }
+
+    // A.4. END -------------------------------------------------------------------------------------------------------
+
+    // A.5. INSTALL KONSTRUCT GLUE ------------------------------------------------------------------------------------
+
+    gulp.src([
+                '_bower.cache/konstruct.glue/_config.scss',
+                '_bower.cache/konstruct.glue/stylesheet.scss',
+            ])
+    .pipe(gulp.dest(PATH + '/assets/css/').on('error', gutil.log))
+    gutil.log(gutil.colors.cyan('++ Installing site glue.'));
+
+    // A.5. END -------------------------------------------------------------------------------------------------------
 
 });
 
 // A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// B. INSTALL JAVASCRIPT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// B. UPDATE KONSTRUCT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-gulp.task('install-js', function() {
+gulp.task('update-css', function() {
 
-    for( library in config.core.components) {
-        gulp.src(['_bower.cache/' + config.core.components[library], ])
-        .pipe(gulp.dest('../' + config.siteSource + '/assets/js/components/').on('error', gutil.log));
+    // B.1. INSTALL VENDOR LIBRARIES ----------------------------------------------------------------------------------
+
+    for( vendor in config.assets.css.vendors) {
+        
+        gulp.src(['_bower.cache/' + config.assets.css.vendors[vendor] ])
+        .pipe(gulp.dest(PATH + '/assets/css/konstruct/vendor').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Updating ' + config.assets.css.vendors[vendor]));
+
     }
+
+    // B.1. END -------------------------------------------------------------------------------------------------------
+
+    // B.2. INSTALL KONSTRUCT CORE ------------------------------------------------------------------------------------
+
+    for( konstruct in config.assets.css.konstruct) {
+        
+        gulp.src(['_bower.cache/' + config.assets.css.konstruct[konstruct] + '/*/*' ])
+        .pipe(gulp.dest(PATH + '/assets/css/konstruct').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Updating ' + config.assets.css.konstruct[konstruct]));
+
+    }
+
+    // B.2. END -------------------------------------------------------------------------------------------------------
 
 });
 
 // B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// C. PREPARE JAVASCRIPT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// C. INSTALL JAVASCRIPT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-gulp.task('prepare-js', function() {
+gulp.task('install-js', function() {
     
-  gulp.src([
-            '../' + config.siteSource + '/assets/js/components/*.*.js'
-           ])
-    .pipe(concat('components.js'))
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/js/'))
-    gulp.src([
-            '../' + config.siteSource + '/assets/js/components/*.*.map'
-           ])
-    .pipe(gulp.dest('../' + config.siteSource + '/assets/js/'))
+    // C.1. MOVE FILES FROM BOWER -------------------------------------------------------------------------------------
+
+    for( bower in config.assets.js.bower) {
+
+        gulp.src(['_bower.cache/' + config.assets.js.bower[bower], ])
+        .pipe(gulp.dest(PATH + '/assets/js/components/').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Installing ' + config.assets.js.bower[bower]));
+    }
+    
+    // C.1. END -------------------------------------------------------------------------------------------------------
+    
+    // C.2. MOVE MAP FILES FROM BOWER ---------------------------------------------------------------------------------
+
+    for( map in config.assets.js.maps) {
+
+        gulp.src(['_bower.cache/' + config.assets.js.maps[map], ])
+        .pipe(gulp.dest(PATH + '/assets/js/').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Installing ' + config.assets.js.maps[map]));
+    }
+    
+    // C.2. END -------------------------------------------------------------------------------------------------------
 
 });
 
 // C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// END ================================================================================================================
+// D. COMPILE COMPONENTS INTO COMPONENTS.JS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// GULP TASK [JAVASCRIPT] =============================================================================================
+gulp.task('concat-js', function() {
 
+    var files = [];
+    
+    for( component in config.assets.js.order) {
 
-
-
-
-// END ================================================================================================================
-
-// GULP TASK [UPDATE] =================================================================================================
-
-// A. UPDATE KONSTRUCT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-gulp.task('update-css', function() {
-
-    // B.2.1. Install Konstruct Vendors
-    for( vendor in config.core.konstructVendor) {
-        gulp.src(['assets/_asset-cache/' + config.core.konstructVendor[vendor] ])
-        .pipe(gulp.dest('assets/css/konstruct/vendor').on('error', gutil.log));
-
-        console.log();
-        console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-        console.log();
-        console.log('Updated your vendor libraries!');
-        console.log();
-        console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-        console.log();
+        files.push(PATH + '/assets/js/components/' + config.assets.js.order[component]);
 
     }
-
-    // B.2.2. Install Konstruct base
-    for( base in config.core.konstructBase) {
-        gulp.src(['assets/_asset-cache/' + config.core.konstructBase[base] + '/*/**/*' ])
-        .pipe(gulp.dest('assets/css/konstruct').on('error', gutil.log));
-
-        console.log();
-        console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-        console.log();
-        console.log('Updated the Konstruct core!');
-        console.log();
-        console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-        console.log();
-
-    }
-
-    // B.2.3. Install Konstruct Glue
-    gulp.src(['assets/_asset-cache/konstruct.glue/single.core.scss' ])
-    .pipe(gulp.dest('assets/css/').on('error', gutil.log));
-
-    console.log();
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-    console.log();
-    console.log('Updated the glue!');
-    console.log();
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-    console.log();
+    
+        
+    gulp.src(files)
+        .pipe(concat('components.js'))
+        .pipe(gulp.dest(PATH + '/assets/js/').on('error', gutil.log))
+        gutil.log(gutil.colors.cyan('++ Compiling components.js file '));
 
 
 });
 
-// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// END ================================================================================================================
+// E. INSTALL JAVASCRIPT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// GULP TASK [UTILITY] ================================================================================================
+gulp.task('install-angular-components', function() {
 
-// A. PURGE SYSTEM ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-gulp.task('system-purge', function() {
-      gulp.src([
-                'assets/js/components',
-                'assets/css',
-                'node_modules',
-                '.sass-cache',
-                '_asset-cache',
-                'assets/js/app.js',
-                'assets/js/components.js',
-                'assets/js/*.map'
-               ])
-        .pipe(clean())
-
-    console.log();
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-    console.log();
-    console.log('SYSTEM HAS BEEN PURGED SIR!');
-    console.log();
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
-    console.log();
+    gulp.src('_bower.cache/konstruct.angular/scripts/*')
+    .pipe(gulp.dest(PATH + '/assets/js/scripts/').on('error', gutil.log))
+    gutil.log(gutil.colors.cyan('++ Installing Angular components'));
 
 });
 
-// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // END ================================================================================================================

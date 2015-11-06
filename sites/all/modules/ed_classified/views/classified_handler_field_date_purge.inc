@@ -19,7 +19,6 @@ class classified_handler_field_date_purge extends views_handler_field_date {
     $grace = _classified_get('grace');
     $date_format = _classified_get('date-format');
 
-
     // Save expires.
     $expires = $values->classified_node_expires;
 

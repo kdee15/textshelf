@@ -20,7 +20,6 @@ h2 {
     line-height: normal;
     margin-top: 0;
     margin-bottom: $baseline;
-    @include font($regular);
     text-transform: uppercase;
     
 }
@@ -31,7 +30,6 @@ h3 {
     line-height: normal;
     margin-top: 0;
     margin-bottom: $baseline;
-    @include font($regular);
 
 }
 
@@ -41,13 +39,11 @@ h4 {
     line-height: normal;
     margin-top: 0;
     margin-bottom: $baseline;
-    @include font($regular);
     
 }
 
 .light {
     
-    @include font($light);
     
 }
 
@@ -61,7 +57,6 @@ h4 {
 
 p {
     
-    @include font($regular);   
     
 }
 

@@ -39,7 +39,7 @@
       $(selector).fadeOut();
     }
   }
-  
+
   /**
    * Limit data entry to the size defined in classified settings
    *
@@ -50,15 +50,15 @@
       oBody,          // jQuery object for the node body
       oCountSpan,     // jQuery object for the char count <span> element
       remaining;      // running count of remaining chars
-  
+
     max_length = Drupal.settings.classified.max_length;
-  
+
     oBody = $(bodySelector);
     oCountSpan = $('.classified-max-length>span');
     remaining = max_length - oBody.val().length;
-  
+
     oCountSpan.text(remaining);
-  
+
     if (remaining < max_length / 10) {
       oCountSpan.removeClass('error').addClass('warning');
       if (remaining <= 0) {
@@ -71,7 +71,7 @@
       oCountSpan.removeClass('warning error');
     }
   }
-  
+
   /**
    * Ready handler to apply visibility to the date field on classified_node_form.
    *
@@ -89,7 +89,7 @@
         $("input:radio[name='expire_mode']:checked").val() === 'force');
     });
   }
-  
+
   /**
    * Ready handler to apply body length limitation on classified_node_form.
    *
@@ -98,6 +98,11 @@
    */
   function onReadyBodyLength(bodySelector) {
     var max_length = Drupal.settings.classified.max_length;
+    if (max_length <= 0) {
+      $('.classified-max-length').remove();
+      return;
+    }
+
     if (!$('.classified-max-length').length) {
       $(bodySelector).parent().append(Drupal.t('<p class="classified-max-length">Remaining characters: <span>@count</span>.</p>', {
         '@count' : max_length
@@ -108,7 +113,7 @@
       classifiedBodyUpdateRemaining(bodySelector);
     });
   }
-  
+
   /**
    * Assign ready handlers
    */
@@ -116,5 +121,5 @@
     onReadyDateVisibility();
     onReadyBodyLength('#edit-body-und-0-value');
   });
-  
+
 })(jQuery);

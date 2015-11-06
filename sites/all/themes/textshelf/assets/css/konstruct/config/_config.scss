@@ -1,0 +1,25 @@
+// KONSTRUCT CONFIG ###################################################################################################
+
+// DESCRIPTION:
+// This file loads the configuration settings
+// that Konstruct relies on. 
+
+// This is not typically a consumer editable section.
+
+// A. CONFIG: SYSTEM COLORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@import "config--system-colors";
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. CONFIG: TYPOGRAPHY SYSTEM +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@import "config--typography";
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.config/issues
+
+// END OF FILE ########################################################################################################

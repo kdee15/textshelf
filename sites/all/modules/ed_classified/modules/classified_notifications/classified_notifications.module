@@ -185,7 +185,6 @@ function classified_notifications_cron_queue_info() {
  * @param array $job
  */
 function classified_notifications_deliver($job) {
-  dsm($job, __FUNCTION__);
   drupal_mail_system('classified_notifications', $job['key'])->mail($job['message']);
 }
 
@@ -202,7 +201,7 @@ function classified_notifications_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('classified_notifications_admin_settings'),
     'file' => 'classified_notifications.admin.inc',
-    // From classified.module.
+    // Permission from classified.module
     'access arguments' => array('administer classified ads'),
   );
 

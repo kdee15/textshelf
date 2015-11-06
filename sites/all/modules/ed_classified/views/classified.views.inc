@@ -89,3 +89,4 @@ function classified_views_handlers() {
 
   return $ret;
 }
+

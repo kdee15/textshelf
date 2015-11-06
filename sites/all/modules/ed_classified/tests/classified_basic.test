@@ -60,7 +60,7 @@ abstract class ClassifiedAbstractTest extends DrupalWebTestCase {
    */
   protected function createUsers($profiles = array()) {
     if (in_array('admin', $profiles)) {
-      $this->adminUser   = $this->drupalCreateUser(array(
+      $this->adminUser = $this->drupalCreateUser(array(
         // block.module, to access admin/build/block
         'administer blocks',
 
@@ -86,7 +86,7 @@ abstract class ClassifiedAbstractTest extends DrupalWebTestCase {
     }
 
     if (in_array('basic', $profiles)) {
-      $this->basicUser   = $this->drupalCreateUser(array('access content'));
+      $this->basicUser = $this->drupalCreateUser(array('access content'));
       $this->pass(t('Basic user %name (%uid) created.', array(
         '%name' => $this->basicUser->name,
         '%uid' => $this->basicUser->uid,
@@ -110,7 +110,7 @@ abstract class ClassifiedAbstractTest extends DrupalWebTestCase {
 
 class ClassifiedBasicTest extends ClassifiedAbstractTest {
   /**
-   * @see DrupalWebTestCase::getInfo()
+   * {@inheritdoc}
    */
   public static function getInfo() {
     return array(
@@ -121,7 +121,7 @@ class ClassifiedBasicTest extends ClassifiedAbstractTest {
   }
 
   /**
-   * @see DrupalWebTestCase::setUp()
+   * {@inheritdoc}
    */
   public function setUp() {
     $this->group = __FUNCTION__;
@@ -272,6 +272,30 @@ class ClassifiedBasicTest extends ClassifiedAbstractTest {
   }
 
   /**
+   * Convert a host-relative path like /drupal/taxonomy to a drupal path.
+   *
+   * @see test1265524()
+   *
+   * @param string $href
+   *   Some path like "/drupal/taxonomy" or "/taxonomy"
+   *
+   * @return string
+   *   The internal still aliased path like "taxonomy", or "/" if path does not
+   *   belong in the current site.
+   */
+  function relativizeHref($href) {
+    $base = base_path();
+    if (strpos($href, $base) === 0) {
+      $ret = drupal_substr($href, drupal_strlen($base));
+    }
+    else {
+      $ret = '/';
+    }
+
+    return $ret;
+  }
+
+  /**
    * Bug 1265524: Can not edit taxonomy terms.
    *
    * Regex in hook_url_outbound_alter() was too lax.
@@ -287,8 +311,9 @@ class ClassifiedBasicTest extends ClassifiedAbstractTest {
     $pattern = 'taxonomy/term/*/edit';
     foreach ($links as $link) {
       $href = (string) $link['href'];
+      $href = $this->relativizeHref($href);
       $parsed = drupal_parse_url($href);
-      $path = drupal_substr($parsed['path'], drupal_strlen(base_path()));
+      $path = $parsed['path'];
       $this->assertTrue(drupal_match_path($path, $pattern), t('Path %path matches %pattern', array(
         '%path' => $path,
         '%pattern' => $pattern,
@@ -535,8 +560,173 @@ class ClassifiedBasicTest extends ClassifiedAbstractTest {
     $token = 'classified-ads-url';
     $translation = token_replace("[user:$token]", array('user' => $this->creatorUser));
     $url = url('user/'. $node->uid . '/classified', array('absolute' => TRUE));
+    // URLs may contain a ?q=, which would be interpreted in a regex
+    $url = str_replace('?', '\?', $url);
     $this->assertTrue(preg_match("@$url@", $translation), t('User ads URL found from %token.', array(
       '%token' => $token,
     )), $this->group);
+  }
+
+  /**
+   * Add server-side body length validation.
+   */
+  public function test1653560() {
+    $this->group = __FUNCTION__;
+    $accounts = array('creator');
+    $this->createUsers($accounts);
+    $this->drupalLogin($this->creatorUser);
+
+    // 1. Get the node type name.
+    $type = node_type_get_name('classified');
+
+    // 2. Get the Classified vocabulary id.
+    $vid = _classified_get('vid');
+
+    // 3a. Create a term in it, do not assign a specific lifetime.
+    $term = (object) array(
+      'name' => $this->randomName(8),
+      'description' => $this->randomString(20),
+      'vid' => $vid,
+    );
+    $status = taxonomy_term_save($term);
+    $tid = $term->tid;
+    $this->assertEqual($status, SAVED_NEW, t('Term @tid created in default vocabulary.', array('@tid' => $tid)), 'setup');
+
+    // 3b. Limit the maximum body length.
+    $max_length = 20;
+    variable_set('classified-max-length', $max_length);
+
+    // 4a. Try to create an ad bearing that term, with a body below max length.
+    $count = db_query('SELECT COUNT(nid) FROM {node}')->fetchField();
+    $this->assertEqual(0, $count, t('No node found before creation of first ad'), $this->group);
+
+    $langcode = LANGUAGE_NONE;
+    $body_key = "body[$langcode][0][value]";
+    $term_key = "classified_category[$langcode]";
+    $edit = array(
+      'title' => $this->randomString(10),
+      $term_key => $tid,
+      $body_key => 'A short body',
+      'expire_mode' => 'reset',
+    );
+
+    $ret = $this->drupalPost('node/add/classified', $edit, t('Save'));
+    $raw = t('@type %title has been created.', array(
+      '@type' => $type,
+      '%title' => $edit['title'],
+    ));
+    $this->assertRaw($raw, t('Ad with proper body receives creation confirmation'), $this->group);
+    $count = db_query('SELECT COUNT(nid) FROM {node}')->fetchField();
+    $this->assertEqual(1, $count, t('Ad with proper body actually created.'), $this->group);
+
+    // 4b. Try to create an ad bearing that term, with a body above max length.
+    $edit = array(
+      'title' => $this->randomString(10),
+      $term_key => $tid,
+      $body_key => 'A body longer than 20 characters',
+    );
+
+    $ret = $this->drupalPost('node/add/classified', $edit, t('Save'));
+    $raw = t('Text is longer than maximum authorized length: @body_length characters vs @max_length authorized.', array(
+      '@body_length' => drupal_strlen($edit[$body_key]),
+      '@max_length' => $max_length,
+    ));
+    $this->assertRaw($raw, t('Ad with extra-long body receives post error.'), $this->group);
+    $count = db_query('SELECT COUNT(nid) FROM {node}')->fetchField();
+    $this->assertEqual(1, $count, t('Ad with extra-long body actually not created.'), $this->group);
+  }
+
+  /**
+   * Bug 1733594: Infinite grace (-1) being handled like a normal duration.
+   */
+  public function test1733594() {
+    $this->group = 'Infinite';
+
+    // 1. Get the Classified vocabulary id and field name.
+    $vid = _classified_get('vid');
+    $category_field_name = _classified_get('field-category');
+
+    // 2a. Create a term in it, do not assign a specific lifetime.
+    $term = (object) array(
+      'name' => $this->randomName(8),
+      'description' => $this->randomString(20),
+      'vid' => $vid,
+    );
+    $status = taxonomy_term_save($term);
+    $tid = $term->tid;
+    $this->assertEqual($status, SAVED_NEW, t('Term @tid created in default vocabulary.', array('@tid' => $tid)), 'setup');
+
+    // 2b. Create a node bearing that term.
+    $node = $this->createNode(array(
+      $category_field_name => array(LANGUAGE_NONE => array(0 => array('tid' => $tid))),
+    ));
+
+    // 2c. Get lifetimes information.
+    $lifetimes = _classified_get('lifetimes');
+    $default_lifetime = reset($lifetimes);
+
+    // 2d. Validate lifetime.
+    $this->assertTrue(isset($node->expires) && is_numeric($node->expires)
+      && ($node->expires - $node->created == $default_lifetime * 24 * 60 * 60),
+      t('node has correct timestamp'), $this->group);
+
+    // 3. Try purge one year beyond expiration with infinite grace.
+    variable_set('classified-grace', -1);
+    $future = $node->expires + 365 * 24 * 60 * 60;
+    $ads = _classified_scheduled_build_purge($future);
+
+    // 4. Ensure purge did not happen.
+    $this->assertTrue(empty($ads), "No ad has been reported as deleted upon purge.", $this->group);
+
+    $node2 = node_load($node->nid, NULL, TRUE);
+    $this->assertTrue(isset($node2->nid) && $node2->nid == $node->nid, 'Node is still present in database after purge.', $this->group);
+
+    // 5. Try purge one week beyond expiration with normal one day grace.
+    $this->group = "Finite";
+    variable_set('classified-grace', 1);
+    $future = $node->expires + 7 * 24 * 60 * 60;
+    $ads = _classified_scheduled_build_purge($future);
+
+    // 6. Ensure purge was performed. Format: {uid: {nid: title, ...}, ...}.
+    $this->assertTrue(count($ads) == 1, "Purges happened for one account.", $this->group);
+    $purges = reset($ads);
+    $this->assertTrue(count($purges) == 1, "One node was purged", $this->group);
+    $this->assertEqual(key($purges), $node->nid, "Nid of purged node is correct", $this->group);
+    $this->assertEqual(current($purges), $node->title, "Title of purged node is correct", $this->group);
+    $node2 = node_load($node->nid, NULL, TRUE);
+    $this->assertFalse($node2, "Node is no longer in database", $this->group);
+  }
+
+  /**
+   * Security issue: XSS on term name on Classified config screen.
+   */
+  public function testSecurity146738() {
+    $this->group = 'XSS';
+
+    // 1. Get the Classified vocabulary id and field name.
+    $vid = _classified_get('vid');
+    $category_field_name = _classified_get('field-category');
+
+    // 2. Create a term in it with a XSS attempt,
+    $name=<<<XSS
+term<script type="text/javascript">alert('XSS');</script>name
+XSS;
+
+    $term = (object) array(
+      'name' => $name,
+      'description' => $this->randomString(20),
+      'vid' => $vid,
+    );
+    $status = taxonomy_term_save($term);
+    $tid = $term->tid;
+    $this->assertEqual($status, SAVED_NEW, t('Term @tid created in default vocabulary.', array('@tid' => $tid)), 'setup');
+
+    // 3. Create an administrator using the Classified admin panel.
+    $this->createUsers(array('admin'));
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/config/content/classified');
+    $this->assertResponse(200, t('Admin sees Classified administration.'));
+    $this->assertNoRaw($name);
+    $this->assertRaw(check_plain($name));
   }
 }

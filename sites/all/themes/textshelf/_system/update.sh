@@ -41,7 +41,7 @@ then
     echo ""
     echo "--------------------------------------------------------------------"
     echo ""
-    gulp prepare-js
+    gulp concat-js
     
     echo ""
     echo " == THANKS FOR INSTALLING KONSTRUCT! =="
@@ -52,7 +52,7 @@ else
     echo ""
     echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     echo "XX                                                                XX"
-    echo "XX    PLEASE RUN './UPDATE.SH'                                    XX"
+    echo "XX    PLEASE RUN './INSTALL.SH'                                   XX"
     echo "XX    --------------------------------------------------------    XX"
     echo "XX    Please run the update.sh script instead of the install      XX"
     echo "XX    script. You will override everything you've done so far.    XX"

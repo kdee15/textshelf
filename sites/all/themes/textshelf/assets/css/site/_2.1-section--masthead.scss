@@ -6,11 +6,12 @@
     
     .grid {
         
+        position: relative;
+        
         .text-logo {
             
             @extend .grid__item;
-            @extend .one-quarter;
-            @extend .mobile--four-fifths;
+            @extend .one-tenth;
             padding-left: 0!important;
             
         }
@@ -18,8 +19,7 @@
         .nav {
             
             @extend .grid__item;
-            @extend .three-quarters;
-            @extend .mobile--one-fifth;
+            @extend .nine-tenths;
             padding-left: 0!important;
         
         }

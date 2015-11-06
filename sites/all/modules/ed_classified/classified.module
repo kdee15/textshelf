@@ -3,7 +3,7 @@
  * @file
  * A pure D6 classified ads module inspired by the ed_classified module.
  *
- * @copyright (c) 2010-2011 Ouest Systemes Informatiques (OSInet)
+ * @copyright (c) 2010-2011 Ouest Systèmes Informatiques (OSInet)
  *
  * @license General Public License version 2 or later
  *
@@ -37,10 +37,12 @@ function _classified_block_view_popular() {
     $limit = _classified_get('popular-count');
     $vid = _classified_get('vid');
 
+    /** @var SelectQuery $q */
     $q = db_select('node', 'n')->comment(__FUNCTION__);
     $nc = $q->leftJoin('node_counter', 'nc', 'n.nid = nc.nid');
-    $ti = $q->innerJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
+    $q->innerJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
     $td = $q->innerJoin('taxonomy_term_data', 'td', 'ti.tid = td.tid');
+    /** @noinspection SpellCheckingInspection */
     $results = $q->fields('n', array('nid', 'title'))
       ->fields($td, array('name'))
       ->condition('n.status', 1)
@@ -66,7 +68,7 @@ function _classified_block_view_popular() {
     $ret = array(
       'subject' => t('Popular ads'),
       'content' => count($ads)
-        ? array('#theme' => array('item_list__classified_popular', 'item_list'), '#items' => $ads)
+        ? array('#theme' => 'item_list__classified_popular', '#items' => $ads)
         : t('No ad viewed yet.'),
     );
   }
@@ -85,8 +87,9 @@ function _classified_block_view_recent() {
   $limit = _classified_get('recent-count');
   $vid = _classified_get('vid');
 
+  /** @var SelectQuery $q */
   $q = db_select('node', 'n')->comment(__FUNCTION__);
-  $ti = $q->innerJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
+  $q->innerJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
   $td = $q->innerJoin('taxonomy_term_data', 'td', 'ti.tid = td.tid');
   $results = $q->fields('n', array('nid', 'title'))
     ->fields($td, array('name'))
@@ -112,7 +115,7 @@ function _classified_block_view_recent() {
   $ret = array(
     'subject' => t('Recent ads'),
     'content' => count($ads)
-      ? array('#theme' => array('item_list__classified_recent', 'item_list'), '#items' => $ads)
+      ? array('#theme' => 'item_list__classified_recent', '#items' => $ads)
       : array('#markup' => t('No ad viewed yet.')),
   );
 
@@ -129,6 +132,7 @@ function _classified_block_view_recent() {
  */
 function _classified_block_view_stats() {
   $yesterday = REQUEST_TIME - 24 * 60 * 60;
+  /** @var SelectQuery $q */
   $q = db_select('node', 'n')->comment(__FUNCTION__);
   $q->addExpression('COUNT(n.nid)', 'nid_count');
   $changed = $q->addExpression('n.changed > :yesterday', 'changed', array(':yesterday' => $yesterday));
@@ -168,7 +172,7 @@ function _classified_block_view_stats() {
   $ret = array(
     'subject' => t('Ad activity'),
     'content' => array(
-      '#theme' => array('table__classified_stats', 'table'),
+      '#theme' => 'table__classified_stats',
       '#header' => NULL,
       '#rows' => $rows,
       '#attributes' => array(),
@@ -263,12 +267,13 @@ function _classified_get_breadcrumb_by_term($term = NULL, $include_last = FALSE)
  *   Or NULL for The Epoch ($ts == 0).
  */
 function _classified_get_date_from_timestamp($ts) {
-  $getdate = getdate($ts);
+  $date = getdate($ts);
 
+  /** @noinspection SpellCheckingInspection */
   $ret = $ts ? array(
-    'day' => $getdate['mday'],
-    'month' => $getdate['mon'],
-    'year' => $getdate['year'],
+    'day' => $date['mday'],
+    'month' => $date['mon'],
+    'year' => $date['year'],
   ) : NULL;
 
   return $ret;
@@ -375,6 +380,13 @@ function _classified_list_nodes($results) {
   $now = REQUEST_TIME;
   $list_body = _classified_get('list-body');
 
+  $node_ids = array();
+  foreach ($results as $result) {
+    $node_ids[] = $result->id;
+  }
+
+  $date_format = _classified_get('date-format');
+
   switch ($list_body) {
     case 'empty':
     case 'body':
@@ -382,21 +394,16 @@ function _classified_list_nodes($results) {
         t('Contents'),
         t('Expires'),
       );
-      $date_format = _classified_get('date-format');
       break;
 
     case 'node':
+    default:
       $header = NULL;
 
   }
 
-  $nids = array();
-  foreach ($results->fetchAll() as $result) {
-    $nids[] = $result->id;
-  }
-
-  $nodes = node_load_multiple($nids);
-  foreach ($nodes as $nid => $node) {
+  $nodes = node_load_multiple($node_ids);
+  foreach ($nodes as $node) {
     switch ($list_body) {
       case 'empty':
         $cell = l($node->title, 'node/' . $node->nid);
@@ -404,22 +411,24 @@ function _classified_list_nodes($results) {
         break;
 
       case 'body':
-        // Assumes cardinality and language neutrality of body have not been
-        // modified.
-        $body_field = $node->body[LANGUAGE_NONE][0];
+        $body_items = field_get_items('node', $node, 'body');
         $cell = array(
           'data' => array(
             'title' => array(
               '#markup' => l($node->title, 'node/' . $node->nid, array(
                 'attributes' => array('class' => 'classified-list-title'))),
             ),
-            'body' => array(
-              '#prefix' => '<span class="classified-list-teaser">',
-              '#markup' => filter_xss(text_summary($body_field['value'], $body_field['format'])),
-              '#suffix' => '</span>',
-            ),
-          ),
+          )
         );
+        if (!empty($body_items)) {
+          // Assume a single body item.
+          $body_field = reset($body_items);
+          $cell['data']['body'] = array(
+            '#prefix' => '<span class="classified-list-teaser">',
+            '#markup' => filter_xss(text_summary($body_field['value'], $body_field['format'])),
+            '#suffix' => '</span>',
+          );
+        }
         $row = array($cell, strftime($date_format, $node->expires));
         break;
 
@@ -427,6 +436,10 @@ function _classified_list_nodes($results) {
         $cell = array('data' => node_view($node, 'classified'));
         $row = array($cell);
         break;
+
+      // Should not happen.
+      default:
+        $row = array();
     }
 
     if ($list_body != 'node' && $node->expires < $now) {
@@ -464,7 +477,7 @@ function _classified_page_overview() {
   $cached = $admin_access ? FALSE : cache_get($cid);
 
   if ($cached) {
-    list($header, $rows, $total) = $cached->data;
+    list($header, $rows, $total) = empty($cached->data) ? array(array(), array(), 0) : $cached->data;
     // Just in case you'd want to give a hint that the data is not really fresh.
     $ret['table']['#attributes']['class']['classified-cached'] = 'classified-cached';
   }
@@ -583,13 +596,15 @@ function _classified_page_term($term) {
     )));
   }
 
-  $q = db_select('node', 'n')
-    ->comment(__FUNCTION__)
-    ->extend('PagerDefault')
-    ->limit(10);
+  /** @var SelectQuery $q */
+  $q = db_select('node', 'n');
+  $q->comment(__FUNCTION__);
+  /** @var PagerDefault $q */
+  $q = $q->extend('PagerDefault');
+  $q->limit(10);
   $cn = $q->innerJoin('classified_node', 'cn', 'n.vid = cn.vid');
   $ti = $q->innerJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
-  $nid_alias = $q->addField('n', 'nid', 'id');
+  $q->addField('n', 'nid', 'id');
   $q->condition('n.type', 'classified')
     ->condition("$ti.tid", $term->tid)
     ->orderBy("$cn.expires")
@@ -615,7 +630,7 @@ function _classified_page_term($term) {
  * sort on the secondary table of the node type, whereas propertyOrderBy only
  * works on the base table, in this case {node}.
  *
- * So we do a poor man's EFQ to get the nids, and leave it to the list function
+ * So we do a poor man's EFQ to get the node_ids, and leave it to the list function
  * to load nodes as needed.
  *
  * @param object $account
@@ -629,12 +644,15 @@ function _classified_page_user_ads($account) {
   $min_status = ($account->uid == $user->uid || user_access('administer nodes'))
     ? 0 : 1;
 
-  $q = db_select('node', 'n')
-    ->comment(__FUNCTION__)
-    ->extend('PagerDefault')
-    ->limit(10);
+  /** @var SelectQuery $q */
+  $q = db_select('node', 'n');
+  $q->comment(__FUNCTION__);
+  /** @var PagerDefault $q */
+  $q = $q->extend('PagerDefault');
+  $q->limit(10);
+
   $cn = $q->innerJoin('classified_node', 'cn', 'n.vid = cn.vid');
-  $nid_alias = $q->addField('n', 'nid', 'id');
+  $q->addField('n', 'nid', 'id');
   $q->condition('n.type', 'classified')
     ->condition('n.uid', $account->uid)
     ->condition('n.status', $min_status, '>=')
@@ -688,7 +706,7 @@ function _classified_presave($node) {
 }
 
 /**
- * Reimplement taxonomy_node_get_terms_by_vocabulary(), removed in Drupal 7.
+ * Re-implement taxonomy_node_get_terms_by_vocabulary(), removed in Drupal 7.
  *
  * @see _classified_get_breadcrumb_by_node()
  *
@@ -701,16 +719,17 @@ function _classified_presave($node) {
  *   An array of taxonomy terms for the node, limited to the passed vocabulary.
  */
 function _classified_taxonomy_node_get_terms_by_vocabulary($node, $vid) {
+  /** @var SelectQuery $q */
   $q = db_select('taxonomy_index', 'ti')->comment(__FUNCTION__);
-  $td_alias = $q->join('taxonomy_term_data', 'td', 'ti.tid = td.tid');
-  $tv_alias = $q->join('taxonomy_vocabulary', 'tv', 'td.vid = tv.vid');
+  $q->join('taxonomy_term_data', 'td', 'ti.tid = td.tid');
+  $q->join('taxonomy_vocabulary', 'tv', 'td.vid = tv.vid');
   $q->fields('ti', array('tid'))
     ->addTag('node_access')
     ->condition('ti.nid', $node->nid)
     ->condition('td.vid', $vid);
-  $tids = $q->execute()
+  $term_ids = $q->execute()
     ->fetchCol();
-  $terms = taxonomy_term_load_multiple($tids);
+  $terms = taxonomy_term_load_multiple($term_ids);
   return $terms;
 }
 
@@ -860,6 +879,9 @@ function classified_ctools_plugin_api($module, $api) {
   if ($module == 'context' && $api == 'plugins') {
     return array('version' => 3);
   }
+  else {
+    return NULL;
+  }
 }
 
 /**
@@ -996,11 +1018,12 @@ function classified_field_formatter_view($entity_type, $entity, $field, $instanc
   $ret = array();
   $vid = _classified_get('vid');
 
-  $tids = array();
-  foreach ($items as $delta => $item) {
-    $tids[] = $item['tid'];
+  $term_ids = array();
+  foreach ($items as $item) {
+    $term_ids[] = $item['tid'];
   }
-  $terms = taxonomy_term_load_multiple($tids);
+
+  $terms = taxonomy_term_load_multiple($term_ids);
   foreach ($items as $delta => $item) {
     $tid = $item['tid'];
     if ($display['settings']['link_title']) {
@@ -1037,10 +1060,10 @@ function classified_form($node, &$form_state) {
   $type = node_type_get_type($node);
 
   $form = array();
-  if ($type->has_title) {
+  if (!empty($type->has_title)) {
     $form['title'] = array(
       '#type' => 'textfield',
-      '#title' => check_plain($type->title_label),
+      '#title' => empty($type->title_label) ? '' : check_plain($type->title_label),
       '#required' => TRUE,
       '#default_value' => $node->title,
       '#weight' => -5,
@@ -1141,7 +1164,7 @@ function classified_form($node, &$form_state) {
 /**
  * Implements hook_form_FORM_ID_alter().
  *
- * Allow access to the options fieldset on classiifed node forms to Classified
+ * Allow access to the options fieldset on classified node forms to Classified
  * Ads administrators.
  */
 function classified_form_classified_node_form_alter(&$form, $form_state) {
@@ -1162,7 +1185,8 @@ function classified_help($section, $arg) {
   switch ($section) {
     case 'admin/help#classified':
       $ret = t('<p>The Classified Ads modules allows users to create ads with an automatic expiration period.</p><p>If the optional classified_notifications module is enabled, warnings will be send at various points in the ad lifetime:</p><ul><li>when they reach half their scheduled lifetime</li><li>one day before they expire</li><li>upon their expiration</li><li>one day before they are deleted</li><li>and upon their deletion.</li></ul>')
-        . t('<p>This module is interfaced with CCK and Views: it exposes a specific build mode, enabling node-based Views to look like those provided by the module itself by using the "Ad list" build mode in node style; and it exposes the ad expiration date.</p>');
+        . t('<p>This module is interfaced with CCK and Views: it exposes a specific build mode, enabling node-based Views to look like those provided by the module itself by using the "Ad list" build mode in node style; and it exposes the ad expiration date.</p>')
+        . t('<p>If you install the Advanced Help module, you will find a good deal of additional help, notably about theming, use of the Classified Ads API, and integration of Classified Ads with other modules like Context, Panels, Token, and Views');
       break;
 
     case 'admin/content/node-type/classified/display/classified':
@@ -1203,15 +1227,17 @@ function classified_insert($node) {
  */
 function classified_load($nodes) {
   if (!empty($nodes)) {
-    $vids = array();
-    foreach ($nodes as $nid => $node) {
-      $vids[] = $node->vid;
+    $vocabulary_ids = array();
+    foreach ($nodes as $node) {
+      $vocabulary_ids[] = $node->vid;
     }
+
+    /** @var SelectQuery $q */
     $q = db_select('classified_node', 'cn')
       ->fields('cn', array('nid', 'vid', 'expires', 'notify'))
-      ->condition('cn.vid', $vids, 'IN');
-    $results = $q->execute()
-      ->fetchAll();
+      ->condition('cn.vid', $vocabulary_ids, 'IN');
+    $results = $q->execute();
+
     foreach ($results as $result) {
       $nodes[$result->nid]->expires = $result->expires;
       $nodes[$result->nid]->notify = $result->notify;
@@ -1600,7 +1626,7 @@ function classified_term_path($term) {
 /**
  * Implements hook_theme().
  *
- * Note: _classifified_block_view_(popular|recent|stats) introduce extra hooks
+ * Note: _classified_block_view_(popular|recent|stats) introduce extra hooks
  */
 function classified_theme($existing, $type, $theme, $path) {
   $ret = array(
@@ -1649,6 +1675,24 @@ function classified_validate($node, &$form) {
   $mode = $form['expires_fs']['expire_mode']['#value']; // Coder bug #195054.
   $date = $form['expires_fs']['expire_date']['#value']; // Coder bug #195054.
   $date = _classified_get_timestamp_from_date($date);
+
+  // This can be a user error, as the max_length JS is not being included if form_set_error has been used.
+  $max_length = _classified_get('max-length');
+
+  // Body may include <!--break-->, possibly wrapped with spaces (newlines),
+  // which must not be included in the length count.
+  $body = isset($node->body[LANGUAGE_NONE][0]['value']) ? $node->body[LANGUAGE_NONE][0]['value'] : NULL;
+  $body = preg_replace('/^(.*)\s*<!--break-->\s*(.*)$/sU', '$1$2', $body);
+  // Ignore \r, only count \n
+  $body = str_replace("\r\n", "\n", $body);
+
+  $body_length = drupal_strlen($body);
+  if ($max_length > 0 && $body_length > $max_length) {
+    form_set_error('body', t('Text is longer than maximum authorized length: @body_length characters vs @max_length authorized.', array(
+      '@body_length' => $body_length,
+      '@max_length' => $max_length,
+    )));
+  }
 
   // This is likely a hacking attempt.
   if ($mode == 'force' && !user_access('administer classified ads') && !user_access('reset classified ads expiration')) {
@@ -1719,7 +1763,7 @@ function classified_url_outbound_alter(&$path, &$options, $original_path) {
         '%emitter' => print_r($stack[2], TRUE),
         ), WATCHDOG_NOTICE);
     }
-    elseif ($term->vocabulary_machine_name == 'classified_categories') {
+    elseif (isset($term->vocabulary_machine_name) && $term->vocabulary_machine_name == 'classified_categories') {
       $path = 'classified/' . $matches[1];
       $options['alias'] = $path;
     }
