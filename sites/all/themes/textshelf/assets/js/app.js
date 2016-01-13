@@ -15,14 +15,14 @@ $('.burger').click(function(e) {
     
     var target = $(this).attr('href');
     
-    if ($(target).hasClass('hidden') ) {
+    if ($(target).hasClass('show') ) {
         
-        $(target).removeClass('hidden');
+        $(target).removeClass('show');
         $('.burger').addClass('close');
         
     } else {
         
-        $(target).addClass('hidden');
+        $(target).addClass('show');
         $('.burger').removeClass('close');
         
     }

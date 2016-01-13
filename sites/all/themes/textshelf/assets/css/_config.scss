@@ -11,13 +11,14 @@
 
 // A. CONFIGURE MEDIA QUERIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-$breakpoint-types: ('mobile', 'tablet', 'desk', 'desk-wide')!default;
+$breakpoint-types: ('small', 'mobile', 'tablet', 'desk', 'desk-wide')!default;
 
 $breakpoints: (
 
-    'mobile' '(max-width: 480px)',
-    'tablet' '(min-width: 481px) and (max-width: 1023px)',
-    'desk' '(min-width: 1024px)',
+    'small'     '(max-width: 360px)',
+    'mobile'    '(min-width: 361px) and (max-width: 480px)',
+    'tablet'    '(min-width: 481px) and (max-width: 1023px)',
+    'desk'      '(min-width: 1024px)',
     'desk-wide' '(min-width: 1200px)'
 
 )!default;

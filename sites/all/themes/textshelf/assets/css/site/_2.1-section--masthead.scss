@@ -25,7 +25,7 @@
         }
     }
     
-    .mobi-reveal {
+    .burger {
         
         position: absolute;
         top: $baseline/2;
@@ -41,7 +41,6 @@
     }
 }
 
-
 // A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -50,20 +49,6 @@
 
     #masthead {
 
-        .mobi-reveal {
-
-            display: block;
-
-        }
-        
-        .nav-main {
-            
-            display: none;
-            @include position(fixed);
-            background: $red;
-            z-index: 200;
-            
-        }
     }
     
 }
@@ -76,11 +61,6 @@
 
     #masthead {
 
-        .mobi-reveal {
-
-            display: block;
-
-        }
     }
 
 }
@@ -98,11 +78,6 @@
 
     #masthead {
 
-        .mobi-reveal {
-
-            display: none;
-
-        }
     }
 
 }

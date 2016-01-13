@@ -11,19 +11,9 @@
 		</a>
 		<!-- C.1.1. Navigation -->
 		
-        <nav class="nav mobi-nav" id="nav">
-            <?php print theme('links__system_main_menu', array(
-              'links' => $main_menu,
-              'attributes' => array(
-                'id' => 'nav-main',
-                'class' => 'nav-main',
-              ),
-            )); ?>
-            
-                    
-        </nav>
+        <nav class="nav">
         
-        <a class="burger" href="#nav-main">
+            <a class="burger" href="#m-nav">
         
                 <svg class="svg-burger" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve" class="svg-hamburger">
                     <rect x="10" y="14" width="30" height="1"/>
@@ -34,8 +24,22 @@
 
             </a>
             
-            
-        
+            <?php print theme('links__system_main_menu', array(
+              'links' => $main_menu,
+              'attributes' => array(
+                'id' => 'm-nav',
+                'class' => 'nav m-nav',
+              ),
+            )); ?>
+
+            <?php print theme('links__system_main_menu', array(
+              'links' => $main_menu,
+              'attributes' => array(
+                'id' => 'f-nav',
+                'class' => 'nav f-nav',
+              ),
+            )); ?>
+
         </section>
 	</div>
 </header>

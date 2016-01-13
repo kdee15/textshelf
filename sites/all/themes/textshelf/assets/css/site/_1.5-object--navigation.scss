@@ -4,57 +4,83 @@
 
 .nav {
     
-    .nav-main {
+    width: 100%;
         
-        @include vertical-align(absolute);
-        width: 100%;
+    margin: 0;
+    padding: 0;
         
-        margin: 0;
-        padding: 0;
-        
-        li {
+    li {
+
+        list-style-type: none;
+        display: inline-block;
+
+    }
+
+}
+	
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. SMALL STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(small) {
+
+    .nav {
+
+        &.f-nav {
+
+            display: none;   
+
+        }
+
+        &.m-nav {
+
+            display: none;
             
-            list-style-type: none;
-            display: inline-block;
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
             
         }
     }
 }
 
-#menu-item-455 {
-    
-    position: relative;
-    outline: none;
-    font-size: 0.1px;
-    padding: 0;
-    margin: 0;
-    
-    a {
-        
-        background: url('../images/svg/icon-home.svg');
-        background-position: center right;
-        background-size: 55% auto; 
-        background-repeat: no-repeat;
-        display: block !important;
-        border: 0 !important;
-        color: $white !important;
-    }
-}
-
-
-	
-// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 @include media-query(mobile) {
 
-    #menu-item-455 {
-    
-        width: 40px;
-        height: 40px;
-        margin-right: 0 !important;
-    
+    .nav {
+
+        &.f-nav {
+
+            display: none;
+
+        }
+
+        &.m-nav {
+
+            display: none;
+            
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
+            
+        }
     }
 }
 
@@ -64,12 +90,31 @@
 
 @include media-query(tablet) {
     
-    #menu-item-455 {
-    
-        width: 40px;
-        height: 40px;
-        margin-right: 0 !important;
-    
+
+    .nav {
+
+        &.f-nav {
+
+            display: none;   
+
+        }
+
+        &.m-nav {
+
+            display: none;
+            
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
+            
+        }
     }
 }
 
@@ -78,26 +123,26 @@
 // D. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 @include media-query(desk) {
-    
-    .menu-item {
-    
-        margin-right: $baseline/3;
 
-    }
-    
-    .links-socialMedia,
-    .contact-numbers {
+    .nav {
+
+        &.f-nav {
+
+            display: block;   
+
+        }
+
+        &.m-nav {
+
+            display: none;
+
+        }
         
-        padding-left: $baseline/2;   
-        
-    }
-    
-    #menu-item-455 {
-    
-        width: 40px;
-        height: 30px;
-        margin-right: $baseline/3 !important;
-    
+        .burger {
+            
+            display: none;   
+            
+        }
     }
 }
 
@@ -106,26 +151,26 @@
 // D. WIDE DESKTOP STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 @include media-query(desk-wide) {
-    
-    .menu-item {
-    
-        margin-right: $baseline/3;
 
-    }
-    
-    .links-socialMedia,
-    .contact-numbers {
+    .nav {
+
+        &.f-nav {
+
+            display: block;   
+
+        }
+
+        &.m-nav {
+
+            display: none;
+
+        }
         
-        padding-left: $baseline;   
-        
-    }
-    
-    #menu-item-455 {
-    
-        width: 40px;
-        height: 30px;
-        margin-right: $baseline/3 !important;
-    
+        .burger {
+            
+            display: none;   
+            
+        }
     }
 }
 
