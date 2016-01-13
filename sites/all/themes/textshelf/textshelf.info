@@ -23,7 +23,7 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-stylesheets[all][] = assets/css/Stylesheet.css
+stylesheets[all][] = assets/css/stylesheet.css
 
 
 ; ;;;;;;;;;;;;;;;;;;;;;
@@ -31,4 +31,4 @@ stylesheets[all][] = assets/css/Stylesheet.css
 ; ;;;;;;;;;;;;;;;;;;;;;
 
 
-scripts[] = assets/js/production.min.js
+scripts[] = assets/js/app.js

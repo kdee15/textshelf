@@ -9,3 +9,5 @@ sites/*/private
 sites/all/themes/textshelf/_system/.sass-cache
 sites/all/themes/textshelf/_system/node_modules
 sites/all/themes/textshelf/_system/_bower.cache
+
+sites/all/modules
