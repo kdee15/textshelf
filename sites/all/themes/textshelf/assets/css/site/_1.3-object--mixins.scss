@@ -22,14 +22,14 @@
 
 // B.1. POSITION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-@mixin position ($position){
+@mixin position ($position, $margin){
 			
     position: $position;
     content: "";
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: $margin;
+    right: $margin;
+    bottom: $margin;
+    left: $margin;
 
 }
 

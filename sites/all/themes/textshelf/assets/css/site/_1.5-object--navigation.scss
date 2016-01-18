@@ -1,8 +1,8 @@
-// 1. OBJECT [ 1.1. PAGES ] ###########################################################################################
+// 1. OBJECT [ 1.5. NAVIGATION ] ######################################################################################
 
-// A. BRAND COLORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// A. MAIN NAV ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.nav {
+#nav {
     
     width: 100%;
         
@@ -15,7 +15,85 @@
         display: inline-block;
 
     }
+    
+    .f-nav {
+        
+        @include vertical-align(absolute);
+        
+        li {
+            
+            background: $greyDarker;
+            
+            a {
+                
+                color: $grayLight;
+                display: block;
+                padding: $baseline $baseline-small;
+                
+                &:hover {
 
+                    color: $orange!important;
+                    background: $black;
+
+                }
+            }
+            
+            &.menu-432 {
+                
+                display: none;   
+                
+            }
+        }
+    }
+    
+    .m-nav {
+        
+        @include position (fixed, 0);
+        background: $greyDarker;
+        z-index: 20;
+        margin: 0;
+        padding: 0;
+        padding-top: 50px;
+        
+        
+        li {
+            
+            background: $greyDarker;
+            width: 100%;
+            border-bottom: 2px solid $greyDarkest;
+            
+            a {
+                
+                color: $grayLight;
+                display: block;
+                padding: $baseline $baseline-small;
+                text-align: center;
+                
+                &:hover {
+
+                    color: $orange!important;
+                    background: $black;
+
+                }
+            }
+        }
+        
+        &.burger {
+            
+            display: none;
+            position: fixed;
+            top: 2px;
+            right: 0;
+            left: auto;
+            z-index: 100;
+            height: 0;
+            margin: 0;
+            cursor: pointer;
+            background: url('../images/icons/icon__burger-close.svg') top center no-repeat;
+            background-size: auto 60%;
+            
+        }
+    }
 }
 	
 // A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -24,15 +102,15 @@
 
 @include media-query(small) {
 
-    .nav {
+    #nav {
 
-        &.f-nav {
+        .f-nav {
 
             display: none;   
 
         }
 
-        &.m-nav {
+        .m-nav {
 
             display: none;
             
@@ -57,15 +135,15 @@
 
 @include media-query(mobile) {
 
-    .nav {
+    #nav {
 
-        &.f-nav {
+        .f-nav {
 
             display: none;
 
         }
 
-        &.m-nav {
+        .m-nav {
 
             display: none;
             
@@ -91,15 +169,15 @@
 @include media-query(tablet) {
     
 
-    .nav {
+    #nav {
 
-        &.f-nav {
+        .f-nav {
 
             display: none;   
 
         }
 
-        &.m-nav {
+        .m-nav {
 
             display: none;
             
@@ -124,15 +202,15 @@
 
 @include media-query(desk) {
 
-    .nav {
+    #nav {
 
-        &.f-nav {
+        .f-nav {
 
             display: block;   
 
         }
 
-        &.m-nav {
+        .m-nav {
 
             display: none;
 
@@ -152,15 +230,15 @@
 
 @include media-query(desk-wide) {
 
-    .nav {
+    #nav {
 
-        &.f-nav {
+        .f-nav {
 
             display: block;   
 
         }
 
-        &.m-nav {
+        .m-nav {
 
             display: none;
 
