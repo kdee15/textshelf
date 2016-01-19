@@ -23,7 +23,7 @@ html, body {
     width: 1200px;
     margin: 0 auto; } }
 
-.grid {
+.grid, .content {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -35,7 +35,7 @@ html, body {
   margin: 0;
   padding: 0; }
 
-.grid__item, .grid .square, .grid .inner-square, .grid .square-large, .grid .square-medium, .grid .square-small, .grid .rectangle, .grid .rectangle-large, .grid .page-square, .grid .page-rectangle, #masthead .grid .text-logo, #masthead .grid #nav {
+.grid__item, .grid .square, .content .square, .grid .inner-square, .content .inner-square, .grid .square-large, .content .square-large, .grid .square-medium, .content .square-medium, .grid .square-small, .content .square-small, .grid .rectangle, .content .rectangle, .grid .rectangle-large, .content .rectangle-large, .grid .page-square, .content .page-square, .grid .page-rectangle, .content .page-rectangle, .content .node-classified, #masthead .grid .text-logo, #masthead .content .text-logo, #masthead .grid #nav, #masthead .content #nav {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -47,17 +47,17 @@ html, body {
 
 .grid__gutter {
   margin-left: -20px; }
-  .grid__gutter .grid__item, .grid__gutter .grid .square, .grid .grid__gutter .square, .grid__gutter .grid .inner-square, .grid .grid__gutter .inner-square, .grid__gutter .grid .square-large, .grid .grid__gutter .square-large, .grid__gutter .grid .square-medium, .grid .grid__gutter .square-medium, .grid__gutter .grid .square-small, .grid .grid__gutter .square-small, .grid__gutter .grid .rectangle, .grid .grid__gutter .rectangle, .grid__gutter .grid .rectangle-large, .grid .grid__gutter .rectangle-large, .grid__gutter .grid .page-square, .grid .grid__gutter .page-square, .grid__gutter .grid .page-rectangle, .grid .grid__gutter .page-rectangle, .grid__gutter #masthead .grid .text-logo, #masthead .grid .grid__gutter .text-logo, .grid__gutter #masthead .grid #nav, #masthead .grid .grid__gutter #nav {
+  .grid__gutter .grid__item, .grid__gutter .grid .square, .grid .grid__gutter .square, .grid__gutter .content .square, .content .grid__gutter .square, .grid__gutter .grid .inner-square, .grid .grid__gutter .inner-square, .grid__gutter .content .inner-square, .content .grid__gutter .inner-square, .grid__gutter .grid .square-large, .grid .grid__gutter .square-large, .grid__gutter .content .square-large, .content .grid__gutter .square-large, .grid__gutter .grid .square-medium, .grid .grid__gutter .square-medium, .grid__gutter .content .square-medium, .content .grid__gutter .square-medium, .grid__gutter .grid .square-small, .grid .grid__gutter .square-small, .grid__gutter .content .square-small, .content .grid__gutter .square-small, .grid__gutter .grid .rectangle, .grid .grid__gutter .rectangle, .grid__gutter .content .rectangle, .content .grid__gutter .rectangle, .grid__gutter .grid .rectangle-large, .grid .grid__gutter .rectangle-large, .grid__gutter .content .rectangle-large, .content .grid__gutter .rectangle-large, .grid__gutter .grid .page-square, .grid .grid__gutter .page-square, .grid__gutter .content .page-square, .content .grid__gutter .page-square, .grid__gutter .grid .page-rectangle, .grid .grid__gutter .page-rectangle, .grid__gutter .content .page-rectangle, .content .grid__gutter .page-rectangle, .grid__gutter .content .node-classified, .content .grid__gutter .node-classified, .grid__gutter #masthead .grid .text-logo, #masthead .grid .grid__gutter .text-logo, .grid__gutter #masthead .content .text-logo, #masthead .content .grid__gutter .text-logo, .grid__gutter #masthead .grid #nav, #masthead .grid .grid__gutter #nav, .grid__gutter #masthead .content #nav, #masthead .content .grid__gutter #nav {
     padding-left: 20px; }
 
 .grid__gutter-large {
   margin-left: -40px; }
-  .grid__gutter-large .grid__item, .grid__gutter-large .grid .square, .grid .grid__gutter-large .square, .grid__gutter-large .grid .inner-square, .grid .grid__gutter-large .inner-square, .grid__gutter-large .grid .square-large, .grid .grid__gutter-large .square-large, .grid__gutter-large .grid .square-medium, .grid .grid__gutter-large .square-medium, .grid__gutter-large .grid .square-small, .grid .grid__gutter-large .square-small, .grid__gutter-large .grid .rectangle, .grid .grid__gutter-large .rectangle, .grid__gutter-large .grid .rectangle-large, .grid .grid__gutter-large .rectangle-large, .grid__gutter-large .grid .page-square, .grid .grid__gutter-large .page-square, .grid__gutter-large .grid .page-rectangle, .grid .grid__gutter-large .page-rectangle, .grid__gutter-large #masthead .grid .text-logo, #masthead .grid .grid__gutter-large .text-logo, .grid__gutter-large #masthead .grid #nav, #masthead .grid .grid__gutter-large #nav {
+  .grid__gutter-large .grid__item, .grid__gutter-large .grid .square, .grid .grid__gutter-large .square, .grid__gutter-large .content .square, .content .grid__gutter-large .square, .grid__gutter-large .grid .inner-square, .grid .grid__gutter-large .inner-square, .grid__gutter-large .content .inner-square, .content .grid__gutter-large .inner-square, .grid__gutter-large .grid .square-large, .grid .grid__gutter-large .square-large, .grid__gutter-large .content .square-large, .content .grid__gutter-large .square-large, .grid__gutter-large .grid .square-medium, .grid .grid__gutter-large .square-medium, .grid__gutter-large .content .square-medium, .content .grid__gutter-large .square-medium, .grid__gutter-large .grid .square-small, .grid .grid__gutter-large .square-small, .grid__gutter-large .content .square-small, .content .grid__gutter-large .square-small, .grid__gutter-large .grid .rectangle, .grid .grid__gutter-large .rectangle, .grid__gutter-large .content .rectangle, .content .grid__gutter-large .rectangle, .grid__gutter-large .grid .rectangle-large, .grid .grid__gutter-large .rectangle-large, .grid__gutter-large .content .rectangle-large, .content .grid__gutter-large .rectangle-large, .grid__gutter-large .grid .page-square, .grid .grid__gutter-large .page-square, .grid__gutter-large .content .page-square, .content .grid__gutter-large .page-square, .grid__gutter-large .grid .page-rectangle, .grid .grid__gutter-large .page-rectangle, .grid__gutter-large .content .page-rectangle, .content .grid__gutter-large .page-rectangle, .grid__gutter-large .content .node-classified, .content .grid__gutter-large .node-classified, .grid__gutter-large #masthead .grid .text-logo, #masthead .grid .grid__gutter-large .text-logo, .grid__gutter-large #masthead .content .text-logo, #masthead .content .grid__gutter-large .text-logo, .grid__gutter-large #masthead .grid #nav, #masthead .grid .grid__gutter-large #nav, .grid__gutter-large #masthead .content #nav, #masthead .content .grid__gutter-large #nav {
     padding-left: 40px; }
 
 .grid__gutter-small {
   margin-left: -10px; }
-  .grid__gutter-small .grid__item, .grid__gutter-small .grid .square, .grid .grid__gutter-small .square, .grid__gutter-small .grid .inner-square, .grid .grid__gutter-small .inner-square, .grid__gutter-small .grid .square-large, .grid .grid__gutter-small .square-large, .grid__gutter-small .grid .square-medium, .grid .grid__gutter-small .square-medium, .grid__gutter-small .grid .square-small, .grid .grid__gutter-small .square-small, .grid__gutter-small .grid .rectangle, .grid .grid__gutter-small .rectangle, .grid__gutter-small .grid .rectangle-large, .grid .grid__gutter-small .rectangle-large, .grid__gutter-small .grid .page-square, .grid .grid__gutter-small .page-square, .grid__gutter-small .grid .page-rectangle, .grid .grid__gutter-small .page-rectangle, .grid__gutter-small #masthead .grid .text-logo, #masthead .grid .grid__gutter-small .text-logo, .grid__gutter-small #masthead .grid #nav, #masthead .grid .grid__gutter-small #nav {
+  .grid__gutter-small .grid__item, .grid__gutter-small .grid .square, .grid .grid__gutter-small .square, .grid__gutter-small .content .square, .content .grid__gutter-small .square, .grid__gutter-small .grid .inner-square, .grid .grid__gutter-small .inner-square, .grid__gutter-small .content .inner-square, .content .grid__gutter-small .inner-square, .grid__gutter-small .grid .square-large, .grid .grid__gutter-small .square-large, .grid__gutter-small .content .square-large, .content .grid__gutter-small .square-large, .grid__gutter-small .grid .square-medium, .grid .grid__gutter-small .square-medium, .grid__gutter-small .content .square-medium, .content .grid__gutter-small .square-medium, .grid__gutter-small .grid .square-small, .grid .grid__gutter-small .square-small, .grid__gutter-small .content .square-small, .content .grid__gutter-small .square-small, .grid__gutter-small .grid .rectangle, .grid .grid__gutter-small .rectangle, .grid__gutter-small .content .rectangle, .content .grid__gutter-small .rectangle, .grid__gutter-small .grid .rectangle-large, .grid .grid__gutter-small .rectangle-large, .grid__gutter-small .content .rectangle-large, .content .grid__gutter-small .rectangle-large, .grid__gutter-small .grid .page-square, .grid .grid__gutter-small .page-square, .grid__gutter-small .content .page-square, .content .grid__gutter-small .page-square, .grid__gutter-small .grid .page-rectangle, .grid .grid__gutter-small .page-rectangle, .grid__gutter-small .content .page-rectangle, .content .grid__gutter-small .page-rectangle, .grid__gutter-small .content .node-classified, .content .grid__gutter-small .node-classified, .grid__gutter-small #masthead .grid .text-logo, #masthead .grid .grid__gutter-small .text-logo, .grid__gutter-small #masthead .content .text-logo, #masthead .content .grid__gutter-small .text-logo, .grid__gutter-small #masthead .grid #nav, #masthead .grid .grid__gutter-small #nav, .grid__gutter-small #masthead .content #nav, #masthead .content .grid__gutter-small #nav {
     padding-left: 10px; }
 
 .one-whole {
@@ -66,25 +66,25 @@ html, body {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%; }
 
-.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths, .grid .inner-square, .grid .square-large {
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths, .grid .inner-square, .content .inner-square, .grid .square-large, .content .square-large {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%; }
 
-.one-third, .two-sixths, .four-twelfths, .grid .square, .grid .square-medium, .grid .page-square {
+.one-third, .two-sixths, .four-twelfths, .grid .square, .content .square, .grid .square-medium, .content .square-medium, .grid .page-square, .content .page-square {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 33.333%;
       -ms-flex: 0 0 33.333%;
           flex: 0 0 33.333%; }
 
-.two-thirds, .four-sixths, .eight-twelfths, .grid .rectangle, .grid .rectangle-large, .grid .page-rectangle {
+.two-thirds, .four-sixths, .eight-twelfths, .grid .rectangle, .content .rectangle, .grid .rectangle-large, .content .rectangle-large, .grid .page-rectangle, .content .page-rectangle {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 66.666%;
       -ms-flex: 0 0 66.666%;
           flex: 0 0 66.666%; }
 
-.one-quarter, .two-eighths, .three-twelfths {
+.one-quarter, .two-eighths, .three-twelfths, .front .content .node-classified {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 25%;
       -ms-flex: 0 0 25%;
@@ -120,7 +120,7 @@ html, body {
       -ms-flex: 0 0 80%;
           flex: 0 0 80%; }
 
-.one-sixth, .two-twelfths, .grid .square-small {
+.one-sixth, .two-twelfths, .grid .square-small, .content .square-small {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 16.666%;
       -ms-flex: 0 0 16.666%;
@@ -156,7 +156,7 @@ html, body {
       -ms-flex: 0 0 87.5%;
           flex: 0 0 87.5%; }
 
-.one-tenth, #masthead .grid .text-logo {
+.one-tenth, #masthead .grid .text-logo, #masthead .content .text-logo {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 10%;
       -ms-flex: 0 0 10%;
@@ -316,12 +316,12 @@ html, body {
             flex: 0 0 91.666%; } }
 
 @media only screen and (min-width: 361px) and (max-width: 480px) {
-  .mobile--one-whole, .grid .square, .grid .inner-square, .grid .square-large, .grid .square-small, .grid .rectangle, .grid .page-square, .grid .page-rectangle {
+  .mobile--one-whole, .grid .square, .content .square, .grid .inner-square, .content .inner-square, .grid .square-large, .content .square-large, .grid .square-small, .content .square-small, .grid .rectangle, .content .rectangle, .grid .page-square, .content .page-square, .grid .page-rectangle, .content .page-rectangle, .content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .grid .square-medium {
+  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .grid .square-medium, .content .square-medium {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -433,7 +433,7 @@ html, body {
             flex: 0 0 91.666%; } }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  .tablet--one-whole, .grid .rectangle {
+  .tablet--one-whole, .grid .rectangle, .content .rectangle {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
@@ -1335,43 +1335,43 @@ a {
     font-size: 1.5em;
     color: #999; }
 
-.grid {
+.grid, .content {
   margin-left: 0 !important; }
-  .grid .no-mobile {
+  .grid .no-mobile, .content .no-mobile {
     display: inline-block; }
-  .grid img {
+  .grid img, .content img {
     width: 100%;
     height: auto; }
-  .grid .square {
+  .grid .square, .content .square {
     padding-left: 0 !important; }
-  .grid .sizer {
+  .grid .sizer, .content .sizer {
     position: relative;
     width: 100%; }
-    .grid .sizer:before {
+    .grid .sizer:before, .content .sizer:before {
       content: "";
       display: block;
       padding-top: 100%; }
-  .grid .scaler {
+  .grid .scaler, .content .scaler {
     position: absolute;
     top: 20px;
     right: 20px;
     bottom: 20px;
     left: 20px; }
-  .grid .inner-square {
+  .grid .inner-square, .content .inner-square {
     padding-left: 0 !important; }
-  .grid .square-large {
+  .grid .square-large, .content .square-large {
     padding-left: 0 !important; }
-  .grid .square-medium {
+  .grid .square-medium, .content .square-medium {
     padding-left: 0 !important; }
-  .grid .square-small {
+  .grid .square-small, .content .square-small {
     padding-left: 0 !important; }
-  .grid .rectangle {
+  .grid .rectangle, .content .rectangle {
     padding-left: 0 !important; }
-  .grid .rectangle-large {
+  .grid .rectangle-large, .content .rectangle-large {
     padding-left: 0 !important; }
 
 @media only screen and (min-width: 361px) and (max-width: 480px) {
-  .grid .no-mobile {
+  .grid .no-mobile, .content .no-mobile {
     display: none; } }
 
 .button {
@@ -1496,13 +1496,21 @@ input {
   textarea {
     height: 150px !important; } }
 
+.content {
+  margin-left: 0 !important; }
+  .content .node-classified {
+    padding-left: 0 !important; }
+
+.meta.submitted span {
+  font-size: 0.625em; }
+
 #masthead {
   position: relative; }
-  #masthead .grid {
+  #masthead .grid, #masthead .content {
     position: relative; }
-    #masthead .grid .text-logo {
+    #masthead .grid .text-logo, #masthead .content .text-logo {
       padding-left: 0 !important; }
-    #masthead .grid #nav {
+    #masthead .grid #nav, #masthead .content #nav {
       padding-left: 0 !important; }
   #masthead .burger {
     position: relative;
@@ -1573,9 +1581,6 @@ input {
     color: #999; }
     #footend p a {
       color: #EE2F7F; }
-
-.home .image-banner {
-  background: #66615D url("../images/site/banner-home.jpg") no-repeat; }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
   .image-banner {
