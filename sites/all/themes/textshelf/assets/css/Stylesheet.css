@@ -199,7 +199,7 @@ html, body {
           flex: 0 0 91.666%; }
 
 @media only screen and (max-width: 360px) {
-  .small--one-whole {
+  .small--one-whole, .content .node-classified, .front .content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
@@ -316,7 +316,7 @@ html, body {
             flex: 0 0 91.666%; } }
 
 @media only screen and (min-width: 361px) and (max-width: 480px) {
-  .mobile--one-whole, .grid .square, .content .square, .grid .inner-square, .content .inner-square, .grid .square-large, .content .square-large, .grid .square-small, .content .square-small, .grid .rectangle, .content .rectangle, .grid .page-square, .content .page-square, .grid .page-rectangle, .content .page-rectangle, .content .node-classified {
+  .mobile--one-whole, .grid .square, .content .square, .grid .inner-square, .content .inner-square, .grid .square-large, .content .square-large, .grid .square-small, .content .square-small, .grid .rectangle, .content .rectangle, .grid .page-square, .content .page-square, .grid .page-rectangle, .content .page-rectangle, .content .node-classified, .front .content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;

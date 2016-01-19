@@ -11,7 +11,9 @@
         .node-classified {
 
             @extend .one-quarter;
-
+            @extend .mobile--one-whole;
+            @extend .small--one-whole;
+            
         }
         
     }
