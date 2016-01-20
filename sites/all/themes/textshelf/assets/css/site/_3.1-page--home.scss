@@ -13,9 +13,113 @@
             @extend .one-quarter;
             @extend .mobile--one-whole;
             @extend .small--one-whole;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: $baseline-small;
             
-        }
-        
+            &:before {
+                
+                content: "";
+                display: block;
+                padding-top: 120%;
+                
+            }
+            
+            h2 {
+                
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: $baseline-small 0;
+                background: rgba(0, 0, 0, 0.9);
+                margin: 0;
+                z-index: 10;
+                text-indent: $baseline-small;
+                
+            }
+            
+            .meta {
+                
+                &.submitted {
+                
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    padding: $baseline-small 0;
+                    text-indent: $baseline-small;
+                    z-index: 10;
+                    
+                }
+            }
+            
+            .content {
+                
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                z-index: 1;
+                
+                
+                a {
+                    
+                    display: block;
+                    
+                    img {
+                        
+                        width: 100%;
+                        height: auto;
+                        
+                    }
+                    
+                }
+                
+                p {
+                    
+                    position: absolute;
+                    bottom: 30px;
+                    left: 0;
+                    right: 0;
+                    padding: $baseline-small;
+                    z-index: 10;
+                    margin: 0;
+                    
+                }
+                
+                span {
+                    
+                    position: absolute;
+                    top: 60px;
+                    
+                    &:first-of-type {
+                        
+                        left: 0;
+                        z-index: 200;
+                        background: $orange;
+                        
+                    }
+                    
+                    &:last-of-type {
+                        
+                        right: 0;
+                        z-index: 300;
+                        background: $yellow;
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            .link-wrapper {
+                
+                display: none;    
+                
+            }
+        }   
     }
     
 

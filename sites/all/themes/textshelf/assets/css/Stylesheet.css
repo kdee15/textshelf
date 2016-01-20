@@ -1499,7 +1499,8 @@ input {
 .content {
   margin-left: 0 !important; }
   .content .node-classified {
-    padding-left: 0 !important; }
+    padding-left: 0 !important;
+    position: relative; }
 
 .meta.submitted span {
   font-size: 0.625em; }
@@ -1581,6 +1582,66 @@ input {
     color: #999; }
     #footend p a {
       color: #EE2F7F; }
+
+.front .content .node-classified {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px; }
+  .front .content .node-classified:before {
+    content: "";
+    display: block;
+    padding-top: 120%; }
+  .front .content .node-classified h2 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.9);
+    margin: 0;
+    z-index: 10;
+    text-indent: 10px; }
+  .front .content .node-classified .meta.submitted {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+    text-indent: 10px;
+    z-index: 10; }
+  .front .content .node-classified .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1; }
+    .front .content .node-classified .content a {
+      display: block; }
+      .front .content .node-classified .content a img {
+        width: 100%;
+        height: auto; }
+    .front .content .node-classified .content p {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      z-index: 10;
+      margin: 0; }
+    .front .content .node-classified .content span {
+      position: absolute;
+      top: 60px; }
+      .front .content .node-classified .content span:first-of-type {
+        left: 0;
+        z-index: 200;
+        background: #FF5d26; }
+      .front .content .node-classified .content span:last-of-type {
+        right: 0;
+        z-index: 300;
+        background: #ffc40d; }
+  .front .content .node-classified .link-wrapper {
+    display: none; }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
   .image-banner {
