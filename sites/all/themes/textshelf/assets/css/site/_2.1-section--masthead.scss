@@ -13,7 +13,8 @@
         .text-logo {
             
             @extend .grid__item;
-            @extend .one-tenth;
+            @extend .four-fifths;
+            @extend .desk--three-fifths;
             padding-left: 0!important;
             
         }
@@ -21,7 +22,8 @@
         #nav {
             
             @extend .grid__item;
-            @extend .nine-tenths;
+            @extend .one-fifth;
+            @extend .desk--two-fifths;
             padding-left: 0!important;
         
         }
@@ -29,9 +31,9 @@
     
     .burger {
         
-        @include aspect-ratio(10%, 100%);
+        @include aspect-ratio(50%, 100%);
         float: right;
-        margin-top: 1%;
+        margin-top: 4%;
         
         .svg-burger {
             

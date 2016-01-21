@@ -31,6 +31,7 @@ form {
 
     // A.2. INPUTS ----------------------------------------------------------------------------------------------------
     
+    input[type="email"],
     input[type="text"],
     input[type="password"],
     input[type="select"],
@@ -38,9 +39,10 @@ form {
         width: 100%; 
         margin-bottom: 0px; 
         display: block; 
-        padding: $baseline/2;
-        box-sizing: border-box!important;
+        padding: $baseline / 2;
+        box-sizing: border-box;
     }
+    
     
     // A.2. END -------------------------------------------------------------------------------------------------------
 
