@@ -35,10 +35,11 @@ form {
     input[type="password"],
     input[type="select"],
     input[type="search"] {
-        width: 90%; 
+        width: 100%; 
         margin-bottom: 0px; 
         display: block; 
-        padding: $baseline / 2;
+        padding: $baseline/2;
+        box-sizing: border-box!important;
     }
     
     // A.2. END -------------------------------------------------------------------------------------------------------
