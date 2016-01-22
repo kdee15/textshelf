@@ -13,7 +13,10 @@
     $w-blueDark:    #495969;
 
 
+    $redLight:		#EE2F7F;
     $maroon:		#EE2F7F;
+    $maroonDark:    #EE2F7F;
+    $redDark:		#EE2F7F;
     $aqua:			#72CBD1;
     $midgrey:		#66615D;
     $greyLighter:	#E7E7E8;
@@ -36,6 +39,8 @@
     $brownDark:     #66615D;
     $brownDarker:   #AFA79B;
     $blue:          #70CBD2;
+    $cyan:          #70CBD2;
+    $cyanDark:      #1E9694;
 
 
 // A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,6 +64,7 @@ $bold:          700;
 $baseline-large:    $baseline*4;
 $baseline-medium:   $baseline*2;
 $baseline-small:    $baseline/2;
+$baseline-smaller:  $baseline/4;
 
 // C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

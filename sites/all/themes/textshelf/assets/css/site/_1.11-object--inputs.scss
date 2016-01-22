@@ -1,0 +1,560 @@
+// 1. OBJECT [ 1.11. USER INPUTS ]  ###################################################################################
+
+// A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// A.1. BUTTONS -------------------------------------------------------------------------------------------------------
+
+.button {
+    
+    cursor: pointer;
+    border: 0;
+
+    &.small {
+
+        padding: $baseline/4 0;
+        display: block;
+        border-radius: 1px;
+        border-top: 2px solid;
+        font-weight: bold;
+        letter-spacing: 1pt;
+        word-spacing: 0pt; 
+        text-decoration: none;
+        text-align: center;
+        font-size: $normal;
+
+    }
+    
+    &.full {
+
+        display: block;
+        border-radius: 1px;
+        font-weight: bold;
+        letter-spacing: 1pt;
+        word-spacing: 0pt; 
+        text-decoration: none;
+        text-align: center;
+        font-size: $normal;
+        display: block;
+        padding: $baseline/2 0;
+        border-bottom: 2px solid;
+
+    } 
+    
+    &.half {
+
+        width: 45%;
+        padding: $baseline/2 0;
+        display: inline-block;
+        border-radius: 1px;
+        font-weight: bold;
+        letter-spacing: 1pt;
+        word-spacing: 0pt; 
+        text-decoration: none;
+        text-align: center;
+        font-size: $normal;
+        border-bottom: 2px solid;
+        margin-right: $baseline-small;
+        
+        &:last-child {
+            
+            margin-right: 0;   
+            
+        }
+    }
+    
+    &.single {
+        
+        width: 30%;
+        padding: $baseline/2;
+        display: block;
+        border-radius: 1px;
+        font-weight: bold;
+        letter-spacing: 1pt;
+        word-spacing: 0pt; 
+        text-decoration: none;
+        text-align: center;
+        font-size: $normal;
+        border-bottom: 2px solid;
+        margin: 0 auto;
+        white-space: nowrap;
+        
+    }
+        
+    &.gridded {
+        
+        padding: $baseline/2;
+        display: block;
+        border-radius: 1px;
+        font-weight: bold;
+        letter-spacing: 1pt;
+        word-spacing: 0pt; 
+        text-decoration: none;
+        text-align: center;
+        font-size: $normal;
+        border-bottom: 2px solid;
+        margin: 0 auto;
+        white-space: nowrap;
+        
+    }
+    
+    &.image {
+        
+        padding: 0;
+        border: 0;
+        
+        .image {
+            
+            width: 100%;
+            height: auto;
+            
+        }
+        
+        &:hover {
+            
+            opacity: 0.8;
+            
+        }
+        
+    }
+    
+    &.orange {
+        
+        background-color: $redLight;
+        color: $white !important;
+        border-color: $redDark;
+        
+    }
+    
+    &.gray {
+        
+        background-color: $grayLight;
+        color: $grayDark !important;
+        border-color: $gray;
+            
+        &.active {
+
+            background-color: $redLight;
+            color: $white !important;
+            border-color: $redDark;
+
+        }
+    }
+    
+    &.cyan {
+        
+        background-color: $cyan;
+        color: $white !important;
+        border-color: $cyanDark;
+        
+    }
+        
+    &.blue {
+        
+        background-color: $blue;
+        color: $white !important;
+        border-color: $blueDark;
+        
+    }
+             
+    &.purple {
+        
+        background-color: $purple;
+        color: $white !important;
+        border-color: $purpleDark;
+        
+    }
+                   
+    &.maroon {
+        
+        background-color: $maroon;
+        color: $white !important;
+        border-color: $maroonDark;
+        
+    }
+            
+    &.white {
+        
+        background-color: $white;
+        color: $gray !important;
+        border-color: $gray;
+            
+        &.active {
+
+            background-color: $redLight;
+            color: $white !important;
+            border-color: $redDark;
+
+        }
+    }
+    
+    &:disabled,
+    &.disabled,            
+    &.inactive {
+        
+        background-color: $grayLighter;
+        color: $grayLight !important;
+        border-color: $grayLight;
+        transition: 0s!important;
+            
+        &.active {
+
+            background-color: $redLight;
+            color: $white !important;
+            border-color: $redDark;
+
+        }
+    }
+    
+    &.clear {
+        
+        color: $grayDark;
+        border-color: transparent;
+        text-transform: uppercase;
+        
+        &.active {
+            
+            border-color: $redLight;
+            
+        }
+    }
+    
+    &.symbol {
+        
+        padding: $baseline;   
+        
+    }
+    
+    .icon-left {
+        
+        width: 35px;
+        height: 35px;
+        
+    }
+}
+
+.nav-item {
+    
+    &.active {
+        
+        a {
+
+            background-color: $redLight !important;
+            box-shadow: 0px 2px 0px $redDark !important;
+            color: $white !important;
+            border-top: 1px solid $redDark !important;
+
+        }
+    }  
+}
+
+.text-link {
+    
+    font-family: 'proxima_nova_rgregular', "arial", helvetica;
+    
+    .red {
+
+        text-transform: uppercase;
+        color: $redLight !important;
+
+    }
+}
+
+// A.1. END -----------------------------------------------------------------------------------------------------------
+
+// A.2. FORMS ---------------------------------------------------------------------------------------------------------
+
+// A.2.0. TEXT FIELDS -------------------------------------------------------------------------------------------------
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"],
+input[type="date"] {
+    
+    width: 100%!important;
+    display: block; 
+    padding: 10px;
+    margin-bottom: 0;
+    box-sizing: border-box!important;
+    
+}
+
+textarea {
+    
+    box-sizing: border-box !important;
+    width: 100%!important;
+    height: 60px !important;
+}
+    
+// A.2.0. END ---------------------------------------------------------------------------------------------------------
+
+// A.2.1. RADIO BUTTONS -----------------------------------------------------------------------------------------------
+
+.radio-buttons {
+    
+    margin: 0;
+    padding: 0;
+    margin-left: 0 !important;
+    
+    .grid__item {
+        
+        position: relative;
+        padding-left: 0 !important;
+
+        input {
+
+            position: absolute;
+            z-index: -1;
+            top: $baseline-small;
+            left: $baseline-small;
+
+        }
+
+        label {
+
+            position: relative;
+            z-index: 1;   
+
+        }
+    }
+}
+
+
+// A.2.1. END ---------------------------------------------------------------------------------------------------------
+
+// A.2.2. CHECK BOXES -------------------------------------------------------------------------------------------------
+
+.checkbox {
+
+    a {
+
+        line-height: normal;
+        color: $redLight;
+
+    }
+}
+
+.field-tickbox {
+    
+    position: relative;
+    
+    label {
+        
+        margin: 0;
+        padding: 0;
+        margin-left: 0 !important;
+        
+    }
+
+    input {
+
+        @include position (absolute, 0);
+        z-index: -1;
+        opacity: 0;
+
+    }
+
+    .tick-box {
+
+        background-position: center center;
+        border: 2px solid $redLight;
+        padding: 15px;
+        background-size: cover;
+
+        &.active {
+
+            background: url(../images/icons/icon__checked.svg);
+            background-size: cover;
+
+        }
+
+    }
+
+    span {
+
+        display: inline-block;
+        line-height: normal;
+
+    }
+
+}
+
+// A.2.2. END ---------------------------------------------------------------------------------------------------------
+
+// A.2.3. VERIFICATION ------------------------------------------------------------------------------------------------
+
+.validate {
+    
+    padding: $baseline/3 $baseline-small;
+    text-align: center;
+    
+    span {
+        
+        color: $white;
+        font-size: $small;
+        
+    }
+    
+    &.verified {
+        
+        border: 1px solid $redLight;
+        margin-top: $baseline-small;
+        
+        span {
+            
+            color: $redLight;
+            
+        }
+    }
+    
+    &.used {
+        
+        border: 1px solid $redLight;
+        
+        span {
+            
+            color: $redLight;
+            
+        }
+    }
+}
+
+.page-contact {
+    
+    .validate {
+        
+        &.verified {
+            
+            margin-bottom: $baseline;       
+            
+        }
+    }
+}
+
+// A.2.3. END ---------------------------------------------------------------------------------------------------------
+
+// A.2.4. TEXT FIELDS -------------------------------------------------------------------------------------------------
+
+.field-item {
+    
+    margin-bottom: $baseline-small!important;
+    
+    &.text {
+        
+        label {
+            
+            font-size: $small;
+            color: $gray;
+            
+        }
+    }
+}
+
+// A.2.4. END ---------------------------------------------------------------------------------------------------------
+
+// A.2.5. SELECT FIELDS -----------------------------------------------------------------------------------------------
+
+.select-box {
+    
+    select,
+    #select-size {
+        
+        padding: $baseline-small;
+        background: $white;
+        width: 96%;
+        
+    }
+    
+}
+
+// A.2.5. END ---------------------------------------------------------------------------------------------------------
+
+// A.2. END -----------------------------------------------------------------------------------------------------------
+
+// A.3. SOCIAL MEDIA --------------------------------------------------------------------------------------------------
+
+.section__buttons {
+    
+    margin-top: $baseline-small;
+    
+    .socmed__buttons {
+        
+        &:last-child {
+            
+            .socmed {
+                
+                margin-right: 0;
+                
+            }
+        }
+    }
+}
+
+// A.3. END -----------------------------------------------------------------------------------------------------------
+
+// A.5. FORMS ---------------------------------------------------------------------------------------------------------
+
+.form {
+    
+    .form__footer {
+        
+        margin: $baseline-small;
+        margin-top: $baseline;
+        
+    }
+    
+}
+
+
+
+// A.5. END -----------------------------------------------------------------------------------------------------------
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(small) {
+
+
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(mobile) {
+
+
+}
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(tablet) {
+
+
+}
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk) {
+
+
+}
+
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// F. WIDE DESKTOP STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk-wide) {
+
+
+}
+
+// F. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

@@ -96,7 +96,7 @@ html, body {
       -ms-flex: 0 0 75%;
           flex: 0 0 75%; }
 
-.one-fifth, .two-tenths {
+.one-fifth, .two-tenths, #masthead .grid #nav, #masthead .view-content #nav {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 20%;
       -ms-flex: 0 0 20%;
@@ -114,7 +114,7 @@ html, body {
       -ms-flex: 0 0 60%;
           flex: 0 0 60%; }
 
-.four-fifths, .eight-tenths {
+.four-fifths, .eight-tenths, #masthead .grid .text-logo, #masthead .view-content .text-logo {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 80%;
       -ms-flex: 0 0 80%;
@@ -156,7 +156,7 @@ html, body {
       -ms-flex: 0 0 87.5%;
           flex: 0 0 87.5%; }
 
-.one-tenth, #masthead .grid .text-logo, #masthead .view-content .text-logo {
+.one-tenth {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 10%;
       -ms-flex: 0 0 10%;
@@ -199,12 +199,12 @@ html, body {
           flex: 0 0 91.666%; }
 
 @media only screen and (max-width: 360px) {
-  .small--one-whole, .view-content .node-classified, .view-featured-ads .view-content .node-classified {
+  .small--one-whole, .view-content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  .small--one-half, .small--two-quarters, .small--three-sixths, .small--four-eighths, .small--five-tenths, .small--six-twelfths {
+  .small--one-half, .small--two-quarters, .small--three-sixths, .small--four-eighths, .small--five-tenths, .small--six-twelfths, .view-featured-ads .view-content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -316,12 +316,12 @@ html, body {
             flex: 0 0 91.666%; } }
 
 @media only screen and (min-width: 361px) and (max-width: 480px) {
-  .mobile--one-whole, .grid .square, .view-content .square, .grid .inner-square, .view-content .inner-square, .grid .square-large, .view-content .square-large, .grid .square-small, .view-content .square-small, .grid .rectangle, .view-content .rectangle, .grid .page-square, .view-content .page-square, .grid .page-rectangle, .view-content .page-rectangle, .view-content .node-classified, .view-featured-ads .view-content .node-classified {
+  .mobile--one-whole, .grid .square, .view-content .square, .grid .inner-square, .view-content .inner-square, .grid .square-large, .view-content .square-large, .grid .square-small, .view-content .square-small, .grid .rectangle, .view-content .rectangle, .grid .page-square, .view-content .page-square, .grid .page-rectangle, .view-content .page-rectangle, .view-content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .grid .square-medium, .view-content .square-medium {
+  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .grid .square-medium, .view-content .square-medium, .view-featured-ads .view-content .node-classified {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
@@ -585,12 +585,12 @@ html, body {
     -webkit-flex: 0 0 20%;
         -ms-flex: 0 0 20%;
             flex: 0 0 20%; }
-  .desk--two-fifths, .desk--four-tenths {
+  .desk--two-fifths, .desk--four-tenths, #masthead .grid #nav, #masthead .view-content #nav {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 40%;
         -ms-flex: 0 0 40%;
             flex: 0 0 40%; }
-  .desk--three-fifths, .desk--six-tenths {
+  .desk--three-fifths, .desk--six-tenths, #masthead .grid .text-logo, #masthead .view-content .text-logo {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 60%;
         -ms-flex: 0 0 60%;
@@ -1326,7 +1326,7 @@ a {
     display: none; } }
 
 .section-search {
-  background: #555;
+  background: #eee;
   padding: 40px; }
   .section-search label {
     display: none; }
@@ -1496,7 +1496,8 @@ input {
     height: 150px !important; } }
 
 .view-content {
-  margin-left: 0 !important; }
+  margin-left: 0 !important;
+  margin-top: 10px; }
   .view-content .node-classified {
     padding-left: 0 !important;
     position: relative; }
@@ -1527,9 +1528,15 @@ input {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 10px 0;
-    text-indent: 10px;
-    z-index: 10; }
+    padding: 5px;
+    z-index: 10;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    line-height: normal;
+    background: rgba(20, 20, 20, 0.3); }
+    .view-featured-ads .view-content .node-classified .meta.submitted span {
+      color: #eee;
+      text-shadow: 1px 1px 1px #000; }
   .view-featured-ads .view-content .node-classified .content {
     position: absolute;
     bottom: 0;
@@ -1544,12 +1551,15 @@ input {
         height: auto; }
     .view-featured-ads .view-content .node-classified .content p {
       position: absolute;
-      bottom: 30px;
+      bottom: 40px;
       left: 0;
       right: 0;
       padding: 10px;
       z-index: 10;
-      margin: 0; }
+      margin: 0;
+      background: rgba(100, 100, 100, 0.4);
+      color: #fff;
+      text-shadow: 1px 1px 1px #000; }
     .view-featured-ads .view-content .node-classified .content span {
       position: absolute;
       top: 60px; }
@@ -1564,6 +1574,259 @@ input {
   .view-featured-ads .view-content .node-classified .link-wrapper {
     display: none; }
 
+.button {
+  cursor: pointer;
+  border: 0; }
+  .button.small {
+    padding: 5px 0;
+    display: block;
+    border-radius: 1px;
+    border-top: 2px solid;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em; }
+  .button.full {
+    display: block;
+    border-radius: 1px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 2px solid; }
+  .button.half {
+    width: 45%;
+    padding: 10px 0;
+    display: inline-block;
+    border-radius: 1px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 2px solid;
+    margin-right: 10px; }
+    .button.half:last-child {
+      margin-right: 0; }
+  .button.single {
+    width: 30%;
+    padding: 10px;
+    display: block;
+    border-radius: 1px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 2px solid;
+    margin: 0 auto;
+    white-space: nowrap; }
+  .button.gridded {
+    padding: 10px;
+    display: block;
+    border-radius: 1px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 2px solid;
+    margin: 0 auto;
+    white-space: nowrap; }
+  .button.image {
+    padding: 0;
+    border: 0; }
+    .button.image .image {
+      width: 100%;
+      height: auto; }
+    .button.image:hover {
+      opacity: 0.8; }
+  .button.orange {
+    background-color: #EE2F7F;
+    color: #fff !important;
+    border-color: #EE2F7F; }
+  .button.gray {
+    background-color: #999;
+    color: #333 !important;
+    border-color: #555; }
+    .button.gray.active {
+      background-color: #EE2F7F;
+      color: #fff !important;
+      border-color: #EE2F7F; }
+  .button.cyan {
+    background-color: #70CBD2;
+    color: #fff !important;
+    border-color: #1E9694; }
+  .button.blue {
+    background-color: #70CBD2;
+    color: #fff !important;
+    border-color: #0064cd; }
+  .button.purple {
+    background-color: #A5439A;
+    color: #fff !important;
+    border-color: #A54399; }
+  .button.maroon {
+    background-color: #EE2F7F;
+    color: #fff !important;
+    border-color: #EE2F7F; }
+  .button.white {
+    background-color: #fff;
+    color: #555 !important;
+    border-color: #555; }
+    .button.white.active {
+      background-color: #EE2F7F;
+      color: #fff !important;
+      border-color: #EE2F7F; }
+  .button:disabled, .button.disabled, .button.inactive {
+    background-color: #eee;
+    color: #999 !important;
+    border-color: #999;
+    -webkit-transition: 0s !important;
+            transition: 0s !important; }
+    .button:disabled.active, .button.disabled.active, .button.inactive.active {
+      background-color: #EE2F7F;
+      color: #fff !important;
+      border-color: #EE2F7F; }
+  .button.clear {
+    color: #333;
+    border-color: transparent;
+    text-transform: uppercase; }
+    .button.clear.active {
+      border-color: #EE2F7F; }
+  .button.symbol {
+    padding: 20px; }
+  .button .icon-left {
+    width: 35px;
+    height: 35px; }
+
+.nav-item.active a {
+  background-color: #EE2F7F !important;
+  -webkit-box-shadow: 0px 2px 0px #EE2F7F !important;
+          box-shadow: 0px 2px 0px #EE2F7F !important;
+  color: #fff !important;
+  border-top: 1px solid #EE2F7F !important; }
+
+.text-link {
+  font-family: 'proxima_nova_rgregular', "arial", helvetica; }
+  .text-link .red {
+    text-transform: uppercase;
+    color: #EE2F7F !important; }
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"],
+input[type="date"] {
+  width: 100% !important;
+  display: block;
+  padding: 10px;
+  margin-bottom: 0;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important; }
+
+textarea {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  width: 100% !important;
+  height: 60px !important; }
+
+.radio-buttons {
+  margin: 0;
+  padding: 0;
+  margin-left: 0 !important; }
+  .radio-buttons .grid__item, .radio-buttons .grid .square, .grid .radio-buttons .square, .radio-buttons .view-content .square, .view-content .radio-buttons .square, .radio-buttons .grid .inner-square, .grid .radio-buttons .inner-square, .radio-buttons .view-content .inner-square, .view-content .radio-buttons .inner-square, .radio-buttons .grid .square-large, .grid .radio-buttons .square-large, .radio-buttons .view-content .square-large, .view-content .radio-buttons .square-large, .radio-buttons .grid .square-medium, .grid .radio-buttons .square-medium, .radio-buttons .view-content .square-medium, .view-content .radio-buttons .square-medium, .radio-buttons .grid .square-small, .grid .radio-buttons .square-small, .radio-buttons .view-content .square-small, .view-content .radio-buttons .square-small, .radio-buttons .grid .rectangle, .grid .radio-buttons .rectangle, .radio-buttons .view-content .rectangle, .view-content .radio-buttons .rectangle, .radio-buttons .grid .rectangle-large, .grid .radio-buttons .rectangle-large, .radio-buttons .view-content .rectangle-large, .view-content .radio-buttons .rectangle-large, .radio-buttons .grid .page-square, .grid .radio-buttons .page-square, .radio-buttons .view-content .page-square, .view-content .radio-buttons .page-square, .radio-buttons .grid .page-rectangle, .grid .radio-buttons .page-rectangle, .radio-buttons .view-content .page-rectangle, .view-content .radio-buttons .page-rectangle, .radio-buttons .view-content .node-classified, .view-content .radio-buttons .node-classified, .radio-buttons #masthead .grid .text-logo, #masthead .grid .radio-buttons .text-logo, .radio-buttons #masthead .view-content .text-logo, #masthead .view-content .radio-buttons .text-logo, .radio-buttons #masthead .grid #nav, #masthead .grid .radio-buttons #nav, .radio-buttons #masthead .view-content #nav, #masthead .view-content .radio-buttons #nav {
+    position: relative;
+    padding-left: 0 !important; }
+    .radio-buttons .grid__item input, .radio-buttons .grid .square input, .grid .radio-buttons .square input, .radio-buttons .view-content .square input, .view-content .radio-buttons .square input, .radio-buttons .grid .inner-square input, .grid .radio-buttons .inner-square input, .radio-buttons .view-content .inner-square input, .view-content .radio-buttons .inner-square input, .radio-buttons .grid .square-large input, .grid .radio-buttons .square-large input, .radio-buttons .view-content .square-large input, .view-content .radio-buttons .square-large input, .radio-buttons .grid .square-medium input, .grid .radio-buttons .square-medium input, .radio-buttons .view-content .square-medium input, .view-content .radio-buttons .square-medium input, .radio-buttons .grid .square-small input, .grid .radio-buttons .square-small input, .radio-buttons .view-content .square-small input, .view-content .radio-buttons .square-small input, .radio-buttons .grid .rectangle input, .grid .radio-buttons .rectangle input, .radio-buttons .view-content .rectangle input, .view-content .radio-buttons .rectangle input, .radio-buttons .grid .rectangle-large input, .grid .radio-buttons .rectangle-large input, .radio-buttons .view-content .rectangle-large input, .view-content .radio-buttons .rectangle-large input, .radio-buttons .grid .page-square input, .grid .radio-buttons .page-square input, .radio-buttons .view-content .page-square input, .view-content .radio-buttons .page-square input, .radio-buttons .grid .page-rectangle input, .grid .radio-buttons .page-rectangle input, .radio-buttons .view-content .page-rectangle input, .view-content .radio-buttons .page-rectangle input, .radio-buttons .view-content .node-classified input, .view-content .radio-buttons .node-classified input, .radio-buttons #masthead .grid .text-logo input, #masthead .grid .radio-buttons .text-logo input, .radio-buttons #masthead .view-content .text-logo input, #masthead .view-content .radio-buttons .text-logo input, .radio-buttons #masthead .grid #nav input, #masthead .grid .radio-buttons #nav input, .radio-buttons #masthead .view-content #nav input, #masthead .view-content .radio-buttons #nav input {
+      position: absolute;
+      z-index: -1;
+      top: 10px;
+      left: 10px; }
+    .radio-buttons .grid__item label, .radio-buttons .grid .square label, .grid .radio-buttons .square label, .radio-buttons .view-content .square label, .view-content .radio-buttons .square label, .radio-buttons .grid .inner-square label, .grid .radio-buttons .inner-square label, .radio-buttons .view-content .inner-square label, .view-content .radio-buttons .inner-square label, .radio-buttons .grid .square-large label, .grid .radio-buttons .square-large label, .radio-buttons .view-content .square-large label, .view-content .radio-buttons .square-large label, .radio-buttons .grid .square-medium label, .grid .radio-buttons .square-medium label, .radio-buttons .view-content .square-medium label, .view-content .radio-buttons .square-medium label, .radio-buttons .grid .square-small label, .grid .radio-buttons .square-small label, .radio-buttons .view-content .square-small label, .view-content .radio-buttons .square-small label, .radio-buttons .grid .rectangle label, .grid .radio-buttons .rectangle label, .radio-buttons .view-content .rectangle label, .view-content .radio-buttons .rectangle label, .radio-buttons .grid .rectangle-large label, .grid .radio-buttons .rectangle-large label, .radio-buttons .view-content .rectangle-large label, .view-content .radio-buttons .rectangle-large label, .radio-buttons .grid .page-square label, .grid .radio-buttons .page-square label, .radio-buttons .view-content .page-square label, .view-content .radio-buttons .page-square label, .radio-buttons .grid .page-rectangle label, .grid .radio-buttons .page-rectangle label, .radio-buttons .view-content .page-rectangle label, .view-content .radio-buttons .page-rectangle label, .radio-buttons .view-content .node-classified label, .view-content .radio-buttons .node-classified label, .radio-buttons #masthead .grid .text-logo label, #masthead .grid .radio-buttons .text-logo label, .radio-buttons #masthead .view-content .text-logo label, #masthead .view-content .radio-buttons .text-logo label, .radio-buttons #masthead .grid #nav label, #masthead .grid .radio-buttons #nav label, .radio-buttons #masthead .view-content #nav label, #masthead .view-content .radio-buttons #nav label {
+      position: relative;
+      z-index: 1; }
+
+.checkbox a {
+  line-height: normal;
+  color: #EE2F7F; }
+
+.field-tickbox {
+  position: relative; }
+  .field-tickbox label {
+    margin: 0;
+    padding: 0;
+    margin-left: 0 !important; }
+  .field-tickbox input {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0; }
+  .field-tickbox .tick-box {
+    background-position: center center;
+    border: 2px solid #EE2F7F;
+    padding: 15px;
+    background-size: cover; }
+    .field-tickbox .tick-box.active {
+      background: url(../images/icons/icon__checked.svg);
+      background-size: cover; }
+  .field-tickbox span {
+    display: inline-block;
+    line-height: normal; }
+
+.validate {
+  padding: 6.66667px 10px;
+  text-align: center; }
+  .validate span {
+    color: #fff;
+    font-size: 0.75em; }
+  .validate.verified {
+    border: 1px solid #EE2F7F;
+    margin-top: 10px; }
+    .validate.verified span {
+      color: #EE2F7F; }
+  .validate.used {
+    border: 1px solid #EE2F7F; }
+    .validate.used span {
+      color: #EE2F7F; }
+
+.page-contact .validate.verified {
+  margin-bottom: 20px; }
+
+.field-item {
+  margin-bottom: 10px !important; }
+  .field-item.text label {
+    font-size: 0.75em;
+    color: #555; }
+
+.select-box select,
+.select-box #select-size {
+  padding: 10px;
+  background: #fff;
+  width: 96%; }
+
+.section__buttons {
+  margin-top: 10px; }
+  .section__buttons .socmed__buttons:last-child .socmed {
+    margin-right: 0; }
+
+.form .form__footer {
+  margin: 10px;
+  margin-top: 20px; }
+
 #masthead {
   position: relative; }
   #masthead .grid, #masthead .view-content {
@@ -1574,9 +1837,9 @@ input {
       padding-left: 0 !important; }
   #masthead .burger {
     position: relative;
-    width: 10%;
+    width: 50%;
     float: right;
-    margin-top: 1%; }
+    margin-top: 4%; }
     #masthead .burger:before {
       content: "";
       display: block;
