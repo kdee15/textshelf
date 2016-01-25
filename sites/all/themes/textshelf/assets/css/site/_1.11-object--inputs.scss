@@ -79,43 +79,6 @@
         white-space: nowrap;
         
     }
-        
-    &.gridded {
-        
-        padding: $baseline/2;
-        display: block;
-        border-radius: 1px;
-        font-weight: bold;
-        letter-spacing: 1pt;
-        word-spacing: 0pt; 
-        text-decoration: none;
-        text-align: center;
-        font-size: $normal;
-        border-bottom: 2px solid;
-        margin: 0 auto;
-        white-space: nowrap;
-        
-    }
-    
-    &.image {
-        
-        padding: 0;
-        border: 0;
-        
-        .image {
-            
-            width: 100%;
-            height: auto;
-            
-        }
-        
-        &:hover {
-            
-            opacity: 0.8;
-            
-        }
-        
-    }
     
     &.orange {
         
@@ -138,38 +101,6 @@
             border-color: $redDark;
 
         }
-    }
-    
-    &.cyan {
-        
-        background-color: $cyan;
-        color: $white !important;
-        border-color: $cyanDark;
-        
-    }
-        
-    &.blue {
-        
-        background-color: $blue;
-        color: $white !important;
-        border-color: $blueDark;
-        
-    }
-             
-    &.purple {
-        
-        background-color: $purple;
-        color: $white !important;
-        border-color: $purpleDark;
-        
-    }
-                   
-    &.maroon {
-        
-        background-color: $maroon;
-        color: $white !important;
-        border-color: $maroonDark;
-        
     }
             
     &.white {
@@ -217,12 +148,7 @@
             
         }
     }
-    
-    &.symbol {
-        
-        padding: $baseline;   
-        
-    }
+
     
     .icon-left {
         
@@ -230,6 +156,43 @@
         height: 35px;
         
     }
+}
+
+input[type="submit"] {
+    
+    padding: $baseline-small;
+    display: block;
+    border-radius: 1px;
+    border-top: 2px solid;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    word-spacing: 0pt; 
+    text-decoration: none;
+    text-align: center;
+    font-size: $normal;
+    cursor: pointer;
+    border: 0;
+        
+    background-color: $grayLight;
+    color: $grayDark !important;
+    border-color: $gray;
+            
+    &.active {
+
+        background-color: $redLight;
+        color: $white !important;
+        border-color: $redDark;
+
+    }
+    
+    &:hover {
+
+        background-color: $orange;
+        color: $white !important;
+        border-color: $redDark;
+        
+    }
+    
 }
 
 .nav-item {
@@ -275,7 +238,10 @@ input[type="date"] {
     width: 100%!important;
     display: block; 
     padding: 10px;
+    margin-top: $baseline-small;
     margin-bottom: 0;
+    //background: $greyLightest;
+    box-shadow: 0px 1px 5px $grayLight;
     box-sizing: border-box!important;
     
 }

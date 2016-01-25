@@ -22,16 +22,6 @@ function textshelf_template_preprocess_search_results(&$variables) {
     
     $variables['pager'] = theme('pager', array('tags' => NULL));
     $variables['theme_hook_suggestions'][] = 'search_results__' . $variables['module'];
-
-    // Add image to product search result 
-    if ($result['node']->type == "classified") {
-        
-        $node = node_load($result['node']->nid);
-        $field_product_image = field_view_field('node', $node, 'field_product_image', $display = array());
-        $variables['image'] = $field_product_image;
-        
-    }
-    
     
 }
     
