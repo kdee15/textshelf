@@ -1326,13 +1326,20 @@ a {
     display: none; } }
 
 .section-search {
-  background: #eee;
-  padding: 40px; }
+  background: #eee; }
   .section-search label {
     display: none; }
   .section-search .form-text {
     font-size: 1.5em;
     color: #999; }
+  .section-search .block-search {
+    padding: 40px; }
+
+.not-logged-in .section-user-nav {
+  display: none; }
+
+.section-user-nav h5 {
+  display: none; }
 
 .grid, .view-content {
   margin-left: 0 !important; }
@@ -1825,6 +1832,41 @@ textarea {
       display: inline-block;
       margin-bottom: -1px; }
 
+.content .menu {
+  margin: 20px 0;
+  padding-left: 0; }
+  .content .menu .leaf {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0 10px; }
+    .content .menu .leaf.first {
+      margin-left: 0; }
+    .content .menu .leaf a {
+      padding: 10px;
+      display: block;
+      background: #E7E7E8;
+      border-radius: 1px;
+      border-top: 2px solid;
+      font-weight: bold;
+      letter-spacing: 1pt;
+      word-spacing: 0pt;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1em;
+      cursor: pointer;
+      border: 0;
+      color: #333 !important;
+      border-color: #555; }
+      .content .menu .leaf a.active {
+        background-color: #FF5d26;
+        color: #fff !important;
+        border-color: #FF5d26; }
+      .content .menu .leaf a:hover {
+        background-color: #FF5d26;
+        color: #fff !important;
+        border-color: #EB6650; }
+
 #masthead {
   position: relative; }
   #masthead .grid, #masthead .view-content {
@@ -1866,11 +1908,11 @@ textarea {
 
 @media only screen and (min-width: 1024px) {
   #mast .container {
-    margin: 0; } }
+    margin: 20px auto; } }
 
 @media only screen and (min-width: 1200px) {
   #mast .container {
-    margin: 0; } }
+    margin: 20px auto; } }
 
 .sidebar {
   position: relative; }
@@ -1923,11 +1965,8 @@ textarea {
     #footend p a {
       color: #EE2F7F; }
 
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
-  .image-banner {
-    background-size: cover !important;
-    -webkit-animation: initial !important;
-            animation: initial !important; } }
+.front .page #page-title {
+  display: none; }
 
 .page-id-465 .image-banner {
   background: #66615D url("../images/site/banner-about.jpg") no-repeat;
