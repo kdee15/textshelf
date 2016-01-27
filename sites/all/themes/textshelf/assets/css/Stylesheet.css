@@ -1349,16 +1349,17 @@ input {
       background: rgba(0, 0, 0, 0.4);
       color: #fff; }
     .view-featured-ads .view-content .classified-item .views-field.views-field-title {
-      padding: 10px;
       background: rgba(255, 93, 38, 0.4);
       margin: 0; }
       .view-featured-ads .view-content .classified-item .views-field.views-field-title .field-content {
         display: inline-block;
-        width: auto;
+        width: 100%;
         background: none;
         padding: 0; }
       .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
-        color: #fff; }
+        padding: 10px;
+        color: #fff;
+        display: block; }
   .view-featured-ads .view-content .classified-item .views-field-image {
     position: absolute;
     top: 0;

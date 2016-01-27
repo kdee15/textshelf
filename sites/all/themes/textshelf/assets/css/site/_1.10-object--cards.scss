@@ -66,12 +66,11 @@
                 
                 &.views-field-title {
                     
-                    padding: $baseline-small;
                     background: rgba($orange,0.4);
                     margin: 0;
                 
-                    .field-content  { display: inline-block; width: auto; background: none; padding: 0; }
-                    a               { color: $white; }
+                    .field-content  { display: inline-block; width: 100%; background: none; padding: 0; }
+                    a               { padding: $baseline-small; color: $white; display: block; }
                 }
             }
             
