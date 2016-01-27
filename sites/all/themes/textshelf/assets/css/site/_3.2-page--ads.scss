@@ -20,7 +20,7 @@
     .square {
         
         overflow: hidden;
-        @include cw-image-zoom();
+        @include cw-image-zoom(); 
         
     }
     
