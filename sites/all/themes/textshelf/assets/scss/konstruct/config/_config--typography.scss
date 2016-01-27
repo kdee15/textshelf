@@ -1,0 +1,60 @@
+// CONFIG: TYPOGRAPHY #################################################################################################
+
+// DESCRIPTION:
+// This configuration section provides default typographical variables.
+
+// USAGE:
+// These are simply variables that are made available to you. Call them
+// as a normal SASS variable.
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+// A. GRAYS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// A.1. HELVETICA STACK -----------------------------------------------------------------------------------------------
+
+$helvetica: 	"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// A.1. END -----------------------------------------------------------------------------------------------------------
+
+// A.2. ARIAL STACK ---------------------------------------------------------------------------------------------------
+
+$arial:			Arial, Helvetica, sans-serif;
+
+// A.2. END -----------------------------------------------------------------------------------------------------------
+
+// A.3. MONOSPACE -----------------------------------------------------------------------------------------------------
+
+$monospace: 	"Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+
+// A.3. END -----------------------------------------------------------------------------------------------------------
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. BASE SETUP ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$base-font:		$arial;      // Change your default font type.
+$base-size: 	16px; 		// Choose your base font size. I like 16px and Relative Readability.
+$baseline: 		20px; 		// Choose your Line Height.
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. ACCENT COLORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$x-large:		2em; 		// 32px
+$large:			1.5em; 		// 24px
+$medium:		1.125em; 	// 18px
+$normal:		1em; 		// 16px
+$small:			0.75em; 	// 12px
+$x-small:		0.625em; 	// 10px
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.config/issues
+
+// END OF FILE ########################################################################################################
