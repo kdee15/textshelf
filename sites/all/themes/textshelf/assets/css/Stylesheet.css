@@ -76,7 +76,7 @@ html, body {
       -ms-flex: 0 0 66.666%;
           flex: 0 0 66.666%; }
 
-.one-quarter, .two-eighths, .three-twelfths, .view-featured-ads .view-content .node-classified {
+.one-quarter, .two-eighths, .three-twelfths, .view-featured-ads .view-content .classified-item {
   -webkit-flex: 0 0 25%;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%; }
@@ -176,7 +176,7 @@ html, body {
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  .small--one-half, .small--two-quarters, .small--three-sixths, .small--four-eighths, .small--five-tenths, .small--six-twelfths, .view-featured-ads .view-content .node-classified {
+  .small--one-half, .small--two-quarters, .small--three-sixths, .small--four-eighths, .small--five-tenths, .small--six-twelfths, .view-featured-ads .view-content .classified-item {
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
@@ -270,7 +270,7 @@ html, body {
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%; }
-  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .view-featured-ads .view-content .node-classified {
+  .mobile--one-half, .mobile--two-quarters, .mobile--three-sixths, .mobile--four-eighths, .mobile--five-tenths, .mobile--six-twelfths, .view-featured-ads .view-content .classified-item {
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
@@ -1331,73 +1331,210 @@ input {
 .meta.submitted span {
   font-size: 0.625em; }
 
-.view-featured-ads .view-content .node-classified {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 10px; }
-  .view-featured-ads .view-content .node-classified:before {
-    content: "";
-    display: block;
-    padding-top: 120%; }
-  .view-featured-ads .view-content .node-classified h2 {
+.view-featured-ads .view-content .classified-item {
+  margin-bottom: 10px;
+  position: relative; }
+  .view-featured-ads .view-content .classified-item .views-field {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    background: rgba(0, 0, 0, 0.9);
-    margin: 0;
-    z-index: 10;
-    text-indent: 10px; }
-  .view-featured-ads .view-content .node-classified .meta.submitted {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 5px;
-    z-index: 10;
+    position: relative;
+    display: inline-block;
     box-sizing: border-box;
-    line-height: normal;
-    background: rgba(20, 20, 20, 0.3); }
-    .view-featured-ads .view-content .node-classified .meta.submitted span {
-      color: #eee;
-      text-shadow: 1px 1px 1px #000; }
-  .view-featured-ads .view-content .node-classified .content {
+    z-index: 10; }
+    .view-featured-ads .view-content .classified-item .views-field .views-label {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff; }
+    .view-featured-ads .view-content .classified-item .views-field .field-content {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff; }
+    .view-featured-ads .view-content .classified-item .views-field.views-field-title {
+      padding: 10px;
+      background: rgba(255, 93, 38, 0.4);
+      margin: 0; }
+      .view-featured-ads .view-content .classified-item .views-field.views-field-title .field-content {
+        display: inline-block;
+        width: auto;
+        background: none;
+        padding: 0; }
+      .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+        color: #fff; }
+  .view-featured-ads .view-content .classified-item .views-field-image {
     position: absolute;
+    top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    top: 0;
-    z-index: 1; }
-    .view-featured-ads .view-content .node-classified .content a {
-      display: block; }
-      .view-featured-ads .view-content .node-classified .content a img {
-        width: 100%;
-        height: auto; }
-    .view-featured-ads .view-content .node-classified .content p {
-      position: absolute;
-      bottom: 40px;
-      left: 0;
-      right: 0;
-      padding: 10px;
-      z-index: 10;
-      margin: 0;
-      background: rgba(100, 100, 100, 0.4);
-      color: #fff;
-      text-shadow: 1px 1px 1px #000; }
-    .view-featured-ads .view-content .node-classified .content span {
-      position: absolute;
-      top: 60px; }
-      .view-featured-ads .view-content .node-classified .content span:first-of-type {
-        left: 0;
-        z-index: 200;
-        background: #FF5d26; }
-      .view-featured-ads .view-content .node-classified .content span:last-of-type {
+    z-index: 0; }
+    .view-featured-ads .view-content .classified-item .views-field-image div {
+      position: relative;
+      width: 100%;
+      overflow: hidden; }
+      .view-featured-ads .view-content .classified-item .views-field-image div:before {
+        content: "";
+        display: block;
+        padding-top: 130%; }
+      .view-featured-ads .view-content .classified-item .views-field-image div a {
+        position: absolute;
+        top: 0;
         right: 0;
-        z-index: 300;
-        background: #ffc40d; }
-  .view-featured-ads .view-content .node-classified .link-wrapper {
+        bottom: 0;
+        left: 0; }
+        .view-featured-ads .view-content .classified-item .views-field-image div a img {
+          width: 100%;
+          height: auto; }
+  .view-featured-ads .view-content .classified-item .link-wrapper {
     display: none; }
+
+@media only screen and (max-width: 360px) {
+  .view-featured-ads .view-content .classified-item .views-field .views-label {
+    width: 44%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field .field-content {
+    width: 45%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+    font-size: 0.75em; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-price .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .views-label {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .field-content {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-created .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-body {
+    display: none; } }
+
+@media only screen and (min-width: 361px) and (max-width: 480px) {
+  .view-featured-ads .view-content .classified-item .views-field .views-label {
+    width: 44%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field .field-content {
+    width: 45%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+    font-size: 0.75em; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-price .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .views-label {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .field-content {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-created .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-body {
+    display: none; } }
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  .view-featured-ads .view-content .classified-item .views-field .views-label {
+    width: 44%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field .field-content {
+    width: 45%;
+    font-size: 0.625em;
+    padding: 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+    font-size: 0.75em; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-price .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .views-label {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .field-content {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    box-sizing: border-box; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-created .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-body {
+    display: none; } }
+
+@media only screen and (min-width: 1024px) {
+  .view-featured-ads .view-content .classified-item .views-field .views-label {
+    width: 25.1%;
+    font-size: 0.75em;
+    padding: 2px 0 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field .field-content {
+    width: 70%;
+    font-size: 0.75em;
+    padding: 2px 0 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+    font-size: 0.75em; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-price .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-created .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-body {
+    display: block; }
+    .view-featured-ads .view-content .classified-item .views-field.views-field-body .field-content {
+      width: 100%;
+      box-sizing: border-box; }
+      .view-featured-ads .view-content .classified-item .views-field.views-field-body .field-content p {
+        color: #fff;
+        padding: 10px;
+        margin: 0; } }
+
+@media only screen and (min-width: 1200px) {
+  .view-featured-ads .view-content .classified-item .views-field .views-label {
+    width: 25.1%;
+    font-size: 0.75em;
+    padding: 2px 0 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field .field-content {
+    width: 70%;
+    font-size: 0.75em;
+    padding: 2px 0 2px 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-title a {
+    font-size: 0.75em; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-price .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-field-isbn-number .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-created .field-content {
+    margin-left: -5px;
+    padding-right: 5px; }
+  .view-featured-ads .view-content .classified-item .views-field.views-field-body {
+    display: block; }
+    .view-featured-ads .view-content .classified-item .views-field.views-field-body .field-content {
+      width: 100%;
+      box-sizing: border-box; }
+      .view-featured-ads .view-content .classified-item .views-field.views-field-body .field-content p {
+        color: #fff;
+        padding: 10px;
+        margin: 0; } }
 
 .button {
   cursor: pointer;
