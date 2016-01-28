@@ -1,0 +1,84 @@
+// OBJECT: BUTTONS  ###################################################################################################
+
+// DESCRIPTION:
+//
+// This object provides a set of default stylised buttons
+// to be used within your site.
+//
+// The object is a standard button with size & color variations,
+// from which it can be extended.
+//
+
+// USAGE:
+//
+// The object can be implemented directly on the <a> and/or <button>
+// elements.
+//
+// <a class="small blue button">Button text</a>
+// <button class="small blue button">Button text</button>
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@if $object--buttons == true {
+
+// A. DEFAULT SETUP +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    .button {
+
+        display: inline-block;
+
+        &:hover {
+
+            text-decoration: none;
+
+        }
+
+        // A.1. SIZE VARIATIONS ---------------------------------------------------------------------------------------
+
+        &.small {
+            padding: $baseline/6 $baseline/4;
+            font-size: $small;
+        }
+        &.medium {
+            padding: $baseline/4 $baseline/2;
+            font-size: $normal;
+        }
+        &.large {
+            padding: $baseline/2 $baseline;
+            font-size: $medium;
+        }
+
+        // A.1. END ---------------------------------------------------------------------------------------------------
+
+        // A.2. COLOR VARIATIONS --------------------------------------------------------------------------------------
+
+        &.small {
+            padding: $baseline/6 $baseline/4;
+            font-size: $small;
+        }
+        &.medium {
+            padding: $baseline/4 $baseline/2;
+            font-size: $normal;
+        }
+        &.large {
+            padding: $baseline/2 $baseline;
+            font-size: $medium;
+        }
+
+        // A.2. END ---------------------------------------------------------------------------------------------------
+
+    }
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.bricks/issues
+
+// END OF FILE ########################################################################################################

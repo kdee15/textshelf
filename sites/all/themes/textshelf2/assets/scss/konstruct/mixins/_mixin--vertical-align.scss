@@ -1,0 +1,36 @@
+// MIXIN: VERTICAL ALIGN ##############################################################################################
+
+// DESCRIPTION:
+//
+// This mixin will vertically and/or horizontally align 
+// an object in the middle of a container.
+//
+
+// USAGE:
+//
+// This mixin is restricted to position:absolute. 
+// It's possible to have it with relative positioning,
+// but it hardly ever works as expected.
+//
+// Add "@include vertical-align(absolute);" into the desired class. 
+// You can choose your position element.
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@mixin vertical-align(){
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.cement/issues
+
+// END OF FILE ########################################################################################################

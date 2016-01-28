@@ -1,0 +1,128 @@
+// 1. SECTION [ 1.7. SECTIONS ]  ######################################################################################
+
+// A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.button {
+
+    display: block;
+    text-transform: uppercase;
+    
+    &.button-white {
+    
+        color: $white;
+    
+    }
+    
+    &.button-grey {
+    
+        color: $brownDark;
+    
+    }
+}
+
+.button-hover {
+
+    margin: 0;
+    font-size: $medium;
+    color: $white;
+    text-transform: uppercase;
+    display: inline-block;
+    background-color: rgba($black, 0.5);
+
+    @include button-hover ($black, 0.3s);
+
+}
+
+
+.button-grey {
+
+    border: 0;
+    background-image: url('../images/svg/buttonArrow-grey.svg');
+    background-position: right center;
+    background-color: transparent;
+    padding-right: $baseline;
+    background-repeat: no-repeat;
+    background-size: 15px 20px;
+    font-weight: 300;
+    display: inline-block;
+
+    &:hover {
+
+        background-image: url('../images/svg/buttonArrow-white.svg');
+
+    }
+}
+
+.button-white {
+
+    border: 0;
+    background-image: url('../images/svg/buttonArrow-white.svg');
+    background-position: right center;
+    background-color: transparent;
+    padding-right: $baseline;
+    background-repeat: no-repeat;
+    text-transform: uppercase;
+    color: $white;
+    background-size: 20px 20px;
+    display: inline-block;
+
+}
+
+.customcontactform {
+    
+    .submit {
+    
+        border: 0;
+        background-image: url('../images/svg/buttonArrow-white.svg');
+        background-position: right center;
+        background-color: transparent;
+        padding-right: $baseline;
+        margin-top: $baseline;
+        background-repeat: no-repeat;
+        background-size: 15px 20px;
+        font-weight: 300;
+        display: inline-block;
+        color: $white;
+        text-transform: uppercase;
+
+    }
+}
+
+
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(mobile) {
+
+
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(tablet) {
+
+    
+
+}
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk) {
+
+
+}
+
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

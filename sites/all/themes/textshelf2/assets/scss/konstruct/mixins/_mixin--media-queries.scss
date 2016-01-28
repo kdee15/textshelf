@@ -1,0 +1,57 @@
+// MIXIN: MEDIA QUERIES ###############################################################################################
+
+// DESCRIPTION:
+//
+// A media query generator, used throughout Konstruct. You can set your own media queries too.
+//
+
+// USAGE:
+//
+// @include media-query(desk) {
+// 
+//    ...
+//
+// }
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+// CREDITS:
+// 
+// (C) Harry Roberts [@CSSWIZARDRY - csswizardry.com]. 
+//
+
+@mixin media-query($media-query){
+
+    $breakpoint-found: false;
+
+    @each $breakpoint in $breakpoints{
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+
+        @if $media-query == $name and $declaration{
+            $breakpoint-found: true;
+
+            @media only screen and #{$declaration}{
+                @content;
+            }
+        }
+    }
+
+    @if $breakpoint-found == false{
+        body:after {
+
+            content: "No Media Query Found.";
+            background: $red;
+
+        }
+    }
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.cement/issues
+
+// END OF FILE ########################################################################################################

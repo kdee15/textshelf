@@ -1,0 +1,34 @@
+name = Textshelf 2015 site theme
+description = textshelf.co.za website theme
+core = 7.x
+version = VERSION
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[search]         = 'Search'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = assets/css/stylesheet.css
+
+
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+
+
+scripts[] = assets/js/app.js

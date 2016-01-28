@@ -1,0 +1,113 @@
+// MIXIN: FLEXIGRID SIZING ############################################################################################
+
+// DESCRIPTION:
+//
+// A mixin to produce the sizes and responsive options for flexigrid.
+//
+
+// USAGE:
+//
+// Not used directly.
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@mixin flexigrid-size($namespace:""){
+
+    // A.1. ONE WHOLE
+
+    .#{$namespace}one-whole { width: 100%; }
+
+    // A.1. END
+    
+    // A.2. ONE HALF
+
+    .#{$namespace}one-half { width: 50%; }
+
+    // A.2. END
+    
+    // A.3. THIRDS
+
+    .#{$namespace}one-third { width: 33.333%; }
+    .#{$namespace}two-thirds { width: 66.666%; }
+
+    // A.3. END
+    
+    // A.4. QUARTERS
+
+    .#{$namespace}one-quarter { width: 25%; }
+    .#{$namespace}two-quarters { @extend .#{$namespace}one-half; }
+    .#{$namespace}three-quarters { width: 75%; }
+
+    // A.4. END
+
+    // A.5. FIFTHS
+
+    .#{$namespace}one-fifth { width: 20%; }
+    .#{$namespace}two-fifths { width: 40%; }
+    .#{$namespace}three-fifths { width: 60%; }
+    .#{$namespace}four-fifths { width: 80%; }
+
+    // A.5. END
+
+    // A.6. SIXES
+    
+    .#{$namespace}one-sixth { width: 16.666%; }
+    .#{$namespace}two-sixths { @extend .#{$namespace}one-third; }
+    .#{$namespace}three-sixths { @extend .#{$namespace}one-half; }
+    .#{$namespace}four-sixths { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}five-sixths { width: 83.333%; }
+
+    // A.6. END
+
+    // A.7. EIGHTS
+
+    .#{$namespace}one-eighth { width: 12.5%; }
+    .#{$namespace}two-eighths { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}three-eighths { width:37.5%; }
+    .#{$namespace}four-eighths { @extend .#{$namespace}one-half; }
+    .#{$namespace}five-eighths { width: 62.5%; }
+    .#{$namespace}six-eighths { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}seven-eighths { width: 87.5%; }
+
+    // A.7. END
+
+    // A.8. TENTHS
+
+    .#{$namespace}one-tenth { width: 10%; }
+    .#{$namespace}two-tenths { @extend .#{$namespace}one-fifth; }
+    .#{$namespace}three-tenths { width: 30%; }
+    .#{$namespace}four-tenths { @extend .#{$namespace}two-fifths; }
+    .#{$namespace}five-tenths { @extend .#{$namespace}one-half; }
+    .#{$namespace}six-tenths { @extend .#{$namespace}three-fifths; }
+    .#{$namespace}seven-tenths { width: 70%; }
+    .#{$namespace}eight-tenths { @extend .#{$namespace}four-fifths; }
+
+    // A.8. END
+
+    // A.9. TWELVES
+
+    .#{$namespace}one-twelfth { width: 8.333%; }
+    .#{$namespace}two-twelfths { @extend .#{$namespace}one-sixth; }
+    .#{$namespace}three-twelfths { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}four-twelfths { @extend .#{$namespace}one-third; }
+    .#{$namespace}five-twelfths { width: 41.666%; }
+    .#{$namespace}six-twelfths { @extend .#{$namespace}one-half; }
+    .#{$namespace}seven-twelfths { width: 58.333%; }
+    .#{$namespace}eight-twelfths { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}nine-twelfths { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}ten-twelfths { @extend .#{$namespace}five-sixths; }
+    .#{$namespace}eleven-twelfths { width: 91.666%; }
+
+    // A.9. END
+
+}
+    
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.cement/issues
+
+// END OF FILE ########################################################################################################

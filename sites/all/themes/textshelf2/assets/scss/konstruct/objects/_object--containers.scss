@@ -1,0 +1,83 @@
+// OBJECT: CONTAINERS  ################################################################################################
+
+// DESCRIPTION:
+//
+// The main container class to keep the site contained
+// when you don't want to have a full width layout.
+//
+
+// USAGE:
+//
+// Give a containing div the class .container.
+//
+// <div class="container">
+//   ...
+// </div>
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@if $object--containers == true {
+
+// A. RESET THE CANVAS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    html, body {
+
+        margin: 0;
+
+    }
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. THE CONTAINERS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    .container {
+        max-width: 100%;
+    }
+
+    @include media-query(mobile){ 
+
+        .container {
+            padding: 0 $baseline/2;
+        }
+
+     }
+
+     @include media-query(tablet){ 
+
+        .container {
+            padding: 0 baseline;
+        }	
+
+      }
+
+    @include media-query(desk){ 
+
+        .container {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+     }
+
+    @include media-query(desk-wide){ 
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+     }
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.bricks/issues
+
+// END OF FILE ########################################################################################################

@@ -1,0 +1,91 @@
+// OBJECT: MESSAGES ###################################################################################################
+
+// DESCRIPTION:
+//
+// This object provides a set of default system messages
+// that can be plugged into your site without any further
+// work.
+//
+
+// USAGE:
+//
+// The object is a HTML code block, and follows the following fixed structure.
+//
+// <aside class="warning message">
+//     <p>Are you sure that you want to use this message?</p>
+// </aside>
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@if $object--messages == true {
+
+// A. DEFAULT SETUP +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    .message {
+
+        display: block;
+
+        padding: $baseline / 2;
+        margin-bottom: $baseline;
+
+        h4, p {
+            margin: 0;
+        }
+
+        // A.1. INFORMATION MESSAGE -----------------------------------------------------------------------------------
+
+        &.info {
+
+            background: lighten($blue, 40% );
+
+            h4, p {
+                color: darken($blue, 10%); 
+            }
+
+        }
+
+        // A.1. END ---------------------------------------------------------------------------------------------------
+
+        // A.1. WARNING MESSAGE ---------------------------------------------------------------------------------------
+
+        &.warning {
+
+            background: lighten($orange, 40% );
+
+            h4, p {
+                color: darken($orange, 10%);
+            }
+
+        }
+
+        // A.1. END ---------------------------------------------------------------------------------------------------
+
+        // A.3. ERROR MESSAGE -----------------------------------------------------------------------------------------
+
+        &.error {
+
+            background: lighten($red, 40% );
+
+            h4, p {
+                color: darken($red, 10%);
+            }
+
+        }
+
+        // A.3. END ---------------------------------------------------------------------------------------------------
+
+    }
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.bricks/issues
+
+// END OF FILE ########################################################################################################

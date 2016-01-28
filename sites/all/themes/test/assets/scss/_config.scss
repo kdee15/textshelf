@@ -1,0 +1,39 @@
+// KONSTRUCT.GLUE [CONFIGURATION] ##################################################################################
+
+// =====================  INDEX  =====================
+// ==
+// == A. MEDIA QUERY CONFIGURATION
+// ==
+// == B. OBJECT CONFIGURATION
+// ==
+// =====================  INDEX  ===================== 
+
+
+// A. CONFIGURE MEDIA QUERIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$breakpoint-types: ('mobile', 'tablet', 'desk', 'desk-wide')!default;
+
+$breakpoints: (
+
+    'mobile' '(max-width: 480px)',
+    'tablet' '(min-width: 481px) and (max-width: 1023px)',
+    'desk' '(min-width: 1024px)',
+    'desk-wide' '(min-width: 1200px)'
+
+)!default;
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. CONFIGURE IMPORTED OBJECTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$object--containers:        true;
+$object--flexigrid:         true; // ALPHA VERSION - This is not currently backwards compatible.
+$object--typography:        true;
+$object--forms:             true;
+$object--buttons:           true;
+$object--messages:          true;
+$object--highlighting:      true;
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+// End of File - Thanks for using Konstruct! Please help make it better!

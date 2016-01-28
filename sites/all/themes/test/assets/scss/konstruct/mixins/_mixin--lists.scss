@@ -1,0 +1,54 @@
+// MIXIN: LISTS #######################################################################################################
+
+// DESCRIPTION:
+//
+// A mixin to help you make lists good.
+//
+
+// USAGE:
+//
+// @include list(horizontal, left);
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@mixin list($list-orientation, $list-position){
+
+    margin: 0;
+    padding: 0;
+
+    text-align: $list-position;
+
+    li {
+        margin: 0;
+        list-style: none;
+        display: block;
+
+        a {
+            padding: 0 5px;
+            display: block;
+        }
+    }
+
+    @if $list-orientation == "horizontal" {
+
+        li {
+            display: inline;
+
+            a {
+                display: inline-block;
+            }
+        }
+
+    }
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.cement/issues
+
+// END OF FILE ########################################################################################################

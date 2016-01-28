@@ -1,0 +1,79 @@
+// 1. OBJECT [ 1.4. TYPOGRAPHY ] ######################################################################################
+
+// A. SITEWIDE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+body {
+    
+    color: $greyDarker;
+    
+}
+
+h1 {
+    
+    font-size: $xx-large;   
+    
+}
+
+h2 {
+    
+    font-size: $large;
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: $baseline;
+    text-transform: uppercase;
+    
+}
+
+h3 {
+
+    font-size: $large;
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: $baseline;
+
+}
+
+h4 {
+    
+    font-size: $medium;
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: $baseline;
+    
+}
+
+.light {
+    
+    
+}
+
+.caps {
+    
+    text-transform: uppercase;
+    
+}
+
+
+
+p {
+    
+    
+}
+
+a {
+				
+    outline: none;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in 0.1s;
+
+    &:hover {
+
+        transition: background-color 0.2s ease-out, color 0.2s ease-out 0.1s;
+        color: $gray;
+        text-decoration: none;
+    }												
+}
+
+	
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

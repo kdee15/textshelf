@@ -1,0 +1,294 @@
+// OBJECT: TYPOGRAPHY #################################################################################################
+
+// DESCRIPTION:
+//
+// The main typography setup of the project. 
+// Sets you up with a reasonably solid typography
+// system to get you going.
+//
+
+// USAGE:
+//
+// OMG. Coming soon.
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+@if $object--typography == true {
+
+    // A. RESPONSIVE TEXT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    body {
+        font-size: 75%; // For the feature phone.
+    }
+
+    @include media-query(mobile){ 
+
+        body {
+            font-size: 87.5%;
+        }
+
+     }
+
+     @include media-query(tablet){ 
+
+        body {
+            font-size: 100%;
+        }
+
+      }
+
+
+    @include media-query(desk){ 
+
+        body {
+            font-size: 100%;
+        }
+
+     }
+
+    @include media-query(desk-wide){ 
+
+        body {
+            font-size: 100%;
+        }
+
+     }
+
+    // A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // B. TEXT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // B.1. HEADINGS --------------------------------------------------------------------------------------------------
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+        }
+
+    h1 {
+        font-size: $x-large;
+        //line-height: $baseline * 2;
+        //margin-top: 0;
+        margin-bottom: $baseline * 2;
+
+        }
+    h2 {
+        font-size: $large;
+        //line-height: $baseline * 2;
+        //margin-top: $baseline;
+        margin-bottom: $baseline;
+        }
+    h3 {
+        font-size: $medium;
+        //line-height: $baseline * 2;
+        margin-top: $baseline;
+        margin-bottom: 0;
+        }
+    h4 {
+        font-size:  $normal;
+        margin-bottom: $baseline;
+        //line-height: $baseline;
+    }
+    h5 {
+        font-size: $small;
+        margin-bottom: $baseline;
+        //line-height: $baseline;
+        }
+    h6 {
+        font-size: $x-small;
+        //line-height: $baseline;
+        //text-transform: uppercase;
+    }
+
+    // B.1. END -------------------------------------------------------------------------------------------------------
+
+    // B.2. BODY COPY -------------------------------------------------------------------------------------------------
+
+    // B.2.1. PARAGRAPH
+
+    body,
+    p {
+        font-family: $base-font;
+        line-height: $baseline;
+        margin: 0 0 $baseline 0;
+        color: $grayDark;
+    }
+
+    // B.2.1. END
+
+    // B.2.2. EMPHASIS
+
+    strong,
+    b {
+        font-weight: bold;
+    }
+    em {
+    }
+
+    // B.2.2. END
+
+    // B.2.3. CODE BLOCKS
+
+    code,
+    pre {
+
+    }
+    code {
+        line-height: $baseline;
+        margin: 0;
+    }
+    code:after {
+    }
+    pre {
+        margin: 0 0 $baseline 0;
+    }
+
+    // B.2.3. END
+
+    // B.2.4. LINKS
+
+    a {
+
+        color: $link-color;
+        text-decoration: none;
+
+        &:hover {
+
+            color: $link-hover;
+            text-decoration: none;
+
+        }
+
+    }
+
+    // B.2.4. END
+
+    // B.2.5. HORIZONTAL RULE
+
+    hr {
+
+        margin: $baseline - 1 0;
+        border: 0;
+        border-bottom: 1px solid $gray;
+        line-height: $baseline;
+
+    }
+
+    // B.2.5. END
+
+
+    // B.2. END -------------------------------------------------------------------------------------------------------
+
+    // B.3. LISTS -----------------------------------------------------------------------------------------------------
+
+    // B.3.1. THE ORDINARY LIST
+
+    ol,ul {
+
+        margin: 0 0 $baseline 0;
+        padding-left: $baseline;
+
+        ol,ul {
+
+            margin: 0 ;
+            padding-left: $baseline;
+
+        }
+
+        li {
+
+            line-height: $baseline;
+            margin: 0;
+            padding: 0;
+
+        }
+
+    }
+
+    // B.3.1. END
+
+    // B.3.2. DEFINITION LIST
+
+    dl {
+
+        line-height: $baseline;
+        margin: 0 0 $baseline 0;
+
+        dt {
+
+            font-weight: bold;
+
+        }
+
+        dd {
+
+            margin: 0 0 0 $baseline;
+
+        }
+
+    }
+
+    // B.3.2. END
+
+    // B.1. END -------------------------------------------------------------------------------------------------------
+
+    // B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // C. TABLE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    table {
+
+        width: 100%;
+        margin: 2px 0 $baseline 0;
+        padding: 0;
+        border: solid 1px $gray;
+
+        tr {
+            line-height: $baseline;
+            height: auto;
+        }
+
+        td,th {
+            line-height: $baseline;
+            margin:0;
+            border-right: solid 1px $gray;
+        }
+
+        th {
+            font-weight: normal;
+            text-align: left;
+        }
+
+        thead {
+            line-height: $baseline;
+        }
+
+        tbody {
+            line-height: $baseline;
+        }
+
+
+    }
+
+    // C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // D. IMAGE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    img {
+
+        display: block;
+
+    }
+
+    // D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.bricks/issues
+
+// END OF FILE ########################################################################################################

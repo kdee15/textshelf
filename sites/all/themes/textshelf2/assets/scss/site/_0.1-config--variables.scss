@@ -1,0 +1,78 @@
+// 0. CONFIG [ 0.1. VARIABLES ]  ######################################################################################
+
+// A. BRAND COLOR VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    $w-pink:        #eb6650;
+    $w-pinkLight:   #fad9d3;
+
+
+    $w-blueLighter: #eef0f1;
+    $w-blueLight:   #e0e3e6;
+    $w-blue:        #c3c8ce;
+    $w-blueSemi:    #818c97;
+    $w-blueDark:    #495969;
+
+
+    $redLight:		#EE2F7F;
+    $maroon:		#EE2F7F;
+    $maroonDark:    #EE2F7F;
+    $redDark:		#EE2F7F;
+    $aqua:			#72CBD1;
+    $midgrey:		#66615D;
+    $greyLighter:	#E7E7E8;
+    $greyLightest:	#F4F4F4;
+    $grey:			#65615E;
+    $lightgrey:		#F4EDE7;
+    $greyDarker:	#404042;
+    $greyDarkest:   #231F20;
+    $purple:		#A5439A;
+    $green:			#C1D72D;
+    $greenDark:		#008771;
+    $orange:		#FF5d26;
+    $orangeDark:    #EB6650;
+    $beige:			#F0ECE9;
+    $beigeDark:		#BBB2A6;
+    $pink:          #EE2375;
+    $pinkDark:      #CE2669;
+    $brown:         #BBB2A6;
+    $purpleDark:    #A54399;
+    $teal:          #1E9694;
+    $brownLight:    #F1EDEA;
+    $brownDark:     #66615D;
+    $brownDarker:   #AFA79B;
+    $blue:          #70CBD2;
+    $cyan:          #70CBD2;
+    $cyanDark:      #1E9694;
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. TYPOGRAPHY WEIGHT VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// The variables below are based on the default $baseline -
+// which is set in Konstruct/config/config--typography
+
+$regular:       400;
+$medium:        500;
+$bold:          700;
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. MARGIN VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// The variables below are based on the default $baseline -
+// which is set in Konstruct/config/config--typography
+
+$baseline-large:    $baseline*4;
+$baseline-medium:   $baseline*2;
+$baseline-small:    $baseline/2;
+$baseline-smaller:  $baseline/4;
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. FONT VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$proxima:	   'proxima-nova-soft', sans-serif;
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

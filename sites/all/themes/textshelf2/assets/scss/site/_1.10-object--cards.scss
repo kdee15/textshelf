@@ -1,0 +1,160 @@
+// 1. SECTION [ 1.10. CARDS ]  ########################################################################################
+
+// A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// A.1. AD CARD -------------------------------------------------------------------------------------------------------
+
+// A.1.1. Ad Card Display
+
+.view-content {
+    
+    @extend .grid;
+    margin-left: 0!important;
+    margin-top: $baseline-small;
+    
+    .node-classified {
+        
+        @extend .grid__item;
+        @extend .mobile--one-whole;
+        @extend .small--one-whole;
+        padding-left: 0!important;
+        
+        position: relative;
+        
+    }
+    
+}
+
+// A.1.2. Card Content - Meta Data
+
+.meta {
+    
+    &.submitted {
+        
+        span {
+            
+            font-size: $x-small;   
+            
+        }
+    }
+}
+
+// A.1.2. HOME PAGE ADS
+
+.view-featured-ads {
+
+    .classifieds-list {
+        
+        .classified-item {
+
+            @extend .one-quarter;
+            @extend .mobile--one-half;
+            @extend .small--one-half;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: $baseline-small;
+            
+            .views-field {
+                
+                width: 100%;
+                position: relative;
+                display: inline-block;
+                padding: $baseline-small;
+                z-index: 10;
+                color: $white;
+                
+                
+                &.views-field-title {
+                    
+                    margin: 0;
+                    padding: $baseline-small 5px;
+                    background: rgba(0,0,0,0.4);
+                    font-size: $normal;
+                    
+                    span {
+                        
+                        a {
+                            
+                            color: $white;       
+                            
+                        }
+                    }
+                }
+                
+                &.views-field-field-price,
+                &.views-field-body,
+                &.views-field-field-isbn-number,
+                &.views-field-field-created {
+
+
+
+                }
+            }
+            
+            .views-field-image {
+                
+                @include absolute (0);
+                z-index: 0;
+                
+                div {
+                    
+                    @include aspect-ratio (100%, 130%);
+                    background: $red;
+                    
+                    a {
+                        
+                        @include absolute (0);
+                        overflow: hidden;
+                        
+                    }
+                }
+            }
+            
+            .link-wrapper {
+                
+                display: none;    
+                
+            }
+        }   
+    }
+}
+
+
+// A.1. END -----------------------------------------------------------------------------------------------------------
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(mobile) {
+
+
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(tablet) {
+
+    
+
+}
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk) {
+
+
+}
+
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

@@ -1,0 +1,41 @@
+// MIXIN: CLEARFIX ####################################################################################################
+
+// DESCRIPTION:
+//
+// A quick & reliably solid solution to keeping the box model 
+// of a container element that contains a float element intact.
+//
+
+// USAGE:
+//
+// @include clearfix();
+//
+
+// DOCUMENTATION URL:
+// 
+// COMING SOON. Please refer to the usage above. 
+//
+
+// CREDITS:
+// 
+// (C) Nicolas Gallagher [http://nicolasgallagher.com/micro-clearfix-hack/]. 
+//
+
+@mixin clearfix() {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+
+}
+
+// FOUND A BUG?:
+// If you found a bug or something is broken, please do
+// me a favour and log it over at: https://github.com/konstruct/konstruct.cement/issues
+
+// END OF FILE ########################################################################################################

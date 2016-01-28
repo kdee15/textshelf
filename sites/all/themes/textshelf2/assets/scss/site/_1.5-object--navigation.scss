@@ -1,0 +1,257 @@
+// 1. OBJECT [ 1.5. NAVIGATION ] ######################################################################################
+
+// A. MAIN NAV ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#nav {
+    
+    width: 100%;
+        
+    margin: 0;
+    padding: 0;
+        
+    li {
+
+        list-style-type: none;
+        display: inline-block;
+
+    }
+    
+    .f-nav {
+        
+        @include vertical-align(absolute);
+        
+        li {
+            
+            background: $greyDarker;
+            
+            a {
+                
+                color: $grayLight;
+                display: block;
+                padding: $baseline $baseline-small;
+                
+                &:hover {
+
+                    color: $orange!important;
+                    background: $black;
+
+                }
+            }
+            
+            &.menu-432 {
+                
+                display: none;   
+                
+            }
+        }
+    }
+    
+    .m-nav {
+        
+        @include position (fixed, 0);
+        background: $greyDarker;
+        z-index: 20;
+        margin: 0;
+        padding: 0;
+        padding-top: 50px;
+        
+        
+        li {
+            
+            background: $greyDarker;
+            width: 100%;
+            border-bottom: 2px solid $greyDarkest;
+            
+            a {
+                
+                color: $grayLight;
+                display: block;
+                padding: $baseline $baseline-small;
+                text-align: center;
+                
+                &:hover {
+
+                    color: $orange!important;
+                    background: $black;
+
+                }
+            }
+        }
+        
+        &.burger {
+            
+            display: none;
+            position: fixed;
+            top: 2px;
+            right: 0;
+            left: auto;
+            z-index: 100;
+            height: 0;
+            margin: 0;
+            cursor: pointer;
+            background: url('../images/icons/icon__burger-close.svg') top center no-repeat;
+            background-size: auto 60%;
+            
+        }
+    }
+}
+	
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. SMALL STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(small) {
+
+    #nav {
+
+        .f-nav {
+
+            display: none;   
+
+        }
+
+        .m-nav {
+
+            display: none;
+            
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
+            
+        }
+    }
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(mobile) {
+
+    #nav {
+
+        .f-nav {
+
+            display: none;
+
+        }
+
+        .m-nav {
+
+            display: none;
+            
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
+            
+        }
+    }
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(tablet) {
+    
+
+    #nav {
+
+        .f-nav {
+
+            display: none;   
+
+        }
+
+        .m-nav {
+
+            display: none;
+            
+            &.show {
+                
+                display: block;
+                
+            }
+        }
+        
+        .burger {
+            
+            display: block;   
+            
+        }
+    }
+}
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk) {
+
+    #nav {
+
+        .f-nav {
+
+            display: block;   
+
+        }
+
+        .m-nav {
+
+            display: none;
+
+        }
+        
+        .burger {
+            
+            display: none;   
+            
+        }
+    }
+}
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. WIDE DESKTOP STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk-wide) {
+
+    #nav {
+
+        .f-nav {
+
+            display: block;   
+
+        }
+
+        .m-nav {
+
+            display: none;
+
+        }
+        
+        .burger {
+            
+            display: none;   
+            
+        }
+    }
+}
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################

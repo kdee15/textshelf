@@ -1,0 +1,7 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve" class="svg-hamburger">
+<rect x="10" y="14" fill="#EE2F7F" width="30" height="1"/>
+<rect x="10" y="36" fill="#EE2F7F" width="30" height="1"/>
+<rect x="10" y="25" fill="#EE2F7F" width="30" height="1"/>
+<path fill="#EE2F7F" d="M50,50H0V0h50V50z M49,1H1v48h48V1z"/>
+</svg>
