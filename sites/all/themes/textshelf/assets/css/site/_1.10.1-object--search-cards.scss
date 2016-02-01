@@ -1,0 +1,339 @@
+// 1. SECTION [ 1.10. CARDS ]  ########################################################################################
+
+// A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// A.1. AD CARD -------------------------------------------------------------------------------------------------------
+
+// A.1.2. SEARCH RESULTS PAGE ADS
+
+.page-search {
+    
+    .search-form { display: none; }
+    
+    #block-system-main {
+
+        .content {
+            
+            @extend .grid;
+
+            .node-classified {
+
+                @extend .one-quarter;
+                @extend .mobile--one-half;
+                @extend .small--one-half;
+                margin-bottom: $baseline-small;
+                position: relative;
+
+                .views-field {
+
+                    width: 100%;
+                    position: relative;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    z-index: 10;
+
+                    .views-label    { display: inline-block; background: rgba(0,0,0,0.8); color: $white; }
+                    .field-content  { display: inline-block; background: rgba(0,0,0,0.4); color: $white; }
+
+                    &.views-field-title {
+
+                        background: rgba($orange,0.4);
+                        margin: 0;
+
+                        .field-content  { display: inline-block; width: 100%; background: none; padding: 0; }
+                        a               { padding: $baseline-small; color: $white; display: block; }
+                    }
+                }
+
+                .views-field-image {
+
+                    @include absolute (0);
+                    z-index: 0;
+
+                    div {
+
+                        @include aspect-ratio (100%, 130%);
+                        overflow: hidden;
+
+                        a {
+
+                            @include absolute (0);
+
+                            img {
+
+                                width: 100%;
+                                height: auto;
+
+                            }
+                        }
+                    }
+                }
+
+                .link-wrapper {
+
+                    display: none;    
+
+                }
+            }   
+        }
+    }
+}
+
+// A.1. END -----------------------------------------------------------------------------------------------------------
+
+// A. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// B. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(small) {
+
+    // A.1.2. HOME PAGE ADS
+
+    .view-featured-ads {
+        .view-content {
+            .classified-item {
+                .views-field {
+
+                    .views-label { width: 44%; font-size: $x-small; padding: 2px 5px; }
+                    .field-content  { width: 45%; font-size: $x-small; padding: 2px 5px; }
+
+                    &.views-field-title {
+
+                        a { font-size: $small; }
+                    }
+
+                    &.views-field-field-price {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-field-isbn-number {
+
+                        .views-label    { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                        .field-content  { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                    }
+
+                    &.views-field-created {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-body {display: none;}
+                }
+            }   
+        }
+    }
+
+    // A.1.2. END
+    
+}
+
+// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// C. MOBILE STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(mobile) {
+
+    // A.1.2. HOME PAGE ADS
+
+    .view-featured-ads {
+        .view-content {
+            .classified-item {
+                .views-field {
+
+                    .views-label { width: 44%; font-size: $x-small; padding: 2px 5px; }
+                    .field-content  { width: 45%; font-size: $x-small; padding: 2px 5px; }
+
+                    &.views-field-title {
+
+                        a { font-size: $small; }
+                    }
+
+                    &.views-field-field-price {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-field-isbn-number {
+
+                        .views-label    { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                        .field-content  { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                    }
+
+                    &.views-field-created {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-body {display: none;}
+                }
+            }   
+        }
+    }
+
+    // A.1.2. END
+}
+
+// C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// D. TABLET STYLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(tablet) {
+
+    // A.1.2. HOME PAGE ADS
+
+    .view-featured-ads {
+        .view-content {
+            .classified-item {
+                .views-field {
+
+                    .views-label { width: 44%; font-size: $x-small; padding: 2px 5px; }
+                    .field-content  { width: 45%; font-size: $x-small; padding: 2px 5px; }
+
+                    &.views-field-title {
+
+                        a { font-size: $small; }
+                    }
+
+                    &.views-field-field-price {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-field-isbn-number {
+
+                        .views-label    { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                        .field-content  { width: 100%; margin-left: 0; padding-right: 0; box-sizing: border-box; }
+                    }
+
+                    &.views-field-created {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-body {display: none;}
+                }
+            }   
+        }
+    }
+
+    // A.1.2. END
+}
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// E. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk) {
+
+    // A.1.2. HOME PAGE ADS
+
+    .view-featured-ads {
+        .view-content {
+            .classified-item {
+                .views-field {
+
+                    .views-label    { width: 25.1%; font-size: $small; padding: 2px 0 2px 5px; }
+                    .field-content  { width: 70%; font-size: $small; padding: 2px 0 2px 5px; }
+
+                    &.views-field-title {
+
+                        a { font-size: $small; }
+                    }
+
+                    &.views-field-field-price {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-field-isbn-number {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-created {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-body {
+                        
+                        display: block;
+                        
+                        .field-content  { 
+                            
+                            width: 100%; 
+                            box-sizing: border-box; 
+                            
+                            p { color: $white; padding: $baseline-small; margin: 0; }
+                            
+                        }
+                    }
+                }
+            }   
+        }
+    }
+
+    // A.1.2. END
+}
+
+// E. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// F. DESKTOP STYLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+@include media-query(desk-wide) {
+
+    // A.1.2. HOME PAGE ADS
+
+    .view-featured-ads {
+        .view-content {
+            .classified-item {
+                .views-field {
+
+                    .views-label    { width: 25.1%; font-size: $small; padding: 2px 0 2px 5px; }
+                    .field-content  { width: 70%; font-size: $small; padding: 2px 0 2px 5px; }
+
+                    &.views-field-title {
+
+                        a { font-size: $small; }
+                    }
+
+                    &.views-field-field-price {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-field-isbn-number {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-created {
+
+                        .field-content  { margin-left: -5px; padding-right: 5px; }
+                    }
+
+                    &.views-field-body {
+                        
+                        display: block;
+                        
+                        .field-content  { 
+                            
+                            width: 100%; 
+                            box-sizing: border-box; 
+                            
+                            p { color: $white; padding: $baseline-small; margin: 0; }
+                            
+                        }
+                    }
+                }
+            }   
+        }
+    }
+
+    // A.1.2. END
+}
+
+// F. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// END OF FILE ########################################################################################################
