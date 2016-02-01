@@ -48,10 +48,20 @@
         .classified-item {
 
             @extend .one-quarter;
+            @extend .tablet--one-third;
             @extend .mobile--one-half;
             @extend .small--one-half;
             margin-bottom: $baseline-small;
             position: relative;
+            //overflow: hidden;
+
+            &:before {
+
+                content: "";
+                display: inline-block; 
+                padding-top: 70%;
+
+            }
             
             .views-field {
                 
@@ -68,6 +78,9 @@
                     
                     background: rgba($orange,0.4);
                     margin: 0;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 
                     .field-content  { display: inline-block; width: 100%; background: none; padding: 0; }
                     a               { padding: $baseline-small; color: $white; display: block; }

@@ -443,7 +443,7 @@ html, body {
     -webkit-flex: 0 0 50%;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%; }
-  .tablet--one-third, .tablet--two-sixths, .tablet--four-twelfths {
+  .tablet--one-third, .tablet--two-sixths, .tablet--four-twelfths, .view-featured-ads .view-content .classified-item {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.333%;
         -ms-flex: 0 0 33.333%;
@@ -1484,6 +1484,10 @@ input {
 .view-featured-ads .view-content .classified-item {
   margin-bottom: 10px;
   position: relative; }
+  .view-featured-ads .view-content .classified-item:before {
+    content: "";
+    display: inline-block;
+    padding-top: 70%; }
   .view-featured-ads .view-content .classified-item .views-field {
     width: 100%;
     position: relative;
@@ -1501,7 +1505,10 @@ input {
       color: #fff; }
     .view-featured-ads .view-content .classified-item .views-field.views-field-title {
       background: rgba(255, 93, 38, 0.4);
-      margin: 0; }
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0; }
       .view-featured-ads .view-content .classified-item .views-field.views-field-title .field-content {
         display: inline-block;
         width: 100%;
